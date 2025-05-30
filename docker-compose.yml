@@ -27,6 +27,8 @@ services:
       - "${PORT_PROWLARR:-9696}:9696"
       # FlareSolverr API (through VPN)
       - "8191:8191"
+      # qBittorrent Web UI (through VPN)
+      - "${PORT_QBITTORRENT:-8080}:8080"
     volumes:
       - /lib/modules:/lib/modules:ro
     restart: unless-stopped
@@ -94,6 +96,10 @@ services:
   qbittorrent:
     container_name: ai_media_qbittorrent
     image: lscr.io/linuxserver/qbittorrent:${QBITTORRENT_VERSION:-latest}
+    network_mode: "service:nordvpn"
+    depends_on:
+      nordvpn:
+        condition: service_healthy
     environment:
       - PUID=${PUID:-1000}
       - PGID=${PGID:-1000}
@@ -107,8 +113,6 @@ services:
       - ${DOWNLOADS_PATH:-./downloads}:/downloads
       - ${MEDIA_PATH:-./media}:/media
       - ${LOGS_PATH:-./logs}/qbittorrent:/logs
-    ports:
-      - "${PORT_QBITTORRENT:-8080}:8080"
     restart: unless-stopped
 
   overseerr:
@@ -132,19 +136,15 @@ services:
       - PUID=${PUID:-1000}
       - PGID=${PGID:-1000}
     volumes:
-      - ${CONFIG_FILEBROWSER:-./config/filebrowser}:/config
-      - ${CONFIG_FILEBROWSER:-./config/filebrowser}/database.db:/database.db
-      - ${CONFIG_FILEBROWSER:-./config/filebrowser}/settings.json:/config/settings.json
+      - ${CONFIG_FILEBROWSER:-./config/filebrowser}:/database
       - ${MEDIA_PATH:-./media}:/srv/media:ro
-      - ${DOWNLOADS_PATH:-./downloads}:/srv/downloads
+      - ${DOWNLOADS_PATH:-./downloads}:/srv/downloads:rw
       - ${CONFIG_PATH:-./config}:/srv/config:ro
       - ${LOGS_PATH:-./logs}:/srv/logs:ro
     ports:
       - "${PORT_FILEBROWSER:-8081}:80"
     restart: unless-stopped
     command:
-      - --noauth
-      - --database=/database.db
+      - --database=/database/filebrowser.db
       - --root=/srv
-      - --port=80
-      - --log=stdout 
+      - --address=0.0.0.0

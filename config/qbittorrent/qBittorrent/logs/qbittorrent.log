@@ -232,3 +232,63 @@
 (W) 2025-05-30T06:20:37 - Couldn't load WebUI translation for selected locale (C).
 (N) 2025-05-30T06:20:37 - WebUI: Now listening on IP: *, port: 8080
 (N) 2025-05-30T06:20:37 - WebAPI login success. IP: ::ffff:172.19.0.6
+(W) 2025-05-30T07:48:16 - WebAPI login failure. Reason: invalid credentials, attempt count: 1, IP: ::ffff:172.19.0.1, username: admin
+(N) 2025-05-30T07:48:30 - WebAPI login success. IP: ::ffff:172.19.0.1
+(N) 2025-05-30T07:54:02 - qBittorrent termination initiated
+(N) 2025-05-30T07:54:02 - Saving resume data completed.
+(N) 2025-05-30T07:54:02 - BitTorrent session successfully finished.
+(N) 2025-05-30T07:54:03 - qBittorrent is now ready to exit
+(N) 2025-05-30T07:54:26 - qBittorrent v5.1.0 started. Process ID: 175
+(N) 2025-05-30T07:54:26 - Using config directory: /config/qBittorrent
+(N) 2025-05-30T07:54:26 - Trying to listen on the following list of IP addresses: "0.0.0.0:6881,[::]:6881"
+(I) 2025-05-30T07:54:26 - Peer ID: "-qB5100-"
+(I) 2025-05-30T07:54:26 - HTTP User-Agent: "qBittorrent/5.1.0"
+(I) 2025-05-30T07:54:26 - Distributed Hash Table (DHT) support: ON
+(I) 2025-05-30T07:54:26 - Local Peer Discovery support: ON
+(I) 2025-05-30T07:54:26 - Peer Exchange (PeX) support: ON
+(I) 2025-05-30T07:54:26 - Anonymous mode: OFF
+(I) 2025-05-30T07:54:26 - Encryption support: ON
+(I) 2025-05-30T07:54:26 - Successfully listening on IP. IP: "127.0.0.1". Port: "TCP/6881"
+(I) 2025-05-30T07:54:26 - Successfully listening on IP. IP: "127.0.0.1". Port: "UTP/6881"
+(I) 2025-05-30T07:54:26 - Successfully listening on IP. IP: "172.19.0.5". Port: "TCP/6881"
+(I) 2025-05-30T07:54:26 - Successfully listening on IP. IP: "172.19.0.5". Port: "UTP/6881"
+(I) 2025-05-30T07:54:26 - Successfully listening on IP. IP: "::1". Port: "TCP/6881"
+(I) 2025-05-30T07:54:26 - Successfully listening on IP. IP: "::1". Port: "UTP/6881"
+(I) 2025-05-30T07:54:26 - IP geolocation database loaded. Type: DBIP-Country-Lite. Build time: Wed Apr 30 21:20:15 2025.
+(N) 2025-05-30T07:54:26 - Using built-in WebUI.
+(W) 2025-05-30T07:54:26 - Couldn't load WebUI translation for selected locale (C).
+(N) 2025-05-30T07:54:26 - WebUI: Now listening on IP: *, port: 8080
+(N) 2025-05-30T07:56:49 - qBittorrent termination initiated
+(N) 2025-05-30T07:56:49 - Saving resume data completed.
+(N) 2025-05-30T07:56:49 - BitTorrent session successfully finished.
+(N) 2025-05-30T07:56:49 - qBittorrent is now ready to exit
+(N) 2025-05-30T07:57:11 - qBittorrent v5.1.0 started. Process ID: 174
+(N) 2025-05-30T07:57:11 - Using config directory: /config/qBittorrent
+(N) 2025-05-30T07:57:11 - Trying to listen on the following list of IP addresses: "0.0.0.0:6881,[::]:6881"
+(I) 2025-05-30T07:57:11 - Peer ID: "-qB5100-"
+(I) 2025-05-30T07:57:11 - HTTP User-Agent: "qBittorrent/5.1.0"
+(I) 2025-05-30T07:57:11 - Distributed Hash Table (DHT) support: ON
+(I) 2025-05-30T07:57:11 - Local Peer Discovery support: ON
+(I) 2025-05-30T07:57:11 - Peer Exchange (PeX) support: ON
+(I) 2025-05-30T07:57:11 - Anonymous mode: OFF
+(I) 2025-05-30T07:57:11 - Encryption support: ON
+(I) 2025-05-30T07:57:11 - Successfully listening on IP. IP: "127.0.0.1". Port: "TCP/6881"
+(I) 2025-05-30T07:57:11 - Successfully listening on IP. IP: "127.0.0.1". Port: "UTP/6881"
+(I) 2025-05-30T07:57:11 - Successfully listening on IP. IP: "172.19.0.2". Port: "TCP/6881"
+(I) 2025-05-30T07:57:11 - Successfully listening on IP. IP: "172.19.0.2". Port: "UTP/6881"
+(I) 2025-05-30T07:57:11 - Successfully listening on IP. IP: "::1". Port: "TCP/6881"
+(I) 2025-05-30T07:57:11 - Successfully listening on IP. IP: "::1". Port: "UTP/6881"
+(I) 2025-05-30T07:57:11 - IP geolocation database loaded. Type: DBIP-Country-Lite. Build time: Wed Apr 30 21:20:15 2025.
+(N) 2025-05-30T07:57:11 - Using built-in WebUI.
+(W) 2025-05-30T07:57:11 - Couldn't load WebUI translation for selected locale (C).
+(N) 2025-05-30T07:57:11 - WebUI: Now listening on IP: *, port: 8080
+(W) 2025-05-30T07:57:27 - WebAPI login failure. Reason: invalid credentials, attempt count: 1, IP: ::ffff:172.19.0.1, username: admin
+(W) 2025-05-30T07:57:33 - WebAPI login failure. Reason: invalid credentials, attempt count: 2, IP: ::ffff:172.19.0.1, username: admin
+(N) 2025-05-30T07:57:42 - WebAPI login success. IP: ::ffff:172.19.0.1
+(N) 2025-05-30T07:59:18 - WebUI translation for selected locale (en) has been successfully loaded.
+(N) 2025-05-30T08:04:35 - Added new torrent. Torrent: "Number One Sentai Gozyuger Opening Dance Video (Subbed)"
+(I) 2025-05-30T08:04:36 - Detected external IP. IP: "49.36.242.220"
+(N) 2025-05-30T08:04:52 - Enqueued torrent move. Torrent: "Number One Sentai Gozyuger Opening Dance Video (Subbed)". Source: "/downloads/incomplete". Destination: "/downloads"
+(N) 2025-05-30T08:04:52 - Start moving torrent. Torrent: "Number One Sentai Gozyuger Opening Dance Video (Subbed)". Destination: "/downloads"
+(N) 2025-05-30T08:04:52 - Moved torrent successfully. Torrent: "Number One Sentai Gozyuger Opening Dance Video (Subbed)". Destination: "/downloads"
+(N) 2025-05-30T08:04:52 - Torrent download finished. Torrent: "Number One Sentai Gozyuger Opening Dance Video (Subbed)"
