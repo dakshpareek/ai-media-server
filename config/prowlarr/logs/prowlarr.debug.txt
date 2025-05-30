@@ -1002,3 +1002,1097 @@
 2025-05-30 08:08:11.0|Debug|Api|[GET] /api/v1/command: 200.OK (6 ms)
 2025-05-30 08:08:11.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
 2025-05-30 08:08:11.0|Debug|Api|[GET] /api/v1/command: 200.OK (1 ms)
+2025-05-30 08:11:11.1|Debug|InstallUpdateService|Checking for updates
+2025-05-30 08:11:11.1|Debug|FlareSolverr|Cloudflare Detected, Applying FlareSolverr Proxy FlareSolverr to request https://prowlarr.servarr.com/v1/ping
+2025-05-30 08:11:11.7|Debug|InstallUpdateService|No update available
+2025-05-30 08:11:11.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:11:11.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:11:11.8|Debug|Api|[GET] /api/v1/command: 200.OK (15 ms)
+2025-05-30 08:11:11.8|Debug|Api|[GET] /api/v1/command: 200.OK (16 ms)
+2025-05-30 08:11:12.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:11:12.8|Debug|Api|[GET] /api/v1/health: 200.OK (1 ms)
+2025-05-30 08:11:12.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:11:12.8|Debug|Api|[GET] /api/v1/command: 200.OK (1 ms)
+2025-05-30 08:11:12.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:11:12.8|Debug|Api|[GET] /api/v1/health: 200.OK (1 ms)
+2025-05-30 08:11:12.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:11:12.8|Debug|Api|[GET] /api/v1/command: 200.OK (0 ms)
+2025-05-30 08:13:11.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:13:11.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:13:11.2|Debug|Api|[GET] /api/v1/command: 200.OK (2 ms)
+2025-05-30 08:13:11.2|Debug|Api|[GET] /api/v1/command: 200.OK (7 ms)
+2025-05-30 08:13:11.7|Debug|FlareSolverr|Cloudflare Detected, Applying FlareSolverr Proxy FlareSolverr to request https://prowlarr.servarr.com/v1/ping
+2025-05-30 08:13:13.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:13:13.8|Debug|Api|[GET] /api/v1/health: 200.OK (1 ms)
+2025-05-30 08:13:13.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:13:13.8|Debug|Api|[GET] /api/v1/health: 200.OK (1 ms)
+2025-05-30 08:16:46.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:16:46.1|Info|ReleaseSearchService|Searching indexer(s): [1337x, EZTV, TorrentGalaxyClone, Nyaa.si, LimeTorrents, TheRARBG] for Term: [bandits], Offset: 0, Limit: 100, Categories: []
+2025-05-30 08:16:46.1|Debug|Cardigann|Adding request for 1337x: https://1337x.to/sort-search/bandits/time/desc/1/
+2025-05-30 08:16:46.1|Debug|Cardigann|Downloading Feed https://1337x.to/sort-search/bandits/time/desc/1/
+2025-05-30 08:16:46.1|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/search/bandits
+2025-05-30 08:16:46.1|Debug|Cardigann|Downloading Feed https://eztvx.to/search/bandits
+2025-05-30 08:16:46.1|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:bandits
+2025-05-30 08:16:46.1|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:bandits
+2025-05-30 08:16:46.1|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=bandits
+2025-05-30 08:16:46.1|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=bandits
+2025-05-30 08:16:46.1|Debug|Cardigann|Adding request for LimeTorrents: https://www.limetorrents.lol/search/all/bandits/date/1/
+2025-05-30 08:16:46.1|Debug|Cardigann|Downloading Feed https://www.limetorrents.lol/search/all/bandits/date/1/
+2025-05-30 08:16:46.1|Debug|Cardigann|Adding request for TheRARBG: https://therarbg.to/get-posts/order:-a:keywords:bandits:paginate_by:100:format:json/
+2025-05-30 08:16:46.1|Debug|Cardigann|Downloading Feed https://therarbg.to/get-posts/order:-a:keywords:bandits:paginate_by:100:format:json/
+2025-05-30 08:16:46.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:16:46.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:16:46.4|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (13 ms)
+2025-05-30 08:16:46.4|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (8 ms)
+2025-05-30 08:16:46.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:16:46.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:16:46.4|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (7 ms)
+2025-05-30 08:16:46.4|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (10 ms)
+2025-05-30 08:16:46.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:16:46.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:16:46.4|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (9 ms)
+2025-05-30 08:16:46.4|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (10 ms)
+2025-05-30 08:16:46.4|Warn|Cardigann|Unable to connect to indexer, please check your DNS settings and ensure IPv6 is working or disabled. https://www.limetorrents.lol/search/all/bandits/date/1/
+
+[v1.36.3.5071] System.Net.Http.HttpRequestException: The SSL connection could not be established, see inner exception.
+ ---> System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp2ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp2ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 120
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Prowlarr.Common/Http/HttpClient.cs:line 171
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Prowlarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Core.Indexers.IndexerHttpClient.ExecuteProxiedAsync(HttpRequest request, ProviderDefinition definition) in ./Prowlarr.Core/Indexers/IndexerHttpClient.cs:line 44
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.<>c.<<FetchIndexerResponse>b__57_0>d.MoveNext() in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 665
+--- End of stack trace from previous location ---
+   at Polly.ResiliencePipeline.<>c__9`2.<<ExecuteAsync>b__9_0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.Outcome`1.GetResultOrRethrow()
+   at Polly.ResiliencePipeline.ExecuteAsync[TResult,TState](Func`3 callback, TState state, CancellationToken cancellationToken)
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchIndexerResponse(IndexerRequest request) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 664
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchPage(IndexerRequest request, IParseIndexerResponse parser) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 610
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchReleases(Func`2 pageableRequestChainSelector, SearchCriteriaBase searchCriteria, Boolean isRecent) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 428
+
+
+2025-05-30 08:16:46.4|Warn|Cardigann|Unable to connect to indexer, please check your DNS settings and ensure IPv6 is working or disabled. https://therarbg.to/get-posts/order:-a:keywords:bandits:paginate_by:100:format:json/
+
+[v1.36.3.5071] System.Net.Http.HttpRequestException: The SSL connection could not be established, see inner exception.
+ ---> System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp2ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp2ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 120
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Prowlarr.Common/Http/HttpClient.cs:line 171
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Prowlarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Core.Indexers.IndexerHttpClient.ExecuteProxiedAsync(HttpRequest request, ProviderDefinition definition) in ./Prowlarr.Core/Indexers/IndexerHttpClient.cs:line 44
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.<>c.<<FetchIndexerResponse>b__57_0>d.MoveNext() in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 665
+--- End of stack trace from previous location ---
+   at Polly.ResiliencePipeline.<>c__9`2.<<ExecuteAsync>b__9_0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.Outcome`1.GetResultOrRethrow()
+   at Polly.ResiliencePipeline.ExecuteAsync[TResult,TState](Func`3 callback, TState state, CancellationToken cancellationToken)
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchIndexerResponse(IndexerRequest request) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 664
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchPage(IndexerRequest request, IParseIndexerResponse parser) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 610
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchReleases(Func`2 pageableRequestChainSelector, SearchCriteriaBase searchCriteria, Boolean isRecent) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 428
+
+
+2025-05-30 08:16:46.4|Warn|Cardigann|Unable to connect to indexer, please check your DNS settings and ensure IPv6 is working or disabled. https://1337x.to/sort-search/bandits/time/desc/1/
+
+[v1.36.3.5071] System.Net.Http.HttpRequestException: The SSL connection could not be established, see inner exception.
+ ---> System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp2ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp2ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 120
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Prowlarr.Common/Http/HttpClient.cs:line 171
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Prowlarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Core.Indexers.IndexerHttpClient.ExecuteProxiedAsync(HttpRequest request, ProviderDefinition definition) in ./Prowlarr.Core/Indexers/IndexerHttpClient.cs:line 44
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.<>c.<<FetchIndexerResponse>b__57_0>d.MoveNext() in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 665
+--- End of stack trace from previous location ---
+   at Polly.ResiliencePipeline.<>c__9`2.<<ExecuteAsync>b__9_0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.Outcome`1.GetResultOrRethrow()
+   at Polly.ResiliencePipeline.ExecuteAsync[TResult,TState](Func`3 callback, TState state, CancellationToken cancellationToken)
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchIndexerResponse(IndexerRequest request) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 664
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchPage(IndexerRequest request, IParseIndexerResponse parser) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 610
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchReleases(Func`2 pageableRequestChainSelector, SearchCriteriaBase searchCriteria, Boolean isRecent) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 428
+
+
+2025-05-30 08:16:47.0|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 08:16:47.0|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 08:16:47.9|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 08:16:48.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:16:48.3|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (1 ms)
+2025-05-30 08:16:48.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:16:48.3|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (1 ms)
+2025-05-30 08:16:48.3|Debug|ReleaseSearchService|Total of 321 reports were found for Term: [bandits], Offset: 0, Limit: 100, Categories: [] from 6 indexer(s)
+2025-05-30 08:16:48.3|Debug|Api|[GET] /api/v1/search?query=bandits&type=search&limit=100&offset=0: 200.OK (2302 ms)
+2025-05-30 08:16:51.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:16:51.4|Debug|Api|[GET] /api/v1/health: 200.OK (3 ms)
+2025-05-30 08:16:51.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:16:51.4|Debug|Api|[GET] /api/v1/health: 200.OK (0 ms)
+2025-05-30 08:18:11.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:18:11.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:18:11.3|Debug|Api|[GET] /api/v1/command: 200.OK (8 ms)
+2025-05-30 08:18:11.3|Debug|Api|[GET] /api/v1/command: 200.OK (8 ms)
+2025-05-30 08:23:11.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:23:11.3|Debug|Api|[GET] /api/v1/command: 200.OK (8 ms)
+2025-05-30 08:23:11.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:23:11.3|Debug|Api|[GET] /api/v1/command: 200.OK (2 ms)
+2025-05-30 08:28:11.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:28:11.4|Debug|Api|[GET] /api/v1/command: 200.OK (10 ms)
+2025-05-30 08:28:11.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:28:11.4|Debug|Api|[GET] /api/v1/command: 200.OK (3 ms)
+2025-05-30 08:29:22.5|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:29:22.5|Debug|Api|[GET] /api/v1/system/status: 200.OK (20 ms)
+2025-05-30 08:29:51.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:29:51.1|Debug|Api|[GET] /api/v1/health: 200.OK (11 ms)
+2025-05-30 08:30:06.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:30:07.0|Debug|Api|[GET] /api/v1/indexerstatus: 200.OK (31 ms)
+2025-05-30 08:30:23.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:30:23.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:30:23.6|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (35 ms)
+2025-05-30 08:30:23.6|Debug|Api|[GET] /api/v1/indexer: 200.OK (57 ms)
+2025-05-30 08:30:25.7|Debug|Prowlarr.Http.Authentication.BasicAuthenticationHandler|AuthenticationScheme: Basic was successfully authenticated.
+2025-05-30 08:30:25.8|Debug|Prowlarr.Http.Authentication.BasicAuthenticationHandler|AuthenticationScheme: Basic was successfully authenticated.
+2025-05-30 08:30:25.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:30:25.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:30:25.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:30:25.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:30:25.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:30:25.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:30:25.9|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (4 ms)
+2025-05-30 08:30:25.9|Debug|Api|[GET] /api/v1/indexer/categories: 200.OK (5 ms)
+2025-05-30 08:30:25.9|Debug|Api|[GET] /api/v1/customFilter: 200.OK (8 ms)
+2025-05-30 08:30:25.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:30:25.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:30:25.9|Debug|Api|[GET] /api/v1/indexer: 200.OK (10 ms)
+2025-05-30 08:30:25.9|Debug|Api|[GET] /api/v1/appprofile: 200.OK (12 ms)
+2025-05-30 08:30:25.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:30:25.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:30:25.9|Debug|Api|[GET] /api/v1/tag: 200.OK (16 ms)
+2025-05-30 08:30:25.9|Debug|Api|[GET] /api/v1/config/ui: 200.OK (6 ms)
+2025-05-30 08:30:25.9|Debug|Api|[GET] /api/v1/system/status: 200.OK (5 ms)
+2025-05-30 08:30:25.9|Debug|Api|[GET] /api/v1/localization: 200.OK (9 ms)
+2025-05-30 08:30:26.0|Debug|Api|[GET] /api/v1/config/host: 200.OK (29 ms)
+2025-05-30 08:30:26.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: SignalR was successfully authenticated.
+2025-05-30 08:30:26.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:30:26.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:30:26.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:30:26.0|Debug|Api|[GET] /api/v1/health: 200.OK (2 ms)
+2025-05-30 08:30:26.0|Debug|Api|[GET] /api/v1/indexer: 200.OK (8 ms)
+2025-05-30 08:30:26.0|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (11 ms)
+2025-05-30 08:30:26.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: SignalR was successfully authenticated.
+2025-05-30 08:30:46.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:30:46.4|Debug|Api|[GET] /api/v1/indexer: 200.OK (32 ms)
+2025-05-30 08:31:20.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:31:20.6|Debug|Api|[GET] /api/v1/indexerstatus: 200.OK (13 ms)
+2025-05-30 08:31:29.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:31:29.4|Debug|Api|[GET] /api/v1/health: 200.OK (3 ms)
+2025-05-30 08:31:36.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:31:36.3|Debug|Api|[GET] /api/v1/system/status: 200.OK (11 ms)
+2025-05-30 08:31:49.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:31:49.8|Debug|Api|[GET] /api/v1/system/status: 200.OK (13 ms)
+2025-05-30 08:31:51.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:31:51.8|Debug|Api|[GET] /api/v1/health: 200.OK (3 ms)
+2025-05-30 08:31:56.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:31:56.2|Debug|Api|[GET] /api/v1/indexerstatus: 200.OK (4 ms)
+2025-05-30 08:32:00.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:32:00.2|Debug|Api|[GET] /api/v1/indexer: 200.OK (16 ms)
+2025-05-30 08:32:26.9|Debug|Prowlarr.Http.Authentication.BasicAuthenticationHandler|AuthenticationScheme: Basic was successfully authenticated.
+2025-05-30 08:32:26.9|Debug|Prowlarr.Http.Authentication.BasicAuthenticationHandler|AuthenticationScheme: Basic was successfully authenticated.
+2025-05-30 08:32:27.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:32:27.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:32:27.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:32:27.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:32:27.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:32:27.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:32:27.0|Debug|Api|[GET] /api/v1/indexer/categories: 200.OK (3 ms)
+2025-05-30 08:32:27.0|Debug|Api|[GET] /api/v1/customFilter: 200.OK (10 ms)
+2025-05-30 08:32:27.0|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (11 ms)
+2025-05-30 08:32:27.0|Debug|Api|[GET] /api/v1/tag: 200.OK (18 ms)
+2025-05-30 08:32:27.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:32:27.0|Debug|Api|[GET] /api/v1/appprofile: 200.OK (15 ms)
+2025-05-30 08:32:27.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:32:27.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:32:27.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:32:27.0|Debug|Api|[GET] /api/v1/config/ui: 200.OK (15 ms)
+2025-05-30 08:32:27.0|Debug|Api|[GET] /api/v1/system/status: 200.OK (12 ms)
+2025-05-30 08:32:27.0|Debug|Api|[GET] /api/v1/config/host: 200.OK (17 ms)
+2025-05-30 08:32:27.0|Debug|Api|[GET] /api/v1/indexer: 200.OK (35 ms)
+2025-05-30 08:32:27.0|Debug|Api|[GET] /api/v1/localization: 200.OK (16 ms)
+2025-05-30 08:32:27.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: SignalR was successfully authenticated.
+2025-05-30 08:32:27.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:32:27.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:32:27.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:32:27.1|Debug|Api|[GET] /api/v1/health: 200.OK (5 ms)
+2025-05-30 08:32:27.1|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (7 ms)
+2025-05-30 08:32:27.1|Debug|Api|[GET] /api/v1/indexer: 200.OK (13 ms)
+2025-05-30 08:32:27.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: SignalR was successfully authenticated.
+2025-05-30 08:32:36.5|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:32:36.5|Debug|Api|[GET] /api/v1/config/host: 200.OK (19 ms)
+2025-05-30 08:33:11.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:33:11.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:33:11.4|Debug|Api|[GET] /api/v1/command: 200.OK (7 ms)
+2025-05-30 08:33:11.4|Debug|Api|[GET] /api/v1/command: 200.OK (3 ms)
+2025-05-30 08:33:15.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:33:15.9|Debug|Api|[GET] /api/v1/indexerstatus: 200.OK (3 ms)
+2025-05-30 08:33:26.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:33:26.9|Debug|Api|[GET] /api/v1/health: 200.OK (3 ms)
+2025-05-30 08:33:41.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:33:41.3|Debug|Api|[GET] /api/v1/system/status: 200.OK (15 ms)
+2025-05-30 08:38:11.5|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:38:11.5|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:38:11.5|Debug|Api|[GET] /api/v1/command: 200.OK (6 ms)
+2025-05-30 08:38:11.5|Debug|Api|[GET] /api/v1/command: 200.OK (4 ms)
+2025-05-30 08:39:32.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:39:32.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:39:32.2|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (17 ms)
+2025-05-30 08:39:32.2|Debug|Api|[GET] /api/v1/indexer: 200.OK (25 ms)
+2025-05-30 08:39:35.5|Debug|Prowlarr.Http.Authentication.BasicAuthenticationHandler|AuthenticationScheme: Basic was successfully authenticated.
+2025-05-30 08:39:35.5|Debug|Prowlarr.Http.Authentication.BasicAuthenticationHandler|AuthenticationScheme: Basic was successfully authenticated.
+2025-05-30 08:39:35.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:39:35.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:39:35.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:39:35.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:39:35.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:39:35.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:39:35.6|Debug|Api|[GET] /api/v1/tag: 200.OK (4 ms)
+2025-05-30 08:39:35.6|Debug|Api|[GET] /api/v1/customFilter: 200.OK (4 ms)
+2025-05-30 08:39:35.6|Debug|Api|[GET] /api/v1/appprofile: 200.OK (3 ms)
+2025-05-30 08:39:35.6|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (3 ms)
+2025-05-30 08:39:35.6|Debug|Api|[GET] /api/v1/indexer/categories: 200.OK (3 ms)
+2025-05-30 08:39:35.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:39:35.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:39:35.6|Debug|Api|[GET] /api/v1/indexer: 200.OK (9 ms)
+2025-05-30 08:39:35.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:39:35.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:39:35.6|Debug|Api|[GET] /api/v1/config/ui: 200.OK (7 ms)
+2025-05-30 08:39:35.6|Debug|Api|[GET] /api/v1/localization: 200.OK (27 ms)
+2025-05-30 08:39:35.6|Debug|Api|[GET] /api/v1/system/status: 200.OK (31 ms)
+2025-05-30 08:39:35.6|Debug|Api|[GET] /api/v1/config/host: 200.OK (36 ms)
+2025-05-30 08:39:35.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: SignalR was successfully authenticated.
+2025-05-30 08:39:35.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:39:35.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:39:35.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:39:35.6|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (11 ms)
+2025-05-30 08:39:35.6|Debug|Api|[GET] /api/v1/health: 200.OK (5 ms)
+2025-05-30 08:39:35.6|Debug|Api|[GET] /api/v1/indexer: 200.OK (11 ms)
+2025-05-30 08:39:35.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: SignalR was successfully authenticated.
+2025-05-30 08:40:37.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:40:37.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:40:37.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:40:37.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:40:37.8|Debug|Api|[GET] /api/v1/health: 200.OK (24 ms)
+2025-05-30 08:40:37.8|Debug|Api|[GET] /api/v1/indexerstatus: 200.OK (27 ms)
+2025-05-30 08:40:37.8|Debug|Api|[GET] /api/v1/indexer: 200.OK (28 ms)
+2025-05-30 08:40:37.8|Debug|Api|[GET] /api/v1/system/status: 200.OK (28 ms)
+2025-05-30 08:40:46.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:40:46.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:40:46.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:40:46.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:40:46.6|Debug|Api|[GET] /api/v1/system/status: 200.OK (14 ms)
+2025-05-30 08:40:46.6|Debug|Api|[GET] /api/v1/indexerstatus: 200.OK (16 ms)
+2025-05-30 08:40:46.6|Debug|Api|[GET] /api/v1/health: 200.OK (18 ms)
+2025-05-30 08:40:46.6|Debug|Api|[GET] /api/v1/indexer: 200.OK (29 ms)
+2025-05-30 08:43:11.5|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:43:11.5|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:43:11.6|Debug|Api|[GET] /api/v1/command: 200.OK (9 ms)
+2025-05-30 08:43:11.6|Debug|Api|[GET] /api/v1/command: 200.OK (7 ms)
+2025-05-30 08:48:11.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:48:11.6|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:48:11.7|Debug|Api|[GET] /api/v1/command: 200.OK (21 ms)
+2025-05-30 08:48:11.7|Debug|Api|[GET] /api/v1/command: 200.OK (22 ms)
+2025-05-30 08:53:11.7|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:53:11.7|Debug|Api|[GET] /api/v1/command: 200.OK (5 ms)
+2025-05-30 08:58:11.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 08:58:11.8|Debug|Api|[GET] /api/v1/command: 200.OK (12 ms)
+2025-05-30 09:03:11.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:03:11.8|Debug|Api|[GET] /api/v1/command: 200.OK (8 ms)
+2025-05-30 09:08:11.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:08:11.9|Debug|Api|[GET] /api/v1/command: 200.OK (17 ms)
+2025-05-30 09:11:03.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:11:03.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:11:03.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:11:03.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:11:03.8|Debug|Api|[GET] /api/v1/health: 200.OK (15 ms)
+2025-05-30 09:11:03.8|Debug|Api|[GET] /api/v1/indexerstatus: 200.OK (33 ms)
+2025-05-30 09:11:03.8|Debug|Api|[GET] /api/v1/system/status: 200.OK (35 ms)
+2025-05-30 09:11:03.9|Debug|Api|[GET] /api/v1/indexer: 200.OK (45 ms)
+2025-05-30 09:11:15.7|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:11:15.8|Debug|Api|[GET] /api/v1/indexer: 200.OK (45 ms)
+2025-05-30 09:11:19.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:11:19.8|Debug|Api|[GET] /api/v1/indexer: 200.OK (28 ms)
+2025-05-30 09:13:12.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:13:12.0|Debug|Api|[GET] /api/v1/command: 200.OK (20 ms)
+2025-05-30 09:13:51.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:13:51.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:13:51.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:13:51.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:13:51.1|Debug|Api|[GET] /api/v1/health: 200.OK (22 ms)
+2025-05-30 09:13:51.1|Debug|Api|[GET] /api/v1/indexerstatus: 200.OK (37 ms)
+2025-05-30 09:13:51.1|Debug|Api|[GET] /api/v1/system/status: 200.OK (38 ms)
+2025-05-30 09:13:51.1|Debug|Api|[GET] /api/v1/indexer: 200.OK (41 ms)
+2025-05-30 09:14:27.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:14:27.3|Debug|Api|[GET] /api/v1/indexer: 200.OK (46 ms)
+2025-05-30 09:16:07.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:16:07.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:16:07.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:16:07.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:16:07.1|Debug|Api|[GET] /api/v1/system/status: 200.OK (14 ms)
+2025-05-30 09:16:07.1|Debug|Api|[GET] /api/v1/health: 200.OK (16 ms)
+2025-05-30 09:16:07.1|Debug|Api|[GET] /api/v1/indexerstatus: 200.OK (18 ms)
+2025-05-30 09:16:07.1|Debug|Api|[GET] /api/v1/indexer: 200.OK (25 ms)
+2025-05-30 09:17:02.7|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:17:02.7|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:17:02.7|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:17:02.7|Debug|Api|[GET] /api/v1/indexerstatus: 200.OK (18 ms)
+2025-05-30 09:17:02.7|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:17:02.7|Debug|Api|[GET] /api/v1/system/status: 200.OK (19 ms)
+2025-05-30 09:17:02.7|Debug|Api|[GET] /api/v1/health: 200.OK (28 ms)
+2025-05-30 09:17:02.7|Debug|Api|[GET] /api/v1/indexer: 200.OK (37 ms)
+2025-05-30 09:17:08.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:17:08.8|Debug|Api|[GET] /api/v1/indexer: 200.OK (34 ms)
+2025-05-30 09:18:12.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:18:12.0|Debug|Api|[GET] /api/v1/command: 200.OK (10 ms)
+2025-05-30 09:20:05.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:20:05.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:20:05.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:20:05.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:20:05.8|Debug|Api|[GET] /api/v1/health: 200.OK (9 ms)
+2025-05-30 09:20:05.8|Debug|Api|[GET] /api/v1/indexerstatus: 200.OK (14 ms)
+2025-05-30 09:20:05.8|Debug|Api|[GET] /api/v1/system/status: 200.OK (14 ms)
+2025-05-30 09:20:05.8|Debug|Api|[GET] /api/v1/indexer: 200.OK (19 ms)
+2025-05-30 09:20:42.7|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:20:42.7|Debug|Api|[GET] /api/v1/indexer: 200.OK (32 ms)
+2025-05-30 09:21:12.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:21:12.4|Debug|Api|[GET] /api/v1/indexer: 200.OK (25 ms)
+2025-05-30 09:23:12.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:23:12.1|Debug|Api|[GET] /api/v1/command: 200.OK (6 ms)
+2025-05-30 09:24:27.0|Debug|Prowlarr.Http.Authentication.BasicAuthenticationHandler|AuthenticationScheme: Basic was successfully authenticated.
+2025-05-30 09:24:27.1|Debug|Prowlarr.Http.Authentication.BasicAuthenticationHandler|AuthenticationScheme: Basic was successfully authenticated.
+2025-05-30 09:24:27.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:27.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:27.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:27.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:27.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:27.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:27.1|Debug|Api|[GET] /api/v1/customFilter: 200.OK (2 ms)
+2025-05-30 09:24:27.1|Debug|Api|[GET] /api/v1/tag: 200.OK (3 ms)
+2025-05-30 09:24:27.1|Debug|Api|[GET] /api/v1/appprofile: 200.OK (3 ms)
+2025-05-30 09:24:27.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:27.1|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (3 ms)
+2025-05-30 09:24:27.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:27.1|Debug|Api|[GET] /api/v1/indexer/categories: 200.OK (1 ms)
+2025-05-30 09:24:27.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:27.1|Debug|Api|[GET] /api/v1/config/host: 200.OK (2 ms)
+2025-05-30 09:24:27.1|Debug|Api|[GET] /api/v1/indexer: 200.OK (8 ms)
+2025-05-30 09:24:27.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:27.1|Debug|Api|[GET] /api/v1/config/ui: 200.OK (4 ms)
+2025-05-30 09:24:27.1|Debug|Api|[GET] /api/v1/system/status: 200.OK (5 ms)
+2025-05-30 09:24:27.2|Debug|Api|[GET] /api/v1/localization: 200.OK (5 ms)
+2025-05-30 09:24:27.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: SignalR was successfully authenticated.
+2025-05-30 09:24:27.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:27.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:27.2|Debug|Api|[GET] /api/v1/indexerProxy: 200.OK (3 ms)
+2025-05-30 09:24:27.2|Debug|Api|[GET] /api/v1/health: 200.OK (3 ms)
+2025-05-30 09:24:27.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: SignalR was successfully authenticated.
+2025-05-30 09:24:29.5|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:29.5|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:29.5|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (10 ms)
+2025-05-30 09:24:29.5|Debug|Api|[GET] /api/v1/indexer: 200.OK (15 ms)
+2025-05-30 09:24:34.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:34.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:34.8|Debug|Api|[GET] /api/v1/downloadclient: 200.OK (17 ms)
+2025-05-30 09:24:34.8|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:24:34.8|Info|ReleaseSearchService|Searching indexer(s): [EZTV, TorrentGalaxyClone, Nyaa.si, LimeTorrents, TheRARBG] for Term: [dance], Offset: 0, Limit: 100, Categories: []
+2025-05-30 09:24:34.8|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/search/dance
+2025-05-30 09:24:34.8|Debug|Cardigann|Downloading Feed https://eztvx.to/search/dance
+2025-05-30 09:24:34.8|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:dance
+2025-05-30 09:24:34.8|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:dance
+2025-05-30 09:24:34.8|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=dance
+2025-05-30 09:24:34.8|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=dance
+2025-05-30 09:24:34.8|Debug|Cardigann|Adding request for LimeTorrents: https://www.limetorrents.lol/search/all/dance/date/1/
+2025-05-30 09:24:34.8|Debug|Cardigann|Downloading Feed https://www.limetorrents.lol/search/all/dance/date/1/
+2025-05-30 09:24:34.8|Debug|Cardigann|Adding request for TheRARBG: https://therarbg.to/get-posts/order:-a:keywords:dance:paginate_by:100:format:json/
+2025-05-30 09:24:34.8|Debug|Cardigann|Downloading Feed https://therarbg.to/get-posts/order:-a:keywords:dance:paginate_by:100:format:json/
+2025-05-30 09:24:35.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:35.2|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (2 ms)
+2025-05-30 09:24:35.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:35.2|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (2 ms)
+2025-05-30 09:24:35.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:35.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:35.2|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (4 ms)
+2025-05-30 09:24:35.2|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (6 ms)
+2025-05-30 09:24:35.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:35.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:35.2|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (2 ms)
+2025-05-30 09:24:35.2|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (3 ms)
+2025-05-30 09:24:35.2|Warn|Cardigann|Unable to connect to indexer, please check your DNS settings and ensure IPv6 is working or disabled. https://therarbg.to/get-posts/order:-a:keywords:dance:paginate_by:100:format:json/
+
+[v1.36.3.5071] System.Net.Http.HttpRequestException: The SSL connection could not be established, see inner exception.
+ ---> System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp2ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp2ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 120
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Prowlarr.Common/Http/HttpClient.cs:line 171
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Prowlarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Core.Indexers.IndexerHttpClient.ExecuteProxiedAsync(HttpRequest request, ProviderDefinition definition) in ./Prowlarr.Core/Indexers/IndexerHttpClient.cs:line 44
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.<>c.<<FetchIndexerResponse>b__57_0>d.MoveNext() in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 665
+--- End of stack trace from previous location ---
+   at Polly.ResiliencePipeline.<>c__9`2.<<ExecuteAsync>b__9_0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.Outcome`1.GetResultOrRethrow()
+   at Polly.ResiliencePipeline.ExecuteAsync[TResult,TState](Func`3 callback, TState state, CancellationToken cancellationToken)
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchIndexerResponse(IndexerRequest request) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 664
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchPage(IndexerRequest request, IParseIndexerResponse parser) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 610
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchReleases(Func`2 pageableRequestChainSelector, SearchCriteriaBase searchCriteria, Boolean isRecent) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 428
+
+
+2025-05-30 09:24:35.2|Warn|Cardigann|Unable to connect to indexer, please check your DNS settings and ensure IPv6 is working or disabled. https://eztvx.to/search/dance
+
+[v1.36.3.5071] System.Net.Http.HttpRequestException: The SSL connection could not be established, see inner exception.
+ ---> System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp2ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp2ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 120
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Prowlarr.Common/Http/HttpClient.cs:line 171
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Prowlarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Core.Indexers.IndexerHttpClient.ExecuteProxiedAsync(HttpRequest request, ProviderDefinition definition) in ./Prowlarr.Core/Indexers/IndexerHttpClient.cs:line 44
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.<>c.<<FetchIndexerResponse>b__57_0>d.MoveNext() in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 665
+--- End of stack trace from previous location ---
+   at Polly.ResiliencePipeline.<>c__9`2.<<ExecuteAsync>b__9_0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.Outcome`1.GetResultOrRethrow()
+   at Polly.ResiliencePipeline.ExecuteAsync[TResult,TState](Func`3 callback, TState state, CancellationToken cancellationToken)
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchIndexerResponse(IndexerRequest request) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 664
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchPage(IndexerRequest request, IParseIndexerResponse parser) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 610
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchReleases(Func`2 pageableRequestChainSelector, SearchCriteriaBase searchCriteria, Boolean isRecent) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 428
+
+
+2025-05-30 09:24:35.2|Warn|Cardigann|Unable to connect to indexer, please check your DNS settings and ensure IPv6 is working or disabled. https://www.limetorrents.lol/search/all/dance/date/1/
+
+[v1.36.3.5071] System.Net.Http.HttpRequestException: The SSL connection could not be established, see inner exception.
+ ---> System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp2ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp2ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 120
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Prowlarr.Common/Http/HttpClient.cs:line 171
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Prowlarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Core.Indexers.IndexerHttpClient.ExecuteProxiedAsync(HttpRequest request, ProviderDefinition definition) in ./Prowlarr.Core/Indexers/IndexerHttpClient.cs:line 44
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.<>c.<<FetchIndexerResponse>b__57_0>d.MoveNext() in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 665
+--- End of stack trace from previous location ---
+   at Polly.ResiliencePipeline.<>c__9`2.<<ExecuteAsync>b__9_0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.Outcome`1.GetResultOrRethrow()
+   at Polly.ResiliencePipeline.ExecuteAsync[TResult,TState](Func`3 callback, TState state, CancellationToken cancellationToken)
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchIndexerResponse(IndexerRequest request) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 664
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchPage(IndexerRequest request, IParseIndexerResponse parser) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 610
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchReleases(Func`2 pageableRequestChainSelector, SearchCriteriaBase searchCriteria, Boolean isRecent) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 428
+
+
+2025-05-30 09:24:35.8|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:24:36.0|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:24:36.0|Debug|ReleaseSearchService|Total of 125 reports were found for Term: [dance], Offset: 0, Limit: 100, Categories: [] from 5 indexer(s)
+2025-05-30 09:24:36.0|Debug|Api|[GET] /api/v1/search?query=dance&type=search&limit=100&offset=0: 200.OK (1287 ms)
+2025-05-30 09:24:40.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:40.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:40.2|Debug|Api|[GET] /api/v1/health: 200.OK (3 ms)
+2025-05-30 09:24:40.2|Debug|Api|[GET] /api/v1/health: 200.OK (3 ms)
+2025-05-30 09:24:49.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:49.9|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:24:49.9|Debug|IndexerFactory|Temporarily ignoring indexer EZTV till 05/30/2025 09:25:35 due to recent failures.
+2025-05-30 09:24:49.9|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 09:39:35 due to recent failures.
+2025-05-30 09:24:49.9|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:29:35 due to recent failures.
+2025-05-30 09:24:49.9|Info|ReleaseSearchService|Searching indexer(s): [TorrentGalaxyClone, Nyaa.si] for Term: [swift], Offset: 0, Limit: 100, Categories: []
+2025-05-30 09:24:49.9|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:swift
+2025-05-30 09:24:49.9|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:swift
+2025-05-30 09:24:49.9|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=swift
+2025-05-30 09:24:49.9|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=swift
+2025-05-30 09:24:50.3|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:24:50.5|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:24:50.5|Debug|ReleaseSearchService|Total of 55 reports were found for Term: [swift], Offset: 0, Limit: 100, Categories: [] from 2 indexer(s)
+2025-05-30 09:24:50.5|Debug|Api|[GET] /api/v1/search?query=swift&type=search&limit=100&offset=0: 200.OK (637 ms)
+2025-05-30 09:24:58.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:24:58.9|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:24:58.9|Debug|IndexerFactory|Temporarily ignoring indexer EZTV till 05/30/2025 09:25:35 due to recent failures.
+2025-05-30 09:24:58.9|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 09:39:35 due to recent failures.
+2025-05-30 09:24:58.9|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:29:35 due to recent failures.
+2025-05-30 09:24:58.9|Info|ReleaseSearchService|Searching indexer(s): [TorrentGalaxyClone, Nyaa.si] for Term: [taylor swift], Offset: 0, Limit: 100, Categories: []
+2025-05-30 09:24:59.0|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:taylor%20swift
+2025-05-30 09:24:59.0|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:taylor%20swift
+2025-05-30 09:24:59.0|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=taylor+swift
+2025-05-30 09:24:59.0|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=taylor+swift
+2025-05-30 09:24:59.3|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:24:59.5|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:24:59.5|Warn|Cardigann|[torrentgalaxyclone] Invalid category for value: 'E-books'
+2025-05-30 09:24:59.5|Debug|ReleaseSearchService|Total of 51 reports were found for Term: [taylor swift], Offset: 0, Limit: 100, Categories: [] from 2 indexer(s)
+2025-05-30 09:24:59.5|Debug|Api|[GET] /api/v1/search?query=taylor%20swift&type=search&limit=100&offset=0: 200.OK (578 ms)
+2025-05-30 09:25:30.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:25:31.0|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:25:31.0|Debug|Cardigann|CardigannIndexer (torrentgalaxyclone): Download selector NzbDrone.Core.Indexers.Definitions.Cardigann.SelectorField matched:
+<a class="btn btn-danger lift txlight" style="margin-left:2px;" href="magnet:?xt=urn:btih:A4DD73CFAC8A497488609A316454D1F73BC4B2AD&amp;dn=People%20Special%20Edition%20Taylor%20Swift%20The%20Eras%20Tour%202025&amp;tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&amp;tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.theoks.net%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Fmovies.zsw.ca%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Ftracker1.bt.moack.co.kr%3A80%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.therarbg.to%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce" role="button">
+	<i class="glyphicon glyphicon-magnet" '=""></i>
+	magnet</a>
+2025-05-30 09:25:31.1|Info|DownloadService|Report sent to qBittorrent. People Special Edition Taylor Swift The Eras Tour 2025
+2025-05-30 09:25:31.1|Debug|Api|[POST] /api/v1/search: 200.OK (661 ms)
+2025-05-30 09:28:12.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:28:12.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:28:12.1|Debug|Api|[GET] /api/v1/command: 200.OK (21 ms)
+2025-05-30 09:28:12.1|Debug|Api|[GET] /api/v1/command: 200.OK (3 ms)
+2025-05-30 09:28:39.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:28:39.8|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:28:39.8|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 09:39:35 due to recent failures.
+2025-05-30 09:28:39.8|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:29:35 due to recent failures.
+2025-05-30 09:28:39.8|Info|ReleaseSearchService|Searching indexer(s): [EZTV, TorrentGalaxyClone, Nyaa.si] for Term: [dune], Offset: 0, Limit: 0, Categories: []
+2025-05-30 09:28:39.9|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/search/dune
+2025-05-30 09:28:39.9|Debug|Cardigann|Downloading Feed https://eztvx.to/search/dune
+2025-05-30 09:28:39.9|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:dune
+2025-05-30 09:28:39.9|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:dune
+2025-05-30 09:28:39.9|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=dune
+2025-05-30 09:28:39.9|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=dune
+2025-05-30 09:28:40.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:28:40.1|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (3 ms)
+2025-05-30 09:28:40.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:28:40.1|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (1 ms)
+2025-05-30 09:28:40.1|Warn|Cardigann|Unable to connect to indexer, please check your DNS settings and ensure IPv6 is working or disabled. https://eztvx.to/search/dune
+
+[v1.36.3.5071] System.Net.Http.HttpRequestException: The SSL connection could not be established, see inner exception.
+ ---> System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp2ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp2ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 120
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Prowlarr.Common/Http/HttpClient.cs:line 171
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Prowlarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Core.Indexers.IndexerHttpClient.ExecuteProxiedAsync(HttpRequest request, ProviderDefinition definition) in ./Prowlarr.Core/Indexers/IndexerHttpClient.cs:line 44
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.<>c.<<FetchIndexerResponse>b__57_0>d.MoveNext() in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 665
+--- End of stack trace from previous location ---
+   at Polly.ResiliencePipeline.<>c__9`2.<<ExecuteAsync>b__9_0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.Outcome`1.GetResultOrRethrow()
+   at Polly.ResiliencePipeline.ExecuteAsync[TResult,TState](Func`3 callback, TState state, CancellationToken cancellationToken)
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchIndexerResponse(IndexerRequest request) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 664
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchPage(IndexerRequest request, IParseIndexerResponse parser) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 610
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchReleases(Func`2 pageableRequestChainSelector, SearchCriteriaBase searchCriteria, Boolean isRecent) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 428
+
+
+2025-05-30 09:28:40.7|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:28:40.8|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:28:40.8|Debug|ReleaseSearchService|Total of 59 reports were found for Term: [dune], Offset: 0, Limit: 0, Categories: [] from 3 indexer(s)
+2025-05-30 09:28:40.8|Debug|Api|[GET] /api/v1/search?query=dune&indexerIds=-2&type=search: 200.OK (1074 ms)
+2025-05-30 09:28:45.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:28:45.1|Debug|Api|[GET] /api/v1/health: 200.OK (4 ms)
+2025-05-30 09:28:45.1|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:28:45.1|Debug|Api|[GET] /api/v1/health: 200.OK (1 ms)
+2025-05-30 09:28:47.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:28:48.0|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:28:48.0|Debug|IndexerFactory|Temporarily ignoring indexer EZTV till 05/30/2025 09:33:40 due to recent failures.
+2025-05-30 09:28:48.0|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 09:39:35 due to recent failures.
+2025-05-30 09:28:48.0|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:29:35 due to recent failures.
+2025-05-30 09:28:48.0|Info|ReleaseSearchService|Searching indexer(s): [TorrentGalaxyClone, Nyaa.si] for Term: [batman], Offset: 0, Limit: 0, Categories: [2000]
+2025-05-30 09:28:48.0|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:batman:category:Movies
+2025-05-30 09:28:48.0|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:batman:category:Movies
+2025-05-30 09:28:48.0|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=batman
+2025-05-30 09:28:48.0|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=batman
+2025-05-30 09:28:48.3|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:28:48.5|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:28:48.5|Debug|ReleaseSearchService|Total of 84 reports were found for Term: [batman], Offset: 0, Limit: 0, Categories: [2000] from 2 indexer(s)
+2025-05-30 09:28:48.5|Debug|Api|[GET] /api/v1/search?query=batman&indexerIds=-2&categories=2000&type=search: 200.OK (585 ms)
+2025-05-30 09:29:19.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:29:19.4|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:29:19.4|Debug|IndexerFactory|Temporarily ignoring indexer EZTV till 05/30/2025 09:33:40 due to recent failures.
+2025-05-30 09:29:19.4|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 09:39:35 due to recent failures.
+2025-05-30 09:29:19.4|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:29:35 due to recent failures.
+2025-05-30 09:29:19.4|Info|ReleaseSearchService|Searching indexer(s): [TorrentGalaxyClone, Nyaa.si] for Term: [batman], Offset: 0, Limit: 1, Categories: [2000]
+2025-05-30 09:29:19.4|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:batman:category:Movies
+2025-05-30 09:29:19.4|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:batman:category:Movies
+2025-05-30 09:29:19.5|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=batman
+2025-05-30 09:29:19.5|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=batman
+2025-05-30 09:29:19.7|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:29:19.7|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:29:19.8|Debug|ReleaseSearchService|Total of 84 reports were found for Term: [batman], Offset: 0, Limit: 1, Categories: [2000] from 2 indexer(s)
+2025-05-30 09:29:19.8|Debug|Api|[GET] /api/v1/search?query=batman&indexerIds=-2&categories=2000&type=search&limit=1: 200.OK (407 ms)
+2025-05-30 09:32:32.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:32:32.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:32:32.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:32:32.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:32:32.3|Debug|Api|[GET] /api/v1/health: 200.OK (23 ms)
+2025-05-30 09:32:32.3|Debug|Api|[GET] /api/v1/system/status: 200.OK (26 ms)
+2025-05-30 09:32:32.3|Debug|Api|[GET] /api/v1/indexerstatus: 200.OK (28 ms)
+2025-05-30 09:32:32.3|Debug|Api|[GET] /api/v1/indexer: 200.OK (37 ms)
+2025-05-30 09:32:48.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:32:49.0|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:32:49.0|Debug|IndexerFactory|Temporarily ignoring indexer EZTV till 05/30/2025 09:33:40 due to recent failures.
+2025-05-30 09:32:49.0|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 09:39:35 due to recent failures.
+2025-05-30 09:32:49.0|Info|ReleaseSearchService|Searching indexer(s): [TorrentGalaxyClone, Nyaa.si, TheRARBG] for Term: [batman], Offset: 0, Limit: 20, Categories: []
+2025-05-30 09:32:49.0|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:batman
+2025-05-30 09:32:49.0|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:batman
+2025-05-30 09:32:49.1|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=batman
+2025-05-30 09:32:49.1|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=batman
+2025-05-30 09:32:49.1|Debug|Cardigann|Adding request for TheRARBG: https://therarbg.to/get-posts/order:-a:keywords:batman:paginate_by:100:format:json/
+2025-05-30 09:32:49.1|Debug|Cardigann|Downloading Feed https://therarbg.to/get-posts/order:-a:keywords:batman:paginate_by:100:format:json/
+2025-05-30 09:32:49.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:32:49.3|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (2 ms)
+2025-05-30 09:32:49.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:32:49.3|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (2 ms)
+2025-05-30 09:32:49.3|Warn|Cardigann|Unable to connect to indexer, please check your DNS settings and ensure IPv6 is working or disabled. https://therarbg.to/get-posts/order:-a:keywords:batman:paginate_by:100:format:json/
+
+[v1.36.3.5071] System.Net.Http.HttpRequestException: The SSL connection could not be established, see inner exception.
+ ---> System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp2ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp2ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 120
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Prowlarr.Common/Http/HttpClient.cs:line 171
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Prowlarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Core.Indexers.IndexerHttpClient.ExecuteProxiedAsync(HttpRequest request, ProviderDefinition definition) in ./Prowlarr.Core/Indexers/IndexerHttpClient.cs:line 44
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.<>c.<<FetchIndexerResponse>b__57_0>d.MoveNext() in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 665
+--- End of stack trace from previous location ---
+   at Polly.ResiliencePipeline.<>c__9`2.<<ExecuteAsync>b__9_0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.Outcome`1.GetResultOrRethrow()
+   at Polly.ResiliencePipeline.ExecuteAsync[TResult,TState](Func`3 callback, TState state, CancellationToken cancellationToken)
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchIndexerResponse(IndexerRequest request) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 664
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchPage(IndexerRequest request, IParseIndexerResponse parser) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 610
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchReleases(Func`2 pageableRequestChainSelector, SearchCriteriaBase searchCriteria, Boolean isRecent) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 428
+
+
+2025-05-30 09:32:50.0|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:32:50.0|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:32:50.1|Debug|ReleaseSearchService|Total of 91 reports were found for Term: [batman], Offset: 0, Limit: 20, Categories: [] from 3 indexer(s)
+2025-05-30 09:32:50.1|Debug|Api|[GET] /api/v1/search?query=batman&indexerIds=-2&type=search&limit=20: 200.OK (1143 ms)
+2025-05-30 09:32:54.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:32:54.3|Debug|Api|[GET] /api/v1/health: 200.OK (1 ms)
+2025-05-30 09:32:54.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:32:54.3|Debug|Api|[GET] /api/v1/health: 200.OK (1 ms)
+2025-05-30 09:33:12.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:33:12.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:33:12.2|Debug|Api|[GET] /api/v1/command: 200.OK (7 ms)
+2025-05-30 09:33:12.2|Debug|Api|[GET] /api/v1/command: 200.OK (2 ms)
+2025-05-30 09:33:15.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:33:15.3|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:33:15.3|Debug|IndexerFactory|Temporarily ignoring indexer EZTV till 05/30/2025 09:33:40 due to recent failures.
+2025-05-30 09:33:15.3|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 09:39:35 due to recent failures.
+2025-05-30 09:33:15.3|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:47:49 due to recent failures.
+2025-05-30 09:33:15.3|Info|ReleaseSearchService|Searching indexer(s): [TorrentGalaxyClone, Nyaa.si] for Term: [mickle jackson], Offset: 0, Limit: 20, Categories: []
+2025-05-30 09:33:15.3|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:mickle%20jackson
+2025-05-30 09:33:15.3|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:mickle%20jackson
+2025-05-30 09:33:15.3|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=mickle+jackson
+2025-05-30 09:33:15.3|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=mickle+jackson
+2025-05-30 09:33:15.6|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:33:15.8|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:33:15.8|Debug|ReleaseSearchService|Total of 0 reports were found for Term: [mickle jackson], Offset: 0, Limit: 20, Categories: [] from 2 indexer(s)
+2025-05-30 09:33:15.8|Debug|Api|[GET] /api/v1/search?query=mickle+jackson&indexerIds=-2&type=search&limit=20: 200.OK (499 ms)
+2025-05-30 09:33:16.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:33:16.4|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:33:16.4|Debug|IndexerFactory|Temporarily ignoring indexer EZTV till 05/30/2025 09:33:40 due to recent failures.
+2025-05-30 09:33:16.4|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 09:39:35 due to recent failures.
+2025-05-30 09:33:16.4|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:47:49 due to recent failures.
+2025-05-30 09:33:16.4|Info|ReleaseSearchService|Searching indexer(s): [TorrentGalaxyClone, Nyaa.si] for Term: [batman], Offset: 0, Limit: 3, Categories: [2000]
+2025-05-30 09:33:16.4|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:batman:category:Movies
+2025-05-30 09:33:16.4|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:batman:category:Movies
+2025-05-30 09:33:16.4|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=batman
+2025-05-30 09:33:16.4|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=batman
+2025-05-30 09:33:17.6|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:33:17.6|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:33:17.7|Debug|ReleaseSearchService|Total of 84 reports were found for Term: [batman], Offset: 0, Limit: 3, Categories: [2000] from 2 indexer(s)
+2025-05-30 09:33:17.7|Debug|Api|[GET] /api/v1/search?query=batman&indexerIds=-2&categories=2000&type=search&limit=3: 200.OK (1350 ms)
+2025-05-30 09:33:25.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:33:25.4|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:33:25.4|Debug|IndexerFactory|Temporarily ignoring indexer EZTV till 05/30/2025 09:33:40 due to recent failures.
+2025-05-30 09:33:25.4|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 09:39:35 due to recent failures.
+2025-05-30 09:33:25.4|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:47:49 due to recent failures.
+2025-05-30 09:33:25.4|Info|ReleaseSearchService|Searching indexer(s): [TorrentGalaxyClone, Nyaa.si] for Term: [jackson], Offset: 0, Limit: 20, Categories: []
+2025-05-30 09:33:25.4|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:jackson
+2025-05-30 09:33:25.4|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:jackson
+2025-05-30 09:33:25.4|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=jackson
+2025-05-30 09:33:25.4|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=jackson
+2025-05-30 09:33:25.7|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:33:26.0|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:33:26.0|Debug|ReleaseSearchService|Total of 54 reports were found for Term: [jackson], Offset: 0, Limit: 20, Categories: [] from 2 indexer(s)
+2025-05-30 09:33:26.0|Debug|Api|[GET] /api/v1/search?query=jackson&indexerIds=-2&type=search&limit=20: 200.OK (666 ms)
+2025-05-30 09:34:21.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:34:21.4|Debug|Api|[GET] /api/v1/downloadclient: 200.OK (31 ms)
+2025-05-30 09:36:13.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:36:13.3|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:36:13.3|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 09:39:35 due to recent failures.
+2025-05-30 09:36:13.3|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:47:49 due to recent failures.
+2025-05-30 09:36:13.3|Info|ReleaseSearchService|Searching indexer(s): [TorrentGalaxyClone, Nyaa.si] for Term: [michael jackson dance video], Offset: 0, Limit: 20, Categories: [3000]
+2025-05-30 09:36:13.3|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:michael%20jackson%20dance%20video:category:Music
+2025-05-30 09:36:13.3|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:michael%20jackson%20dance%20video:category:Music
+2025-05-30 09:36:13.3|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=michael+jackson+dance+video
+2025-05-30 09:36:13.3|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=michael+jackson+dance+video
+2025-05-30 09:36:14.1|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:36:14.1|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:36:14.1|Debug|ReleaseSearchService|Total of 0 reports were found for Term: [michael jackson dance video], Offset: 0, Limit: 20, Categories: [3000] from 2 indexer(s)
+2025-05-30 09:36:14.1|Debug|Api|[GET] /api/v1/search?query=michael+jackson+dance+video&indexerIds=-2&categories=3000&type=search&limit=20: 200.OK (903 ms)
+2025-05-30 09:36:22.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:36:22.1|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:36:22.1|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 09:39:35 due to recent failures.
+2025-05-30 09:36:22.1|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:47:49 due to recent failures.
+2025-05-30 09:36:22.1|Info|ReleaseSearchService|Searching indexer(s): [EZTV, TorrentGalaxyClone, Nyaa.si] for Term: [michael jackson dance], Offset: 0, Limit: 20, Categories: []
+2025-05-30 09:36:22.1|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/search/michael-jackson-dance
+2025-05-30 09:36:22.1|Debug|Cardigann|Downloading Feed https://eztvx.to/search/michael-jackson-dance
+2025-05-30 09:36:22.1|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:michael%20jackson%20dance
+2025-05-30 09:36:22.1|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:michael%20jackson%20dance
+2025-05-30 09:36:22.1|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=michael+jackson+dance
+2025-05-30 09:36:22.1|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=michael+jackson+dance
+2025-05-30 09:36:22.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:36:22.3|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (5 ms)
+2025-05-30 09:36:22.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:36:22.3|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (3 ms)
+2025-05-30 09:36:22.3|Warn|Cardigann|Unable to connect to indexer, please check your DNS settings and ensure IPv6 is working or disabled. https://eztvx.to/search/michael-jackson-dance
+
+[v1.36.3.5071] System.Net.Http.HttpRequestException: The SSL connection could not be established, see inner exception.
+ ---> System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp2ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp2ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 120
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Prowlarr.Common/Http/HttpClient.cs:line 171
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Prowlarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Core.Indexers.IndexerHttpClient.ExecuteProxiedAsync(HttpRequest request, ProviderDefinition definition) in ./Prowlarr.Core/Indexers/IndexerHttpClient.cs:line 44
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.<>c.<<FetchIndexerResponse>b__57_0>d.MoveNext() in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 665
+--- End of stack trace from previous location ---
+   at Polly.ResiliencePipeline.<>c__9`2.<<ExecuteAsync>b__9_0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.Outcome`1.GetResultOrRethrow()
+   at Polly.ResiliencePipeline.ExecuteAsync[TResult,TState](Func`3 callback, TState state, CancellationToken cancellationToken)
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchIndexerResponse(IndexerRequest request) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 664
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchPage(IndexerRequest request, IParseIndexerResponse parser) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 610
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchReleases(Func`2 pageableRequestChainSelector, SearchCriteriaBase searchCriteria, Boolean isRecent) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 428
+
+
+2025-05-30 09:36:22.4|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:36:22.5|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:36:22.5|Debug|ReleaseSearchService|Total of 10 reports were found for Term: [michael jackson dance], Offset: 0, Limit: 20, Categories: [] from 3 indexer(s)
+2025-05-30 09:36:22.5|Debug|Api|[GET] /api/v1/search?query=michael+jackson+dance&indexerIds=-2&type=search&limit=20: 200.OK (497 ms)
+2025-05-30 09:36:27.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:36:27.3|Debug|Api|[GET] /api/v1/health: 200.OK (2 ms)
+2025-05-30 09:36:27.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:36:27.3|Debug|Api|[GET] /api/v1/health: 200.OK (2 ms)
+2025-05-30 09:36:34.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:36:34.4|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:36:34.4|Debug|IndexerFactory|Temporarily ignoring indexer EZTV till 05/30/2025 09:51:22 due to recent failures.
+2025-05-30 09:36:34.4|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 09:39:35 due to recent failures.
+2025-05-30 09:36:34.4|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:47:49 due to recent failures.
+2025-05-30 09:36:34.4|Info|ReleaseSearchService|Searching indexer(s): [TorrentGalaxyClone, Nyaa.si] for Term: [michael jackson music video collection], Offset: 0, Limit: 20, Categories: []
+2025-05-30 09:36:34.4|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:michael%20jackson%20music%20video%20collection
+2025-05-30 09:36:34.4|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:michael%20jackson%20music%20video%20collection
+2025-05-30 09:36:34.4|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=michael+jackson+music+video+collection
+2025-05-30 09:36:34.4|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=michael+jackson+music+video+collection
+2025-05-30 09:36:34.7|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:36:34.8|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:36:34.8|Debug|ReleaseSearchService|Total of 0 reports were found for Term: [michael jackson music video collection], Offset: 0, Limit: 20, Categories: [] from 2 indexer(s)
+2025-05-30 09:36:34.8|Debug|Api|[GET] /api/v1/search?query=michael+jackson+music+video+collection&indexerIds=-2&type=search&limit=20: 200.OK (473 ms)
+2025-05-30 09:37:44.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:37:44.4|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:37:44.4|Debug|IndexerFactory|Temporarily ignoring indexer EZTV till 05/30/2025 09:51:22 due to recent failures.
+2025-05-30 09:37:44.4|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 09:39:35 due to recent failures.
+2025-05-30 09:37:44.4|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:47:49 due to recent failures.
+2025-05-30 09:37:44.4|Info|ReleaseSearchService|Searching indexer(s): [TorrentGalaxyClone, Nyaa.si] for Term: [imagine dragons music video], Offset: 0, Limit: 20, Categories: []
+2025-05-30 09:37:44.4|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:imagine%20dragons%20music%20video
+2025-05-30 09:37:44.4|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:imagine%20dragons%20music%20video
+2025-05-30 09:37:44.4|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=imagine+dragons+music+video
+2025-05-30 09:37:44.4|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=imagine+dragons+music+video
+2025-05-30 09:37:45.1|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:37:45.2|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:37:45.2|Debug|ReleaseSearchService|Total of 0 reports were found for Term: [imagine dragons music video], Offset: 0, Limit: 20, Categories: [] from 2 indexer(s)
+2025-05-30 09:37:45.2|Debug|Api|[GET] /api/v1/search?query=imagine+dragons+music+video&indexerIds=-2&type=search&limit=20: 200.OK (932 ms)
+2025-05-30 09:37:53.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:37:53.1|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:37:53.1|Debug|IndexerFactory|Temporarily ignoring indexer EZTV till 05/30/2025 09:51:22 due to recent failures.
+2025-05-30 09:37:53.1|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 09:39:35 due to recent failures.
+2025-05-30 09:37:53.1|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:47:49 due to recent failures.
+2025-05-30 09:37:53.1|Info|ReleaseSearchService|Searching indexer(s): [TorrentGalaxyClone, Nyaa.si] for Term: [imagine dragons], Offset: 0, Limit: 20, Categories: []
+2025-05-30 09:37:53.1|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:imagine%20dragons
+2025-05-30 09:37:53.1|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:imagine%20dragons
+2025-05-30 09:37:53.1|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=imagine+dragons
+2025-05-30 09:37:53.1|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=imagine+dragons
+2025-05-30 09:37:53.4|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:37:53.7|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:37:53.8|Debug|ReleaseSearchService|Total of 51 reports were found for Term: [imagine dragons], Offset: 0, Limit: 20, Categories: [] from 2 indexer(s)
+2025-05-30 09:37:53.8|Debug|Api|[GET] /api/v1/search?query=imagine+dragons&indexerIds=-2&type=search&limit=20: 200.OK (759 ms)
+2025-05-30 09:38:12.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:38:12.2|Debug|Api|[GET] /api/v1/command: 200.OK (7 ms)
+2025-05-30 09:38:12.2|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:38:12.3|Debug|Api|[GET] /api/v1/command: 200.OK (31 ms)
+2025-05-30 09:38:39.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:38:39.6|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:38:39.6|Debug|Cardigann|CardigannIndexer (torrentgalaxyclone): Download selector NzbDrone.Core.Indexers.Definitions.Cardigann.SelectorField matched:
+<a class="btn btn-danger lift txlight" style="margin-left:2px;" href="magnet:?xt=urn:btih:4CC4EDBC45BF7157D7857AA6F30C98D72F06B62F&amp;dn=Imagine%20Dragons%20Live%20in%20Vegas%202023%201080p%20web%20YTS&amp;tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&amp;tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.theoks.net%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Fmovies.zsw.ca%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Ftracker1.bt.moack.co.kr%3A80%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.therarbg.to%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce" role="button">
+	<i class="glyphicon glyphicon-magnet" '=""></i>
+	magnet</a>
+2025-05-30 09:38:39.6|Info|DownloadService|Report sent to qBittorrent. Imagine Dragons Live in Vegas 2023 1080p web YTS
+2025-05-30 09:38:39.6|Debug|Api|[POST] /api/v1/search: 200.OK (660 ms)
+2025-05-30 09:39:52.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:39:52.5|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:39:52.5|Debug|IndexerFactory|Temporarily ignoring indexer EZTV till 05/30/2025 09:51:22 due to recent failures.
+2025-05-30 09:39:52.5|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:47:49 due to recent failures.
+2025-05-30 09:39:52.5|Info|ReleaseSearchService|Searching indexer(s): [TorrentGalaxyClone, Nyaa.si, LimeTorrents] for Term: [shakira dance video collection], Offset: 0, Limit: 20, Categories: []
+2025-05-30 09:39:52.5|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:shakira%20dance%20video%20collection
+2025-05-30 09:39:52.5|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:shakira%20dance%20video%20collection
+2025-05-30 09:39:52.5|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=shakira+dance+video+collection
+2025-05-30 09:39:52.5|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=shakira+dance+video+collection
+2025-05-30 09:39:52.5|Debug|Cardigann|Adding request for LimeTorrents: https://www.limetorrents.lol/search/all/shakira%20dance%20video%20collection/date/1/
+2025-05-30 09:39:52.5|Debug|Cardigann|Downloading Feed https://www.limetorrents.lol/search/all/shakira%20dance%20video%20collection/date/1/
+2025-05-30 09:39:52.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:39:52.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:39:52.8|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (6 ms)
+2025-05-30 09:39:52.8|Debug|Api|[GET] /api/v1/indexerStatus: 200.OK (8 ms)
+2025-05-30 09:39:52.8|Warn|Cardigann|Unable to connect to indexer, please check your DNS settings and ensure IPv6 is working or disabled. https://www.limetorrents.lol/search/all/shakira%20dance%20video%20collection/date/1/
+
+[v1.36.3.5071] System.Net.Http.HttpRequestException: The SSL connection could not be established, see inner exception.
+ ---> System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp2ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp2ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 120
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Prowlarr.Common/Http/HttpClient.cs:line 171
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Prowlarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Core.Indexers.IndexerHttpClient.ExecuteProxiedAsync(HttpRequest request, ProviderDefinition definition) in ./Prowlarr.Core/Indexers/IndexerHttpClient.cs:line 44
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.<>c.<<FetchIndexerResponse>b__57_0>d.MoveNext() in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 665
+--- End of stack trace from previous location ---
+   at Polly.ResiliencePipeline.<>c__9`2.<<ExecuteAsync>b__9_0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Polly.Outcome`1.GetResultOrRethrow()
+   at Polly.ResiliencePipeline.ExecuteAsync[TResult,TState](Func`3 callback, TState state, CancellationToken cancellationToken)
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchIndexerResponse(IndexerRequest request) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 664
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchPage(IndexerRequest request, IParseIndexerResponse parser) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 610
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchReleases(Func`2 pageableRequestChainSelector, SearchCriteriaBase searchCriteria, Boolean isRecent) in ./Prowlarr.Core/Indexers/HttpIndexerBase.cs:line 428
+
+
+2025-05-30 09:39:53.3|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:39:53.5|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:39:53.5|Debug|ReleaseSearchService|Total of 0 reports were found for Term: [shakira dance video collection], Offset: 0, Limit: 20, Categories: [] from 3 indexer(s)
+2025-05-30 09:39:53.5|Debug|Api|[GET] /api/v1/search?query=shakira+dance+video+collection&indexerIds=-2&type=search&limit=20: 200.OK (1076 ms)
+2025-05-30 09:39:57.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:39:57.8|Debug|Api|[GET] /api/v1/health: 200.OK (1 ms)
+2025-05-30 09:39:57.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:39:57.8|Debug|Api|[GET] /api/v1/health: 200.OK (1 ms)
+2025-05-30 09:40:00.7|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:40:00.7|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:40:00.7|Debug|IndexerFactory|Temporarily ignoring indexer EZTV till 05/30/2025 09:51:22 due to recent failures.
+2025-05-30 09:40:00.7|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 10:09:52 due to recent failures.
+2025-05-30 09:40:00.7|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:47:49 due to recent failures.
+2025-05-30 09:40:00.7|Info|ReleaseSearchService|Searching indexer(s): [TorrentGalaxyClone, Nyaa.si] for Term: [shakira music video], Offset: 0, Limit: 20, Categories: []
+2025-05-30 09:40:00.7|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:shakira%20music%20video
+2025-05-30 09:40:00.7|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:shakira%20music%20video
+2025-05-30 09:40:00.7|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=shakira+music+video
+2025-05-30 09:40:00.7|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=shakira+music+video
+2025-05-30 09:40:01.0|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:40:01.1|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:40:01.2|Debug|ReleaseSearchService|Total of 0 reports were found for Term: [shakira music video], Offset: 0, Limit: 20, Categories: [] from 2 indexer(s)
+2025-05-30 09:40:01.2|Debug|Api|[GET] /api/v1/search?query=shakira+music+video&indexerIds=-2&type=search&limit=20: 200.OK (497 ms)
+2025-05-30 09:40:09.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:40:09.9|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:40:09.9|Debug|IndexerFactory|Temporarily ignoring indexer EZTV till 05/30/2025 09:51:22 due to recent failures.
+2025-05-30 09:40:09.9|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 10:09:52 due to recent failures.
+2025-05-30 09:40:09.9|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:47:49 due to recent failures.
+2025-05-30 09:40:09.9|Info|ReleaseSearchService|Searching indexer(s): [TorrentGalaxyClone, Nyaa.si] for Term: [shakira], Offset: 0, Limit: 20, Categories: []
+2025-05-30 09:40:09.9|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:shakira
+2025-05-30 09:40:09.9|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:shakira
+2025-05-30 09:40:09.9|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=shakira
+2025-05-30 09:40:09.9|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=shakira
+2025-05-30 09:40:10.2|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:40:10.4|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:40:10.5|Debug|ReleaseSearchService|Total of 50 reports were found for Term: [shakira], Offset: 0, Limit: 20, Categories: [] from 2 indexer(s)
+2025-05-30 09:40:10.5|Debug|Api|[GET] /api/v1/search?query=shakira&indexerIds=-2&type=search&limit=20: 200.OK (662 ms)
+2025-05-30 09:40:21.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:40:21.3|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:40:21.3|Debug|IndexerFactory|Temporarily ignoring indexer EZTV till 05/30/2025 09:51:22 due to recent failures.
+2025-05-30 09:40:21.3|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 10:09:52 due to recent failures.
+2025-05-30 09:40:21.3|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:47:49 due to recent failures.
+2025-05-30 09:40:21.3|Info|ReleaseSearchService|Searching indexer(s): [TorrentGalaxyClone, Nyaa.si] for Term: [shakira music performance vegas awards], Offset: 0, Limit: 20, Categories: []
+2025-05-30 09:40:21.3|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:shakira%20music%20performance%20vegas%20awards
+2025-05-30 09:40:21.3|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:shakira%20music%20performance%20vegas%20awards
+2025-05-30 09:40:21.3|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=shakira+music+performance+vegas+awards
+2025-05-30 09:40:21.3|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=shakira+music+performance+vegas+awards
+2025-05-30 09:40:21.6|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:40:21.7|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:40:21.7|Debug|ReleaseSearchService|Total of 0 reports were found for Term: [shakira music performance vegas awards], Offset: 0, Limit: 20, Categories: [] from 2 indexer(s)
+2025-05-30 09:40:21.7|Debug|Api|[GET] /api/v1/search?query=shakira+music+performance+vegas+awards&indexerIds=-2&type=search&limit=20: 200.OK (422 ms)
+2025-05-30 09:41:30.9|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:41:30.9|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 05/30/2025 20:16:46 due to recent failures.
+2025-05-30 09:41:30.9|Debug|IndexerFactory|Temporarily ignoring indexer EZTV till 05/30/2025 09:51:22 due to recent failures.
+2025-05-30 09:41:30.9|Debug|IndexerFactory|Temporarily ignoring indexer LimeTorrents till 05/30/2025 10:09:52 due to recent failures.
+2025-05-30 09:41:30.9|Debug|IndexerFactory|Temporarily ignoring indexer TheRARBG till 05/30/2025 09:47:49 due to recent failures.
+2025-05-30 09:41:30.9|Info|ReleaseSearchService|Searching indexer(s): [TorrentGalaxyClone, Nyaa.si] for Term: [shakira jimmy fallon 2025], Offset: 0, Limit: 20, Categories: []
+2025-05-30 09:41:30.9|Debug|Cardigann|Adding request for TorrentGalaxyClone: https://torrentgalaxy.one/get-posts/keywords:shakira%20jimmy%20fallon%202025
+2025-05-30 09:41:30.9|Debug|Cardigann|Downloading Feed https://torrentgalaxy.one/get-posts/keywords:shakira%20jimmy%20fallon%202025
+2025-05-30 09:41:30.9|Debug|Cardigann|Adding request for Nyaa.si: https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=shakira+jimmy+fallon+2025
+2025-05-30 09:41:30.9|Debug|Cardigann|Downloading Feed https://nyaa.si/?f=0&c=0_0&s=id&o=desc&q=shakira+jimmy+fallon+2025
+2025-05-30 09:41:31.7|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:41:31.8|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:41:31.8|Debug|ReleaseSearchService|Total of 5 reports were found for Term: [shakira jimmy fallon 2025], Offset: 0, Limit: 20, Categories: [] from 2 indexer(s)
+2025-05-30 09:41:31.8|Debug|Api|[GET] /api/v1/search?query=shakira+jimmy+fallon+2025&indexerIds=-2&type=search&limit=20: 200.OK (991 ms)
+2025-05-30 09:41:39.5|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:41:40.0|Debug|FlareSolverr|CF Protection not detected, returning original response
+2025-05-30 09:41:40.0|Debug|Cardigann|CardigannIndexer (torrentgalaxyclone): Download selector NzbDrone.Core.Indexers.Definitions.Cardigann.SelectorField matched:
+<a class="btn btn-danger lift txlight" style="margin-left:2px;" href="magnet:?xt=urn:btih:C8A4BDFDC23028D86EF2A1FAB2927026CEA40861&amp;dn=Jimmy%20Fallon%202025%2005%2008%20Shakira%201080p%20WEB%20h264%20JOAN%20EZTV&amp;tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&amp;tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.theoks.net%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Fmovies.zsw.ca%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Ftracker1.bt.moack.co.kr%3A80%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.therarbg.to%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce&amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&amp;tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce" role="button">
+	<i class="glyphicon glyphicon-magnet" '=""></i>
+	magnet</a>
+2025-05-30 09:41:40.1|Info|DownloadService|Report sent to qBittorrent. Jimmy Fallon 2025 05 08 Shakira 1080p WEB h264 JOAN EZTV
+2025-05-30 09:41:40.1|Debug|Api|[POST] /api/v1/search: 200.OK (590 ms)
+2025-05-30 09:43:12.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:43:12.3|Debug|Api|[GET] /api/v1/command: 200.OK (7 ms)
+2025-05-30 09:43:12.3|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:43:12.3|Debug|Api|[GET] /api/v1/command: 200.OK (2 ms)
+2025-05-30 09:48:12.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:48:12.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:48:12.4|Debug|Api|[GET] /api/v1/command: 200.OK (26 ms)
+2025-05-30 09:48:12.4|Debug|Api|[GET] /api/v1/command: 200.OK (19 ms)
+2025-05-30 09:53:12.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:53:12.4|Debug|Api|[GET] /api/v1/command: 200.OK (7 ms)
+2025-05-30 09:53:12.4|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:53:12.4|Debug|Api|[GET] /api/v1/command: 200.OK (1 ms)
+2025-05-30 09:58:12.5|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:58:12.5|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 09:58:12.5|Debug|Api|[GET] /api/v1/command: 200.OK (3 ms)
+2025-05-30 09:58:12.5|Debug|Api|[GET] /api/v1/command: 200.OK (8 ms)
+2025-05-30 10:02:35.7|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: SignalR was successfully authenticated.
+2025-05-30 10:02:35.7|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: SignalR was successfully authenticated.
+2025-05-30 10:02:35.7|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: SignalR was successfully authenticated.
+2025-05-30 10:02:35.7|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: SignalR was successfully authenticated.
+2025-05-30 10:02:35.7|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 10:02:35.7|Debug|Api|[GET] /api/v1/health: 200.OK (6 ms)
+2025-05-30 10:02:35.7|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 10:02:35.7|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 10:02:35.8|Debug|Api|[GET] /api/v1/command: 200.OK (7 ms)
+2025-05-30 10:02:35.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 10:02:35.8|Debug|Api|[GET] /api/v1/health: 200.OK (3 ms)
+2025-05-30 10:02:35.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 10:02:35.8|Debug|Api|[GET] /api/v1/indexer: 200.OK (37 ms)
+2025-05-30 10:02:35.8|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 10:02:35.8|Debug|Api|[GET] /api/v1/indexer: 200.OK (14 ms)
+2025-05-30 10:02:35.8|Debug|Api|[GET] /api/v1/command: 200.OK (3 ms)
+2025-05-30 10:03:41.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 10:03:41.0|Debug|Api|[GET] /api/v1/command: 200.OK (8 ms)
+2025-05-30 10:03:41.0|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 10:03:41.0|Debug|Api|[GET] /api/v1/command: 200.OK (1 ms)
+2025-05-30 10:08:52.5|Debug|Prowlarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was successfully authenticated.
+2025-05-30 10:08:52.6|Debug|Api|[GET] /api/v1/command: 200.OK (45 ms)

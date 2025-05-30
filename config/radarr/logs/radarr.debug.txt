@@ -5612,3 +5612,765 @@
    at NzbDrone.Core.HealthCheck.Checks.DownloadClientCheck.Check() in ./Radarr.Core/HealthCheck/Checks/DownloadClientCheck.cs:line 40
 
 
+2025-05-30 08:10:35.9|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from qBittorrent
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 35
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.<>c__DisplayClass7_0.<GetProxyCache>b__0() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetItems() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 220
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-05-30 08:10:40.9|Debug|DownloadClientCheck|Unable to communicate with qBittorrent
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 35
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.<>c__DisplayClass7_0.<GetProxyCache>b__0() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetItems() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 220
+   at NzbDrone.Core.HealthCheck.Checks.DownloadClientCheck.Check() in ./Radarr.Core/HealthCheck/Checks/DownloadClientCheck.cs:line 40
+
+
+2025-05-30 08:11:35.9|Debug|InstallUpdateService|Checking for updates
+2025-05-30 08:11:36.0|Debug|DownloadClientCheck|Unable to communicate with qBittorrent
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 35
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.<>c__DisplayClass7_0.<GetProxyCache>b__0() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetItems() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 220
+   at NzbDrone.Core.HealthCheck.Checks.DownloadClientCheck.Check() in ./Radarr.Core/HealthCheck/Checks/DownloadClientCheck.cs:line 40
+
+
+2025-05-30 08:11:36.0|Error|DownloadClientRemovesCompletedDownloadsCheck|Unknown error occurred in DownloadClientHistoryRetentionCheck HealthCheck
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 35
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.<>c__DisplayClass7_0.<GetProxyCache>b__0() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.get_Proxy() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 49
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetStatus() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 374
+   at NzbDrone.Core.HealthCheck.Checks.DownloadClientRemovesCompletedDownloadsCheck.Check() in ./Radarr.Core/HealthCheck/Checks/DownloadClientRemovesCompletedDownloadsCheck.cs:line 42
+
+
+2025-05-30 08:11:36.0|Debug|DownloadClientRootFolderCheck|Unable to communicate with qBittorrent
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 35
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.<>c__DisplayClass7_0.<GetProxyCache>b__0() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.get_Proxy() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 49
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetStatus() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 374
+   at NzbDrone.Core.HealthCheck.Checks.DownloadClientRootFolderCheck.Check() in ./Radarr.Core/HealthCheck/Checks/DownloadClientRootFolderCheck.cs:line 50
+
+
+2025-05-30 08:11:36.0|Error|DownloadClientSortingCheck|Unknown error occurred in DownloadClientSortingCheck HealthCheck
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 35
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.<>c__DisplayClass7_0.<GetProxyCache>b__0() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.get_Proxy() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 49
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetStatus() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 374
+   at NzbDrone.Core.HealthCheck.Checks.DownloadClientSortingCheck.Check() in ./Radarr.Core/HealthCheck/Checks/DownloadClientSortingCheck.cs:line 43
+
+
+2025-05-30 08:11:36.0|Debug|RemotePathMappingCheck|Unable to communicate with qBittorrent
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 35
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.<>c__DisplayClass7_0.<GetProxyCache>b__0() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.get_Proxy() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 49
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetStatus() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 374
+   at NzbDrone.Core.HealthCheck.Checks.RemotePathMappingCheck.Check() in ./Radarr.Core/HealthCheck/Checks/RemotePathMappingCheck.cs:line 64
+
+
+2025-05-30 08:11:36.6|Debug|InstallUpdateService|No update available
+2025-05-30 08:12:06.0|Debug|DownloadClientCheck|Unable to communicate with qBittorrent
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 35
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.<>c__DisplayClass7_0.<GetProxyCache>b__0() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetItems() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 220
+   at NzbDrone.Core.HealthCheck.Checks.DownloadClientCheck.Check() in ./Radarr.Core/HealthCheck/Checks/DownloadClientCheck.cs:line 40
+
+
+2025-05-30 08:12:06.0|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from qBittorrent
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 35
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.<>c__DisplayClass7_0.<GetProxyCache>b__0() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetItems() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 220
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-05-30 08:12:06.0|Debug|DownloadClientProvider|Temporarily ignoring client qBittorrent till 05/30/2025 08:17:06 due to recent failures.
+2025-05-30 08:12:06.0|Debug|DownloadClientProvider|Temporarily ignoring client qBittorrent till 05/30/2025 08:17:06 due to recent failures.
+2025-05-30 08:12:06.0|Debug|DownloadClientProvider|Temporarily ignoring client qBittorrent till 05/30/2025 08:17:06 due to recent failures.
+2025-05-30 08:12:06.0|Debug|DownloadClientProvider|Temporarily ignoring client qBittorrent till 05/30/2025 08:17:06 due to recent failures.
+2025-05-30 08:12:11.4|Debug|DownloadClientCheck|Unable to communicate with qBittorrent
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 35
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.<>c__DisplayClass7_0.<GetProxyCache>b__0() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetItems() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 220
+   at NzbDrone.Core.HealthCheck.Checks.DownloadClientCheck.Check() in ./Radarr.Core/HealthCheck/Checks/DownloadClientCheck.cs:line 40
+
+
+2025-05-30 08:12:36.0|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 08:13:36.0|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 08:17:06 due to recent failures.
+2025-05-30 08:15:06.1|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 08:17:06 due to recent failures.
+2025-05-30 08:16:36.1|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 08:17:06 due to recent failures.
+2025-05-30 08:17:36.2|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 08:17:36.2|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from qBittorrent
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 35
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.<>c__DisplayClass7_0.<GetProxyCache>b__0() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 76
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetItems() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 220
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-05-30 08:17:41.2|Debug|DownloadClientCheck|Unable to communicate with qBittorrent
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 67
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 69
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetItems() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 220
+   at NzbDrone.Core.HealthCheck.Checks.DownloadClientCheck.Check() in ./Radarr.Core/HealthCheck/Checks/DownloadClientCheck.cs:line 40
+
+
+2025-05-30 08:19:06.2|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 08:32:36 due to recent failures.
+2025-05-30 08:20:36.2|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 08:32:36 due to recent failures.
+2025-05-30 08:22:06.3|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 08:32:36 due to recent failures.
+2025-05-30 08:22:36.3|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 08:23:06.4|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 08:32:36 due to recent failures.
+2025-05-30 08:24:36.4|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 08:32:36 due to recent failures.
+2025-05-30 08:26:06.4|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 08:32:36 due to recent failures.
+2025-05-30 08:27:36.5|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 08:32:36 due to recent failures.
+2025-05-30 08:27:36.5|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 08:28:36.5|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 08:32:36 due to recent failures.
+2025-05-30 08:29:36.6|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 08:32:36 due to recent failures.
+2025-05-30 08:30:36.6|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 08:32:36 due to recent failures.
+2025-05-30 08:32:06.6|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 08:32:36 due to recent failures.
+2025-05-30 08:32:06.6|Info|RssSyncService|Starting RSS Sync
+2025-05-30 08:32:06.6|Warn|FetchAndParseRssService|No available indexers. check your configuration.
+2025-05-30 08:32:06.6|Info|DownloadDecisionMaker|No results found
+2025-05-30 08:32:06.7|Info|RssSyncService|RSS Sync Completed. Reports found: 0, Reports grabbed: 0
+2025-05-30 08:32:06.7|Debug|PendingReleaseService|Removing failed releases from pending
+2025-05-30 08:32:36.7|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 08:33:06.7|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from qBittorrent
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 67
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 69
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetItems() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 220
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-05-30 08:33:11.7|Debug|DownloadClientCheck|Unable to communicate with qBittorrent
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 67
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 69
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetItems() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 220
+   at NzbDrone.Core.HealthCheck.Checks.DownloadClientCheck.Check() in ./Radarr.Core/HealthCheck/Checks/DownloadClientCheck.cs:line 40
+
+
+2025-05-30 08:34:36.7|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:36:06.8|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:37:06.8|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:37:36.8|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 08:38:06.8|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:39:36.8|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:41:06.9|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:42:36.9|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:42:36.9|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 08:43:37.0|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:45:07.0|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:46:07.0|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:47:37.0|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:47:37.0|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 08:48:37.1|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:49:37.1|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:51:07.1|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:52:37.2|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:52:37.2|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 08:53:37.2|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:55:07.3|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:56:37.3|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:57:37.3|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 08:57:37.3|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 08:58:37.3|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 09:00:07.4|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 09:01:07.4|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 09:02:07.4|Info|RssSyncService|Starting RSS Sync
+2025-05-30 09:02:07.4|Warn|FetchAndParseRssService|No available indexers. check your configuration.
+2025-05-30 09:02:07.4|Info|DownloadDecisionMaker|No results found
+2025-05-30 09:02:07.4|Info|RssSyncService|RSS Sync Completed. Reports found: 0, Reports grabbed: 0
+2025-05-30 09:02:07.4|Debug|PendingReleaseService|Removing failed releases from pending
+2025-05-30 09:02:37.5|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 09:02:37.5|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 09:03:06 due to recent failures.
+2025-05-30 09:04:07.5|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from qBittorrent
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 67
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 69
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetItems() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 220
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-05-30 09:04:12.6|Debug|DownloadClientCheck|Unable to communicate with qBittorrent
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 67
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 69
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetItems() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 220
+   at NzbDrone.Core.HealthCheck.Checks.DownloadClientCheck.Check() in ./Radarr.Core/HealthCheck/Checks/DownloadClientCheck.cs:line 40
+
+
+2025-05-30 09:05:37.5|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:06:37.6|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:07:37.6|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 09:08:07.6|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:09:37.7|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:11:07.7|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:12:37.7|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:12:37.7|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 09:13:37.8|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:15:07.8|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:16:07.8|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:17:37.9|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 09:17:37.9|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:19:07.9|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:20:37.9|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:22:08.0|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:22:38.0|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 09:23:08.0|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:24:38.0|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:26:08.1|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:27:08.1|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:27:38.2|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 09:28:08.2|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:29:38.2|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:30:38.4|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:32:08.4|Info|RssSyncService|Starting RSS Sync
+2025-05-30 09:32:08.4|Warn|FetchAndParseRssService|No available indexers. check your configuration.
+2025-05-30 09:32:08.4|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:32:08.4|Info|DownloadDecisionMaker|No results found
+2025-05-30 09:32:08.4|Info|RssSyncService|RSS Sync Completed. Reports found: 0, Reports grabbed: 0
+2025-05-30 09:32:08.4|Debug|PendingReleaseService|Removing failed releases from pending
+2025-05-30 09:32:38.5|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 09:33:08.5|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:34:38.5|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:36:08.6|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:37:38.6|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 09:37:38.6|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:39:08.7|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:40:08.7|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:41:38.7|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:42:38.7|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 09:43:08.7|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:44:38.8|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:46:08.8|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:47:08.9|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:47:38.9|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 09:48:08.9|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:49:08.9|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:50:39.0|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:51:39.0|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:52:39.0|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:52:39.0|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 09:53:39.1|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:55:09.1|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:56:09.1|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:57:09.2|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:57:39.2|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 09:58:09.2|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 09:59:09.3|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 10:00:09.3|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 10:01:39.3|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 10:02:09.3|Info|RssSyncService|Starting RSS Sync
+2025-05-30 10:02:09.4|Warn|FetchAndParseRssService|No available indexers. check your configuration.
+2025-05-30 10:02:09.4|Info|DownloadDecisionMaker|No results found
+2025-05-30 10:02:09.4|Info|RssSyncService|RSS Sync Completed. Reports found: 0, Reports grabbed: 0
+2025-05-30 10:02:09.4|Debug|PendingReleaseService|Removing failed releases from pending
+2025-05-30 10:02:39.4|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 10:02:39.4|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 10:04:07 due to recent failures.
+2025-05-30 10:04:07.9|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from qBittorrent
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 67
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 69
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetItems() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 220
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-05-30 10:04:13.4|Debug|DownloadClientCheck|Unable to communicate with qBittorrent
+
+[v5.25.0.10024] System.Net.Http.HttpRequestException: Name does not resolve (qbittorrent:8080)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 128
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxyV2.IsApiSupported(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxyV2.cs:line 67
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.FetchProxy(QBittorrentSettings settings) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 81
+   at NzbDrone.Common.Cache.Cached`1.Get(String key, Func`1 function, Nullable`1 lifeTime) in ./Radarr.Common/Cache/Cached.cs:line 99
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxyCache(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 69
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrentProxySelector.GetProxy(QBittorrentSettings settings, Boolean force) in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrentProxySelector.cs:line 59
+   at NzbDrone.Core.Download.Clients.QBittorrent.QBittorrent.GetItems() in ./Radarr.Core/Download/Clients/QBittorrent/QBittorrent.cs:line 220
+   at NzbDrone.Core.HealthCheck.Checks.DownloadClientCheck.Check() in ./Radarr.Core/HealthCheck/Checks/DownloadClientCheck.cs:line 40
+
+
+2025-05-30 10:07:47.1|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 11:04:07 due to recent failures.
+2025-05-30 10:07:47.1|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-05-30 10:08:47.1|Debug|DownloadClientFactory|Temporarily ignoring download client qBittorrent till 05/30/2025 11:04:07 due to recent failures.
