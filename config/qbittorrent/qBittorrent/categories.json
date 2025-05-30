@@ -1,0 +1,14 @@
+{
+    "movies": {
+        "save_path": ""
+    },
+    "music": {
+        "save_path": ""
+    },
+    "radarr": {
+        "save_path": ""
+    },
+    "tv": {
+        "save_path": ""
+    }
+}

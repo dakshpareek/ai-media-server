@@ -1,0 +1,42 @@
+
+# Overseerr - Media Request Management for AI Media Server
+# Web interface available at: http://overseerr:5055
+# Manages user requests and approval workflows
+
+services:
+  overseerr:
+    container_name: ai_media_overseerr
+    image: sctx/overseerr:${OVERSEERR_VERSION:-latest}
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=${TZ:-UTC}
+      # Enable API access for MCP integration
+      - PORT=5055
+    volumes:
+      # Configuration persistence
+      - ${CONFIG_OVERSEERR:-./config/overseerr}:/app/config
+      
+      # Logs for debugging
+      - ${LOGS_PATH:-./logs}/overseerr:/app/logs
+    ports:
+      # Expose only for initial setup, remove in production
+      - "${PORT_OVERSEERR:-5055}:5055"
+    networks:
+      - media_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:5055/api/v1/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    labels:
+      # Labels for service discovery and management
+      - "ai-media-server.service=overseerr"
+      - "ai-media-server.role=request-manager"
+      - "ai-media-server.api=http://overseerr:5055/api/v1"
+
+networks:
+  media_network:
+    name: ${NETWORK_NAME:-media_network}
+    external: true 

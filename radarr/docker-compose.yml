@@ -1,0 +1,47 @@
+
+# Radarr - Movie Collection Management for AI Media Server
+# Web interface available at: http://radarr:7878
+# Automates movie downloading and organization
+
+services:
+  radarr:
+    container_name: ai_media_radarr
+    image: lscr.io/linuxserver/radarr:${RADARR_VERSION:-latest}
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ:-UTC}
+    volumes:
+      # Configuration persistence
+      - ${CONFIG_RADARR:-./config/radarr}:/config
+      
+      # Downloads directory (for monitoring downloads)
+      - ${DOWNLOADS_PATH:-./downloads}:/downloads
+      
+      # Media library (for organizing completed movies)
+      - ${MEDIA_PATH:-./media}:/media
+      
+      # Logs for debugging
+      - ${LOGS_PATH:-./logs}/radarr:/logs
+    ports:
+      # Expose only for initial setup, remove in production
+      - "${PORT_RADARR:-7878}:7878"
+    networks:
+      - media_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7878/api/v3/system/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    labels:
+      # Labels for service discovery and management
+      - "ai-media-server.service=radarr"
+      - "ai-media-server.role=movie-manager"
+      - "ai-media-server.api=http://radarr:7878/api/v3"
+
+networks:
+  media_network:
+    name: ${NETWORK_NAME:-media_network}
+    external: true 

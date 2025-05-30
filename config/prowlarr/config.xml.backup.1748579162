@@ -1,0 +1,22 @@
+<Config>
+  <LogLevel>info</LogLevel>
+  <UpdateMechanism>Docker</UpdateMechanism>
+  <Branch>master</Branch>
+  <ApiKey>44b56a79a82d4295a367713457e6b074</ApiKey>
+  <AuthenticationMethod>None</AuthenticationMethod>
+  <AuthenticationRequired>DisabledForLocalAddresses</AuthenticationRequired>
+  <Port>9696</Port>
+  <SslPort>6969</SslPort>
+  <EnableSsl>False</EnableSsl>
+  <LaunchBrowser>True</LaunchBrowser>
+  <UrlBase></UrlBase>
+  <InstanceName>Prowlarr</InstanceName>
+  <LogSql>False</LogSql>
+  <LogRotate>50</LogRotate>
+  <LogSizeLimit>1</LogSizeLimit>
+  <Theme>auto</Theme>
+  <AnalyticsEnabled>False</AnalyticsEnabled>
+  <BindAddress>*</BindAddress>
+  <SslCertPath></SslCertPath>
+  <SslCertPassword></SslCertPassword>
+</Config>

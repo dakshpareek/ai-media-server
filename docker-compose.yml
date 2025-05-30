@@ -1,0 +1,36 @@
+
+# AI-Powered Media Server - Main Compose File
+# This file sets up the shared network and Cloudflared tunnel
+# Individual services are defined in their own compose files
+
+services:
+  cloudflared:
+    container_name: ai_media_cloudflared
+    image: cloudflare/cloudflared:latest
+    command: tunnel --config /etc/cloudflared/config.yml run
+    volumes:
+      - ${CONFIG_PATH}/cloudflared:/etc/cloudflared
+    networks:
+      - media_network
+    restart: unless-stopped
+    depends_on:
+      - network_setup
+    healthcheck:
+      test: ["CMD", "cloudflared", "--version"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Dummy service to ensure network exists
+  network_setup:
+    image: alpine:latest
+    command: ['sh', '-c', 'echo "Media network is ready" && sleep 5']
+    networks:
+      - media_network
+
+networks:
+  media_network:
+    name: ${NETWORK_NAME:-media_network}
+    driver: bridge
+    external: true 

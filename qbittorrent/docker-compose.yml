@@ -1,0 +1,49 @@
+# qBittorrent - Download Client for AI Media Server
+# Web interface available at: http://qbittorrent:8080
+# Configured via API script: scripts/configure-qbittorrent.sh
+
+services:
+  qbittorrent:
+    container_name: ai_media_qbittorrent
+    image: lscr.io/linuxserver/qbittorrent:${QBITTORRENT_VERSION:-latest}
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ:-UTC}
+      - WEBUI_PORT=${PORT_QBITTORRENT:-8080}
+      # Enable web API for automation
+      - DOCKER_MODS=linuxserver/mods:qbittorrent-vuetorrent
+    volumes:
+      # Configuration persistence
+      - ${CONFIG_QBITTORRENT:-./config/qbittorrent}:/config
+      
+      # Downloads directory
+      - ${DOWNLOADS_PATH:-./downloads}:/downloads
+      
+      # Media library (for moving completed downloads)
+      - ${MEDIA_PATH:-./media}:/media
+      
+      # Logs for debugging
+      - ${LOGS_PATH:-./logs}/qbittorrent:/logs
+    ports:
+      # Expose only for initial setup, remove in production
+      - "${PORT_QBITTORRENT:-8080}:8080"
+    networks:
+      - media_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    labels:
+      # Labels for service discovery and management
+      - "ai-media-server.service=qbittorrent"
+      - "ai-media-server.role=download-client"
+      - "ai-media-server.api=http://qbittorrent:8080/api/v2"
+
+networks:
+  media_network:
+    name: ${NETWORK_NAME:-media_network}
+    external: true 

@@ -1,0 +1,32 @@
+(N) 2025-05-29T08:02:54 - qBittorrent v5.1.0 started. Process ID: 197
+(N) 2025-05-29T08:02:54 - Using config directory: /config/qBittorrent
+(N) 2025-05-29T08:02:54 - Trying to listen on the following list of IP addresses: "0.0.0.0:6881,[::]:6881"
+(I) 2025-05-29T08:02:54 - Peer ID: "-qB5100-"
+(I) 2025-05-29T08:02:54 - HTTP User-Agent: "qBittorrent/5.1.0"
+(I) 2025-05-29T08:02:54 - Distributed Hash Table (DHT) support: ON
+(I) 2025-05-29T08:02:54 - Local Peer Discovery support: ON
+(I) 2025-05-29T08:02:54 - Peer Exchange (PeX) support: ON
+(I) 2025-05-29T08:02:54 - Anonymous mode: OFF
+(I) 2025-05-29T08:02:54 - Encryption support: ON
+(I) 2025-05-29T08:02:54 - Successfully listening on IP. IP: "127.0.0.1". Port: "TCP/6881"
+(I) 2025-05-29T08:02:54 - Successfully listening on IP. IP: "127.0.0.1". Port: "UTP/6881"
+(I) 2025-05-29T08:02:54 - Successfully listening on IP. IP: "172.19.0.3". Port: "TCP/6881"
+(I) 2025-05-29T08:02:54 - Successfully listening on IP. IP: "172.19.0.3". Port: "UTP/6881"
+(I) 2025-05-29T08:02:54 - Successfully listening on IP. IP: "::1". Port: "TCP/6881"
+(I) 2025-05-29T08:02:54 - Successfully listening on IP. IP: "::1". Port: "UTP/6881"
+(W) 2025-05-29T08:02:54 - Couldn't load IP geolocation database. Reason: No such file or directory
+(N) 2025-05-29T08:02:54 - Using built-in WebUI.
+(W) 2025-05-29T08:02:54 - Couldn't load WebUI translation for selected locale (C).
+(N) 2025-05-29T08:02:54 - WebUI: Now listening on IP: *, port: 8080
+(I) 2025-05-29T08:02:55 - IP geolocation database loaded. Type: DBIP-Country-Lite. Build time: Wed Apr 30 21:20:15 2025.
+(I) 2025-05-29T08:02:55 - Successfully updated IP geolocation database.
+(W) 2025-05-29T08:04:19 - WebAPI login failure. Reason: invalid credentials, attempt count: 1, IP: ::ffff:172.19.0.1, username: admin
+(N) 2025-05-29T08:05:00 - WebAPI login success. IP: ::ffff:172.19.0.1
+(N) 2025-05-29T08:05:00 - WebAPI login success. IP: ::ffff:172.19.0.1
+(N) 2025-05-29T08:08:18 - WebAPI login success. IP: ::ffff:172.19.0.1
+(W) 2025-05-29T08:26:21 - WebAPI login failure. Reason: invalid credentials, attempt count: 1, IP: ::ffff:172.19.0.1, username: admin
+(N) 2025-05-29T08:28:26 - WebAPI login success. IP: ::ffff:172.19.0.1
+(N) 2025-05-29T08:29:49 - WebAPI login success. IP: ::ffff:172.19.0.4
+(W) 2025-05-29T08:35:43 - WebAPI login failure. Reason: invalid credentials, attempt count: 1, IP: ::ffff:172.19.0.1, username: admin
+(W) 2025-05-30T00:31:37 - WebAPI login failure. Reason: invalid credentials, attempt count: 2, IP: ::ffff:172.19.0.1, username: admin
+(N) 2025-05-30T00:31:43 - WebAPI login success. IP: ::ffff:172.19.0.1
