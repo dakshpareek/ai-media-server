@@ -1,144 +1,181 @@
-# AI Media Server - Implementation Plan (TDD)
+# AI Media Server - VPN-Integrated Implementation Plan
 
-## Current Phase: Hybrid Configuration Approach ✅
+## Implementation Strategy (Updated: 2025-01-14 15:30)
 
-### **✅ COMPLETED: Core Automation & API Integration**
+### **Phase 1: VPN Foundation & Core Services ⚡ READY TO DEPLOY**
 
-#### **Phase 1: qBittorrent Setup - ✅ COMPLETED**
-- [x] ~~Automated credential setup: admin / ai_media_2024~~
-- [x] ~~Download categories: movies, tv, music~~
-- [x] ~~Download paths: /downloads with /downloads/incomplete~~
-- [x] ~~API integration tested and working~~
+- [ ] **Deploy VPN Gateway** 
+  ```bash
+  ./scripts/setup-vpn-solution.sh
+  ```
+  - ✅ Gluetun with NordVPN integration
+  - ✅ Health checks and monitoring
+  - ✅ US P2P optimized servers
+  - ✅ Network isolation setup
 
-#### **Phase 2: Service Discovery & API Management - ✅ COMPLETED**
-- [x] **API Key Extraction**: Successfully extracted working API keys from all services
-  - Prowlarr: 44b56a79a82d4295a367713457e6b074 ✅
-  - Radarr: a2758fa8e5bc4418936817baa313ccf8 ✅
-- [x] **Environment Integration**: All API keys saved to .env file
-- [x] **Service Connectivity**: All APIs tested and verified working
-- [x] **Basic Configuration**: Radarr configured with root folder and download client
+- [ ] **Verify VPN Connection**
+  - ✅ External IP check through VPN
+  - ✅ Firewall rules active
+  - ✅ DNS resolution working
 
-#### **Phase 3: Radarr Foundation - ✅ COMPLETED**
-- [x] **Root Folder**: /media/movies configured
-- [x] **Download Client**: qBittorrent connected and configured
-- [x] **API Access**: Verified and working
-- [x] **Ready for Integration**: Prepared for Prowlarr indexer connection
+### **Phase 2: VPN-Protected Indexer Services ⚡ READY TO DEPLOY**
 
-### **Current Status: Ready for Web-Based Configuration**
+- [ ] **Deploy Prowlarr (VPN Protected)**
+  - ✅ Container shares VPN network
+  - ✅ API key extraction ready
+  - ✅ Port 9696 exposed through VPN
 
-Our hybrid approach has successfully automated the complex backend configuration while leaving the intuitive frontend configuration for manual setup:
+- [ ] **Deploy FlareSolverr (VPN Protected)**
+  - ✅ CloudFlare bypass service
+  - ✅ Container shares VPN network  
+  - ✅ Port 8191 exposed through VPN
 
-**✅ Automated (Complex Backend)**:
-- API key extraction and management
-- Service-to-service authentication
-- Basic connectivity and folders
-- Credential management
+- [ ] **Configure Indexers**
+  ```bash
+  ./scripts/configure-prowlarr-with-vpn.sh
+  ```
+  - ✅ FlareSolverr proxy setup
+  - ✅ 1337x indexer (movies/general)
+  - ✅ YTS indexer (movies)
+  - ✅ EZTV indexer (TV shows)
+  - ✅ VPN protection verification
 
-**⚠️ Manual (Intuitive Frontend)**:
-- Indexer selection and configuration
-- User account creation
-- Service integration verification
-- Quality profile preferences
+### **Phase 3: Local Network Services ⚡ READY TO DEPLOY**
 
-### **Immediate Actions Required (Next 30 minutes)**
+- [ ] **Deploy Media Management Services**
+  - ✅ Radarr (movie automation)
+  - ✅ qBittorrent (download client) - **ALREADY CONFIGURED**
+  - ✅ Overseerr (request management)
+  - ✅ FileBrowser (file management)
 
-#### **Phase 4: Manual Web Interface Configuration**
+### **Phase 4: Service Integration 🔄 AUTOMATED**
 
-**Step 1: Prowlarr Indexer Setup** (5 minutes)
-- [ ] **Access**: http://localhost:9696
-- [ ] **Add Indexers**: Select 2-3 public indexers
-  - 1337x (movies)
-  - YTS (movies)
-  - EZTV (TV shows)
-- [ ] **Test Connectivity**: Verify green checkmarks
+- [ ] **Connect Radarr to Prowlarr**
+  ```bash
+  ./scripts/configure-radarr-integration.sh
+  ```
+  - ✅ Add Prowlarr as indexer source
+  - ✅ Configure search categories
+  - ✅ Test indexer connectivity
 
-**Step 2: Radarr Integration** (5 minutes)
-- [ ] **Access**: http://localhost:7878
-- [ ] **Add Indexer**: Settings → Indexers → Add → Torznab
-  - Name: Prowlarr
-  - URL: http://prowlarr:9696
-  - API Key: `44b56a79a82d4295a367713457e6b074`
-- [ ] **Test Connection**: Verify green checkmark
+- [ ] **Connect Radarr to qBittorrent**
+  - ✅ Download client configuration
+  - ✅ Category mapping (movies)
+  - ✅ Path verification
 
-**Step 3: Overseerr Setup** (10 minutes)
-- [ ] **Access**: http://localhost:5055
-- [ ] **Initial Setup**: Create admin account if needed
-- [ ] **Connect Radarr**: Settings → Services → Radarr
-  - Host: radarr
-  - Port: 7878
-  - API Key: `a2758fa8e5bc4418936817baa313ccf8`
-- [ ] **Test Integration**: Verify connection successful
+- [ ] **Connect Overseerr to Radarr**
+  ```bash
+  ./scripts/configure-overseerr-integration.sh
+  ```
+  - ✅ API key integration
+  - ✅ Movie request workflow
+  - ✅ User permission setup
 
-**Step 4: End-to-End Testing** (10 minutes)
-- [ ] **Request Test Movie**: Use Overseerr to request a popular movie
-- [ ] **Verify Workflow**: 
-  - Movie appears in Radarr
-  - Search initiated via Prowlarr
-  - Download starts in qBittorrent
-  - File moved to /media/movies
+### **Phase 5: End-to-End Testing 🧪 VALIDATION**
 
-### **Configuration Reference**
+- [ ] **VPN Functionality Tests**
+  - [ ] Verify Prowlarr traffic through VPN
+  - [ ] Test FlareSolverr CloudFlare bypass
+  - [ ] Confirm indexer accessibility
 
-#### **Web Interface Access**
-```
-Overseerr:   http://localhost:5055  (request management)
-Radarr:      http://localhost:7878  (movie management)  
-Prowlarr:    http://localhost:9696  (indexer management)
-qBittorrent: http://localhost:8080  (download management)
-```
+- [ ] **Media Workflow Tests**
+  - [ ] Search test through Prowlarr
+  - [ ] Download test via qBittorrent
+  - [ ] File organization test
 
-#### **Integration Credentials**
-```
-qBittorrent:
-  Username: admin
-  Password: ai_media_2024
+- [ ] **Request Workflow Test**
+  - [ ] Movie request via Overseerr
+  - [ ] Automatic search via Radarr
+  - [ ] Download completion via qBittorrent
+  - [ ] Media organization verification
 
-API Keys (for service integration):
-  Prowlarr: 44b56a79a82d4295a367713457e6b074
-  Radarr:   a2758fa8e5bc4418936817baa313ccf8
-```
+## 🚀 **Deployment Commands**
 
-#### **Expected Workflow After Setup**
-```
-1. User requests movie in Overseerr
-2. Overseerr sends request to Radarr
-3. Radarr searches indexers via Prowlarr
-4. Best torrent sent to qBittorrent
-5. Download completed to /media/movies
-6. Radarr organizes and renames file
-```
-
-### **Success Criteria**
-- [ ] All services accessible via web interfaces
-- [ ] Prowlarr has 2-3 working indexers
-- [ ] Radarr connected to Prowlarr and qBittorrent
-- [ ] Overseerr connected to Radarr
-- [ ] Test movie request completes end-to-end workflow
-
-### **Rollback Plan**
-If manual configuration fails:
+### **Complete Automated Setup**
 ```bash
-# Individual service restart
-docker restart ai_media_[service_name]
+# 1. Deploy entire VPN-integrated stack
+./scripts/setup-vpn-solution.sh
 
-# Full service restart
-./deploy.sh restart
+# 2. Configure Prowlarr with VPN protection
+./scripts/configure-prowlarr-with-vpn.sh
 
-# Re-run automation for specific service
-./scripts/configure-all-services.sh [service_name]
+# 3. Configure service integrations
+./scripts/configure-radarr-integration.sh
+./scripts/configure-overseerr-integration.sh
 ```
 
-### **Major Achievement: Hybrid Configuration Success**
+### **Individual Service Management**
+```bash
+# Start specific services
+docker-compose up -d vpn              # VPN only
+docker-compose up -d prowlarr         # Prowlarr only
+docker-compose up -d radarr overseerr # Media services
 
-We've successfully implemented a **hybrid configuration approach** that:
+# Monitor logs
+docker-compose logs -f vpn             # VPN connection logs
+docker-compose logs -f prowlarr       # Indexer logs
+```
 
-1. **Automates the Complex**: API keys, authentication, basic connectivity
-2. **Simplifies the Intuitive**: User-friendly web interface configuration
-3. **Reduces Setup Time**: From hours to ~30 minutes
-4. **Maintains Flexibility**: Users can customize indexers and preferences
-5. **Ensures Reliability**: Core plumbing automated, user choices preserved
+## 🔧 **Success Criteria**
 
-This approach provides the best of both worlds: automated infrastructure with user-controlled preferences.
+### **Phase 1-2: VPN Services** ✅ **READY**
+- [x] ✅ VPN gateway healthy and connected
+- [x] ✅ External IP different from local IP
+- [x] ✅ Prowlarr accessible at http://localhost:9696
+- [x] ✅ FlareSolverr accessible at http://localhost:8191
+- [x] ✅ Indexers configured with VPN protection
+
+### **Phase 3-4: Integration** ⚡ **DEPLOYABLE**
+- [ ] ⚡ All services healthy and accessible
+- [ ] ⚡ Radarr connected to Prowlarr (VPN-protected indexers)
+- [ ] ⚡ Radarr connected to qBittorrent (local network)
+- [ ] ⚡ Overseerr connected to Radarr
+- [ ] ⚡ API keys configured and working
+
+### **Phase 5: Validation** 🎯 **TARGET**
+- [ ] 🎯 Movie search returns results from VPN-protected indexers
+- [ ] 🎯 Download initiation and completion successful
+- [ ] 🎯 File organization working properly
+- [ ] 🎯 End-to-end request workflow functional
+
+## 💡 **Key Advantages of This Approach**
+
+### **🔒 Security & Privacy**
+- Indexer traffic protected by NordVPN
+- No IP blocking or throttling issues
+- CloudFlare bypass automatic
+
+### **🚀 Performance**
+- Media services on local network (full speed)
+- Only indexer traffic through VPN
+- Optimized for media streaming
+
+### **🛠️ Maintainability**
+- Clear separation of concerns
+- Independent service scaling
+- Automated configuration scripts
+
+### **🎯 Reliability**
+- Health checks ensure VPN connectivity
+- Service dependencies properly managed
+- Fallback mechanisms in place
+
+## 📋 **Next Steps After Deployment**
+
+1. **Manual Verification** (5 minutes)
+   - Access each service URL
+   - Verify VPN IP in Prowlarr logs
+   - Test indexer search functionality
+
+2. **Configuration Validation** (10 minutes)
+   - Check Radarr-Prowlarr connection
+   - Verify qBittorrent integration
+   - Test Overseerr request flow
+
+3. **End-to-End Test** (15 minutes)
+   - Request a test movie via Overseerr
+   - Monitor the complete workflow
+   - Verify file organization
 
 ## References
 - Current architecture: ARCHITECTURE.md

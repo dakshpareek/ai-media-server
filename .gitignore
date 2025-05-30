@@ -1,0 +1,272 @@
+# AI Media Server with VPN Protection - GitIgnore
+
+# ==================================================
+# Environment & Configuration Files (Sensitive)
+# ==================================================
+.env
+.env.local
+.env.production
+.env.staging
+*.env.bak
+*.env.backup
+
+# ==================================================
+# Runtime Data Directories (Large/Dynamic)
+# ==================================================
+
+# Application Configuration (contains API keys, settings)
+
+# Base config directory exclusions
+config/
+!config/.gitkeep
+
+# Overseerr specific files
+config/overseerr/logs/
+config/overseerr/db/
+config/overseerr/**/*.json
+config/overseerr/**/*.log
+
+# Prowlarr specific files
+config/prowlarr/logs/
+config/prowlarr/*.db
+config/prowlarr/*.db-*
+config/prowlarr/*.pid
+config/prowlarr/config.xml
+config/prowlarr/logs.db
+config/prowlarr/**/*.txt
+
+# qBittorrent specific files
+config/qbittorrent/qBittorrent/logs/
+config/qbittorrent/qBittorrent/*.conf
+config/qbittorrent/**/*.log
+
+# Radarr specific files
+config/radarr/logs/
+config/radarr/*.db
+config/radarr/*.db-*
+config/radarr/*.pid
+config/radarr/**/*.txt
+config/**/*.db
+config/**/*.db-*
+config/**/*.pid
+config/**/*.log
+config/**/*.txt
+config/**/*.xml
+
+# Media Library (user content)
+media/
+!media/.gitkeep
+
+# Downloads Directory (temporary files, active downloads)
+downloads/
+!downloads/.gitkeep
+
+# Application Logs (generated at runtime)
+logs/
+!logs/.gitkeep
+
+archived-logs/
+error-logs/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# ==================================================
+# Docker & Container Data
+# ==================================================
+
+# Docker volumes and data
+.docker/
+docker-data/
+volumes/
+
+# Docker Compose override files (local customizations)
+docker-compose.override.yml
+docker-compose.local.yml
+
+# Container logs
+*.log
+
+# ==================================================
+# Development & IDE Files
+# ==================================================
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Editor backups
+*.bak
+*.backup
+
+# ==================================================
+# System & Process Files
+# ==================================================
+
+# Process IDs
+*.pid
+*.lock
+
+# System files
+.fuse_hidden*
+.directory
+.Trash-*
+
+# ==================================================
+# Documentation Build Files
+# ==================================================
+
+# Generated documentation
+docs/build/
+docs/_build/
+docs/ARCHITECTURE.md
+docs/DECISIONS.md
+docs/IMPLEMENTATION_PLAN.md
+docs/NOTES.md
+*.html
+*.pdf
+
+# ==================================================
+# Backup & Archive Files
+# ==================================================
+
+# Compressed files (avoid accidentally committing large files)
+*.zip
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.rar
+*.7z
+
+# Backup files
+*.backup
+backup/
+backups/
+
+# ==================================================
+# VPN & Security Related
+# ==================================================
+
+# NordVPN specific files that might contain auth tokens
+.nordvpn/
+nordvpn-auth.txt
+vpn-credentials.*
+
+# SSL certificates and keys
+*.pem
+*.key
+*.crt
+*.cert
+*.p12
+*.pfx
+
+# ==================================================
+# Application Specific Ignores
+# ==================================================
+
+# qBittorrent
+*.fastresume
+BT_backup/
+*.!qB
+
+# Database files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite3-shm
+*.sqlite3-wal
+
+# FlareSolverr sessions
+flaresolverr-sessions/
+
+# ==================================================
+# Keep Essential Structure Files
+# ==================================================
+
+# Ensure essential directories exist in repo
+!.gitkeep
+!README.md
+!STRUCTURE.md
+
+# Keep directory structure but ignore contents
+*/
+!scripts/
+!docker/
+!2025-01-14/
+
+# Configuration and setup scripts
+scripts/configure-*.sh
+scripts/test-*.sh
+
+# ==================================================
+# CI/CD & Deployment
+# ==================================================
+
+# Deployment artifacts
+deploy-artifacts/
+.deploy/
+deploy.sh
+check-setup.sh
+
+# GitHub Actions logs
+.github/workflows/logs/
+
+# Service-specific docker compose files
+*/docker-compose.yml
+filebrowser/docker-compose.yml
+overseerr/docker-compose.yml
+prowlarr/docker-compose.yml
+qbittorrent/docker-compose.yml
+radarr/docker-compose.yml
+
+# ==================================================
+# Testing & Development
+# ==================================================
+
+# Test outputs
+test-results/
+coverage/
+*.coverage
+test-*.sh
+
+# Development databases
+dev.db
+test.db
+
+# Local development overrides
+local.yml
+development.yml
+
+# ==================================================
+# Performance & Monitoring
+# ==================================================
+
+# Performance logs
+perf.data
+*.prof
+
+# Monitoring data
+monitoring/
+metrics/
+
+# Node modules (if any Node.js tools added later)
+node_modules/

@@ -1,75 +1,95 @@
 # AI Media Server - Architecture Overview
 
-## Current Architecture (Updated: 2025-01-14)
+## Current Architecture (Updated: 2025-01-14 15:30)
 
-### **System Status: Partially Deployed ⚠️**
+### **VPN-Integrated Microservices Architecture**
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                     AI Media Server                        │
+│                    DOCKER NETWORK                          │
 ├─────────────────────────────────────────────────────────────┤
-│  🤖 Future: MCP Server ←→ LLM (Claude, GPT, etc.)        │  [NOT IMPLEMENTED]
-├─────────────────────────────────────────────────────────────┤
-│  📋 Overseerr (Request Management)        ✅ RUNNING       │
-│  🎬 Radarr (Movie Automation)             ⚠️ UNHEALTHY    │
-│  🔍 Prowlarr (Indexer Management)         ✅ RUNNING       │
-│  ⬇️  qBittorrent (Download Client)         ✅ RUNNING       │
-│  📁 FileBrowser (File Management)         ❌ NOT STARTED  │
-├─────────────────────────────────────────────────────────────┤
-│  🌐 Cloudflared (Secure External Access)  ❌ RESTARTING   │
-│  🐳 Docker Network (Service Communication) ✅ ESTABLISHED │
-└─────────────────────────────────────────────────────────────┘
+│                                                             │
+│  ┌─────────────────┐    ┌─────────────────────────────────┐ │
+│  │   VPN GATEWAY   │    │      LOCAL SERVICES             │ │
+│  │   (Gluetun)     │    │                                 │ │
+│  │                 │    │  ┌─────────────────────────────┐ │ │
+│  │ ┌─────────────┐ │    │  │ Radarr (Movies)     :7878  │ │ │
+│  │ │ Prowlarr    │ │    │  │ Overseerr (Requests):5055  │ │ │
+│  │ │ :9696       │ │    │  │ qBittorrent (DL)    :8080  │ │ │
+│  │ └─────────────┘ │    │  │ FileBrowser (Files) :8081  │ │ │
+│  │                 │    │  └─────────────────────────────┘ │ │
+│  │ ┌─────────────┐ │    └─────────────────────────────────┐ │
+│  │ │FlareSolverr │ │                                      │ │
+│  │ │ :8191       │ │                                      │ │
+│  │ └─────────────┘ │                                      │ │
+│  │                 │                                      │ │
+│  │    NordVPN      │                                      │ │
+│  │   Connection    │                                      │ │
+│  └─────────────────┘                                      │ │
+│           │                                               │ │
+└───────────┼───────────────────────────────────────────────┘ │
+            │                                                 │
+            ▼                                                 │
+    ┌─────────────────┐                                      │
+    │   INTERNET      │                                      │
+    │   INDEXERS      │                                      │
+    │                 │                                      │
+    │  • 1337x        │◄─────────────────────────────────────┘
+    │  • YTS          │
+    │  • EZTV         │
+    │  • Others       │
+    └─────────────────┘
 ```
 
-### **Deployed Services**
+### **Service Categories**
 
-| Service | Status | Port | Container ID | Health |
-|---------|--------|------|--------------|---------|
-| **Overseerr** | ✅ Running | 5055 | fb71f5ed81b6 | Healthy |
-| **Radarr** | ⚠️ Running | 7878 | 5ee958a6a80a | Unhealthy |
-| **Prowlarr** | ✅ Running | 9696 | b15e2202abb3 | Healthy |
-| **qBittorrent** | ✅ Running | 8080 | 7cef55cdcddb | Healthy |
-| **FileBrowser** | ❌ Not Started | 8081 | - | - |
-| **Cloudflared** | ❌ Restarting | - | 2f80e19d5598 | Failing |
+#### **🔒 VPN-Protected Services (Critical for Indexing)**
+- **VPN Gateway (Gluetun)**: NordVPN connection with US P2P servers
+- **Prowlarr**: Indexer management (protected from blocking)
+- **FlareSolverr**: CloudFlare bypass service
 
-### **Configuration State**
+#### **🏠 Local Network Services (Performance Optimized)**
+- **Radarr**: Movie management and automation
+- **Overseerr**: User-friendly request interface
+- **qBittorrent**: Download client (already configured)
+- **FileBrowser**: File and media management
 
-- **Environment**: ✅ Properly configured (.env file exists with correct paths)
-- **Permissions**: ✅ PUID=501, PGID=20 (matching system user)
-- **Storage Structure**: ✅ All required directories created
-- **Network**: ✅ Docker network `media_network` established
-- **API Keys**: ❌ Not yet configured (empty in .env)
-
-### **File System Structure**
+### **Data Flow Architecture**
 
 ```
-/Users/dakshpareek/personal-projects/ai-media-server/
-├── config/          ✅ Service configurations
-│   ├── overseerr/   ✅ Active
-│   ├── radarr/      ✅ Active
-│   ├── prowlarr/    ✅ Active
-│   ├── qbittorrent/ ✅ Active
-│   └── filebrowser/ ✅ Created
-├── downloads/       ✅ Download staging area
-├── media/           ✅ Organized media library
-├── logs/            ✅ Service logs
-└── cloudflared/     ⚠️ Tunnel configuration issues
+User Request → Overseerr → Radarr → Prowlarr (VPN) → Indexers
+                    ↓         ↓         ↓
+                Media DB → qBittorrent ← Search Results
+                    ↓
+                File Organization → Media Library
 ```
 
-## Reasoning
+### **Security & Network Design**
 
-- **Microservices Architecture**: Enables independent scaling and maintenance of each component
-- **Containerization**: Ensures consistent deployment and isolation
-- **Data Persistence**: Host-mounted volumes preserve configuration and media across container restarts
-- **Network Isolation**: Custom Docker network enables secure inter-service communication
+1. **Network Segmentation**: VPN services isolated from local services
+2. **Traffic Routing**: Only indexer traffic through VPN
+3. **Performance**: Media services on local network for speed
+4. **Protection**: Indexers protected from ISP/site blocking
 
-## Issues Identified
+## Key Design Decisions
 
-1. **Radarr Unhealthy**: Likely configuration or dependency issue
-2. **Cloudflared Failing**: Tunnel authentication or configuration problem
-3. **FileBrowser Missing**: Service not included in current deployment
-4. **API Keys Empty**: Services not yet interconnected
+### **VPN Strategy**: Gluetun with NordVPN
+- **Why**: More reliable than bubuntux/nordvpn
+- **Configuration**: US P2P optimized servers
+- **Services**: Only Prowlarr + FlareSolverr
+- **Benefits**: Prevents indexer blocking while maintaining performance
 
-## References
-- Architecture decisions: DECISIONS.md (2025-01-14)
-- Implementation needs: IMPLEMENTATION_PLAN.md 
+### **Service Communication**
+- **network_mode: "service:vpn"**: Shared network namespace
+- **Health checks**: Ensure VPN is connected before starting dependent services
+- **API Integration**: Services communicate via internal Docker networking
+
+### **Port Management**
+- **VPN Gateway**: Exposes ports 9696 (Prowlarr) and 8191 (FlareSolverr)
+- **Local Services**: Direct port mapping for performance
+- **No Conflicts**: Clean separation between VPN and local services
+
+## Previous Architecture (Deprecated)
+
+- **Manual Configuration** approach (see DECISIONS.md on 2025-01-14 10:01)
+- **Non-VPN Setup** (blocked indexers, see DECISIONS.md on 2025-01-14 15:20) 

@@ -1,16 +1,29 @@
 # AI Media Server - Decision Log
 
-## ✅ Current Agreed Decisions (Updated: 2025-01-14 10:01)
+## ✅ Current Agreed Decisions (Updated: 2025-01-14 15:30)
 
-- **Architecture**: Docker-based microservices with automated configuration
-- **Configuration Approach**: API-based automation for complex services, manual for user preferences
-- **qBittorrent**: Fully automated with API-based credential setup ✅ WORKING
-- **Service Integration**: Proven pattern with qBittorrent as foundation
-- **User Experience**: Stable foundation with manual configuration for remaining services
+- **Architecture**: Docker-based microservices with VPN integration for indexer services
+- **VPN Solution**: Gluetun-based NordVPN integration for Prowlarr and FlareSolverr
+- **Network Strategy**: Shared VPN container with service networking for traffic routing
+- **Security Approach**: Only indexer services (Prowlarr/FlareSolverr) through VPN, media services on local network
+- **Service Integration**: Proven pattern with qBittorrent as foundation + VPN-protected indexers
 
 ---
 
 ## 📌 Decision History
+
+### 📅 2025-01-14 15:30 - **VPN INTEGRATION ANALYSIS & SOLUTION**
+- **Challenge**: Current setup not working - bubuntux/nordvpn showing "No token set" error
+- **Analysis**: User created dual VPN approaches with different containers
+- **Solution**: Consolidate to single Gluetun-based VPN with proper NordVPN integration
+- **Services**: Prowlarr + FlareSolverr through VPN, other services on local network
+- **Benefits**: Prevents indexer blocking, maintains performance for media services
+
+### 📅 2025-01-14 15:20 - **VPN REQUIREMENT IDENTIFIED**
+- **Decision**: Implement NordVPN integration for Prowlarr and FlareSolverr
+- **Reasoning**: Indexers getting blocked, need VPN protection for search/resolution services
+- **Implementation**: Shared VPN container with network_mode service sharing
+- **Credentials**: NordVPN email/password already configured in .env
 
 ### 📅 2025-01-14 10:01 - **REVERT TO CLEAN STATE**
 - **Decision**: Revert to stable working state with qBittorrent fully configured
@@ -50,4 +63,17 @@
 - **Download Client**: qBittorrent chosen for torrent handling ✅ CONFIGURED
 - **Request Management**: Overseerr for user-friendly media requests
 - **Containerization**: Docker Compose for service orchestration
-- **Security**: Cloudflare tunnel for external access 
+- **Security**: Cloudflare tunnel for external access
+
+### 📅 2025-01-14 16:00 - **🎯 BREAKTHROUGH: NordVPN ACCESS TOKEN METHOD**
+- **Discovery**: User found NordVPN Access Token option in dashboard - "Advanced Settings" → "Get Access Token"
+- **Decision**: Switch from OpenVPN credentials to Access Token authentication
+- **Implementation**: 
+  - Updated docker-compose.yml: `OPENVPN_USER=token` + `OPENVPN_PASSWORD=${NORDVPN_TOKEN}`
+  - Created token setup guide: `scripts/setup-nordvpn-token.sh`
+  - Modern method - no separate username/password needed
+- **Advantages**: 
+  - Works with existing account credentials
+  - NordVPN's preferred modern authentication
+  - More secure than traditional OpenVPN credentials
+  - No service credential generation required 

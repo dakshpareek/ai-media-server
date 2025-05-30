@@ -1,36 +1,150 @@
-
-# AI-Powered Media Server - Main Compose File
-# This file sets up the shared network and Cloudflared tunnel
-# Individual services are defined in their own compose files
-
 services:
-  cloudflared:
-    container_name: ai_media_cloudflared
-    image: cloudflare/cloudflared:latest
-    command: tunnel --config /etc/cloudflared/config.yml run
+  ###############################################################################
+  # NORDVPN CLI: Official NordVPN Client Container
+  ###############################################################################
+  nordvpn:
+    container_name: nordvpn_official
+    build:
+      context: ./docker/nordvpn-cli
+      dockerfile: Dockerfile
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    sysctls:
+      - net.ipv4.conf.all.rp_filter=2
+      - net.ipv6.conf.all.forwarding=1
+    environment:
+      - NORDVPN_USER=${NORDVPN_USER}
+      - NORDVPN_PASS=${NORDVPN_PASS}
+      - CONNECT=${NORDVPN_CONNECT:-P2P}
+      - TECHNOLOGY=${NORDVPN_TECH:-NordLynx}
+      - NETWORK=${LOCAL_NETWORK:-192.168.0.0/16}
+      - TZ=${TZ:-UTC}
+    ports:
+      # Prowlarr Web UI (through VPN)
+      - "${PORT_PROWLARR:-9696}:9696"
+      # FlareSolverr API (through VPN)
+      - "8191:8191"
     volumes:
-      - ${CONFIG_PATH}/cloudflared:/etc/cloudflared
-    networks:
-      - media_network
+      - /lib/modules:/lib/modules:ro
     restart: unless-stopped
-    depends_on:
-      - network_setup
     healthcheck:
-      test: ["CMD", "cloudflared", "--version"]
-      interval: 30s
+      test: ["CMD", "nordvpn", "status"]
+      interval: 60s
       timeout: 10s
       retries: 3
-      start_period: 40s
+      start_period: 30s
 
-  # Dummy service to ensure network exists
-  network_setup:
-    image: alpine:latest
-    command: ['sh', '-c', 'echo "Media network is ready" && sleep 5']
-    networks:
-      - media_network
+  ###############################################################################
+  # PROWLARR: Indexer Management (VPN Protected via NordVPN CLI)
+  ###############################################################################
+  prowlarr:
+    container_name: ai_media_prowlarr
+    image: lscr.io/linuxserver/prowlarr:${PROWLARR_VERSION:-latest}
+    network_mode: "service:nordvpn"
+    depends_on:
+      nordvpn:
+        condition: service_healthy
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ:-UTC}
+    volumes:
+      - ${CONFIG_PROWLARR:-./config/prowlarr}:/config
+      - ${LOGS_PATH:-./logs}/prowlarr:/logs
+    restart: unless-stopped
 
-networks:
-  media_network:
-    name: ${NETWORK_NAME:-media_network}
-    driver: bridge
-    external: true 
+  ###############################################################################
+  # FLARESOLVERR: CloudFlare Bypass (VPN Protected via NordVPN CLI)
+  ###############################################################################
+  flaresolverr:
+    container_name: ai_media_flaresolverr
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    network_mode: "service:nordvpn"
+    depends_on:
+      nordvpn:
+        condition: service_healthy
+    environment:
+      - LOG_LEVEL=info
+      - TZ=${TZ:-UTC}
+      - CAPTCHA_SOLVER=none
+    restart: unless-stopped
+
+  ###############################################################################
+  # OTHER SERVICES: Run on local network (same as current setup)
+  ###############################################################################
+  radarr:
+    container_name: ai_media_radarr
+    image: lscr.io/linuxserver/radarr:${RADARR_VERSION:-latest}
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ:-UTC}
+    volumes:
+      - ${CONFIG_RADARR:-./config/radarr}:/config
+      - ${DOWNLOADS_PATH:-./downloads}:/downloads
+      - ${MEDIA_PATH:-./media}:/media
+      - ${LOGS_PATH:-./logs}/radarr:/logs
+    ports:
+      - "${PORT_RADARR:-7878}:7878"
+    restart: unless-stopped
+
+  qbittorrent:
+    container_name: ai_media_qbittorrent
+    image: lscr.io/linuxserver/qbittorrent:${QBITTORRENT_VERSION:-latest}
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ:-UTC}
+      - WEBUI_PORT=${PORT_QBITTORRENT:-8080}
+      - DOCKER_MODS=linuxserver/mods:qbittorrent-vuetorrent
+      - WEBUI_USERNAME=${QBITTORRENT_USERNAME:-admin}
+      - WEBUI_PASSWORD=${QBITTORRENT_PASSWORD:-adminpass}
+    volumes:
+      - ${CONFIG_QBITTORRENT:-./config/qbittorrent}:/config
+      - ${DOWNLOADS_PATH:-./downloads}:/downloads
+      - ${MEDIA_PATH:-./media}:/media
+      - ${LOGS_PATH:-./logs}/qbittorrent:/logs
+    ports:
+      - "${PORT_QBITTORRENT:-8080}:8080"
+    restart: unless-stopped
+
+  overseerr:
+    container_name: ai_media_overseerr
+    image: sctx/overseerr:${OVERSEERR_VERSION:-latest}
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=${TZ:-UTC}
+      - PORT=${PORT_OVERSEERR:-5055}
+    volumes:
+      - ${CONFIG_OVERSEERR:-./config/overseerr}:/app/config
+      - ${LOGS_PATH:-./logs}/overseerr:/app/logs
+    ports:
+      - "${PORT_OVERSEERR:-5055}:5055"
+    restart: unless-stopped
+
+  filebrowser:
+    container_name: ai_media_filebrowser
+    image: filebrowser/filebrowser:${FILEBROWSER_VERSION:-latest}
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+    volumes:
+      - ${CONFIG_FILEBROWSER:-./config/filebrowser}:/config
+      - ${CONFIG_FILEBROWSER:-./config/filebrowser}/database.db:/database.db
+      - ${CONFIG_FILEBROWSER:-./config/filebrowser}/settings.json:/config/settings.json
+      - ${MEDIA_PATH:-./media}:/srv/media:ro
+      - ${DOWNLOADS_PATH:-./downloads}:/srv/downloads
+      - ${CONFIG_PATH:-./config}:/srv/config:ro
+      - ${LOGS_PATH:-./logs}:/srv/logs:ro
+    ports:
+      - "${PORT_FILEBROWSER:-8081}:80"
+    restart: unless-stopped
+    command:
+      - --noauth
+      - --database=/database.db
+      - --root=/srv
+      - --port=80
+      - --log=stdout 

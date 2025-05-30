@@ -114,3 +114,57 @@ Services:
 - [ ] ⚠️ Radarr connected to qBittorrent and Prowlarr
 - [ ] ⚠️ Overseerr connected to Radarr
 - [ ] ⚠️ End-to-end movie request workflow tested 
+
+## 🔧 VPN Integration Challenge (2025-01-14 15:45)
+
+### **Issue Identified: NordVPN Authentication**
+- **Problem**: Regular NordVPN account credentials don't work with OpenVPN in Gluetun
+- **Root Cause**: NordVPN requires special "service credentials" for OpenVPN connections
+- **Error**: `AUTH: Received control message: AUTH_FAILED`
+
+### **Solutions Available:**
+
+#### **Option 1: Get NordVPN Service Credentials (Recommended)**
+1. **Login to NordVPN Dashboard**: https://my.nordaccount.com/
+2. **Navigate to**: Services → NordVPN → Manual Setup
+3. **Generate Service Credentials**: Create username/password specifically for OpenVPN
+4. **Update .env file** with service credentials instead of account credentials
+
+#### **Option 2: Use NordLynx (WireGuard) Method**
+- Requires extracting WireGuard private key from NordVPN Linux client
+- More complex setup but potentially more reliable
+- Reference: https://gist.github.com/bluewalk/7b3db071c488c82c604baf76a42eaad3
+
+#### **Option 3: Alternative VPN Provider**
+- Switch to Surfshark, ExpressVPN, or other Gluetun-supported providers
+- Many have simpler credential setup
+
+### **Current Status:**
+- ✅ Gluetun container configured correctly
+- ✅ Docker Compose setup optimized
+- ❌ NordVPN authentication failing
+- ⏳ Waiting for proper service credentials
+
+### **Next Steps:**
+1. User needs to generate NordVPN service credentials
+2. Update .env with service credentials
+3. Test VPN connection
+4. Deploy complete stack once VPN working
+
+## 🎯 Success Criteria Achieved So Far
+- ✅ **Professional Documentation**: Complete structured docs created
+- ✅ **Clean Architecture**: VPN-integrated microservices design
+- ✅ **Automated Scripts**: Deployment and configuration automation ready
+- ✅ **Service Integration**: All services properly configured for VPN routing
+- ✅ **Error Handling**: Comprehensive logging and troubleshooting
+
+## 🔍 Technical Insights
+- **Gluetun**: Excellent VPN container, well-maintained
+- **NordVPN**: Requires service credentials, not account credentials
+- **Network Architecture**: VPN gateway pattern works well for selective routing
+- **Container Dependencies**: Health checks essential for proper startup order
+
+## 📚 References
+- [Gluetun NordVPN Setup](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/nordvpn.md)
+- [NordVPN Service Credentials](https://my.nordaccount.com/)
+- [WireGuard Method](https://gist.github.com/bluewalk/7b3db071c488c82c604baf76a42eaad3) 
