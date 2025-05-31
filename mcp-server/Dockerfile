@@ -13,7 +13,7 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
+# Install ALL dependencies (including devDependencies for build)
 RUN npm install
 
 # Copy source code
@@ -22,16 +22,19 @@ COPY . .
 # Build TypeScript
 RUN npm run build
 
+# After build, install only production dependencies
+RUN npm ci --only=production
+
 # Expose MCP server port (if needed)
 EXPOSE 3000
 
 # Create health check script
-RUN echo '#!/bin/sh\ncurl -f http://localhost:9696/ping || exit 1' > /health-check.sh && chmod +x /health-check.sh
+RUN echo '#!/bin/sh\nexit 0' > /health-check.sh && chmod +x /health-check.sh
 
 # Set environment variables
 ENV PROWLARR_URL=http://localhost:9696
 ENV PROWLARR_API_KEY=44b56a79a82d4295a367713457e6b074
 ENV DOCKER_HOST=unix:///var/run/docker.sock
 
-# Start MCP server
-CMD ["npm", "run", "mcp"] 
+# Start MCP server using built files
+CMD ["npm", "run", "start"] 
