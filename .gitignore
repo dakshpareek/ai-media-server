@@ -224,19 +224,22 @@ scripts/test-*.sh
 # Deployment artifacts
 deploy-artifacts/
 .deploy/
-deploy.sh
 check-setup.sh
 
 # GitHub Actions logs
 .github/workflows/logs/
 
-# Service-specific docker compose files
+# Service-specific docker compose files (NOT the main one)
 */docker-compose.yml
 filebrowser/docker-compose.yml
 overseerr/docker-compose.yml
 prowlarr/docker-compose.yml
 qbittorrent/docker-compose.yml
 radarr/docker-compose.yml
+
+# Docker Compose override files (local customizations)
+docker-compose.override.yml
+docker-compose.local.yml
 
 # ==================================================
 # Testing & Development
