@@ -1,0 +1,27 @@
+{
+  "name": "prowlarr-mcp-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MCP server for Prowlarr health monitoring and management",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "node --loader ts-node/esm src/health-check.ts",
+    "test": "echo Tests coming soon",
+    "lint": "echo Linting coming soon",
+    "mcp": "node --loader ts-node/esm src/mcp-server.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
