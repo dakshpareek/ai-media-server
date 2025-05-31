@@ -93,7 +93,6 @@ services:
       - PROWLARR_API_KEY=${PROWLARR_API_KEY:-44b56a79a82d4295a367713457e6b074}
       - TZ=${TZ:-UTC}
     volumes:
-      - ./mcp-server:/app:rw
       - /var/run/docker.sock:/var/run/docker.sock:ro # For VPN management
     restart: unless-stopped
     stdin_open: true # For MCP stdio communication
