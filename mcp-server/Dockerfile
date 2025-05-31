@@ -23,7 +23,7 @@ COPY . .
 RUN npm run build
 
 # After build, install only production dependencies
-RUN npm ci --only=production
+# RUN npm ci --only=production
 
 # Expose MCP server port (if needed)
 EXPOSE 3000
@@ -37,4 +37,4 @@ ENV PROWLARR_API_KEY=44b56a79a82d4295a367713457e6b074
 ENV DOCKER_HOST=unix:///var/run/docker.sock
 
 # Start MCP server using built files
-CMD ["npm", "run", "start"] 
+CMD ["npm", "run", "start"]
