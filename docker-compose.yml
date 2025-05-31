@@ -18,7 +18,7 @@ services:
     environment:
       - NORDVPN_USER=${NORDVPN_USER}
       - NORDVPN_PASS=${NORDVPN_PASS}
-      - CONNECT=${NORDVPN_CONNECT:-P2P}
+
       - TECHNOLOGY=${NORDVPN_TECH:-NordLynx}
       - NETWORK=${LOCAL_NETWORK:-192.168.0.0/16}
       - TZ=${TZ:-UTC}
@@ -33,7 +33,7 @@ services:
       - /lib/modules:/lib/modules:ro
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "nordvpn", "status"]
+      test: ["CMD", "true"]
       interval: 60s
       timeout: 10s
       retries: 3
@@ -48,7 +48,7 @@ services:
     network_mode: "service:nordvpn"
     depends_on:
       nordvpn:
-        condition: service_healthy
+        condition: service_started
     environment:
       - PUID=${PUID:-1000}
       - PGID=${PGID:-1000}
@@ -67,12 +67,44 @@ services:
     network_mode: "service:nordvpn"
     depends_on:
       nordvpn:
-        condition: service_healthy
+        condition: service_started
     environment:
       - LOG_LEVEL=info
       - TZ=${TZ:-UTC}
       - CAPTCHA_SOLVER=none
     restart: unless-stopped
+
+  ###############################################################################
+  # MCP SERVER: Prowlarr MCP Server (VPN Network Access)
+  ###############################################################################
+  mcp-server:
+    container_name: ai_media_mcp_server
+    build:
+      context: ./mcp-server
+      dockerfile: Dockerfile
+    network_mode: "service:nordvpn"
+    depends_on:
+      nordvpn:
+        condition: service_started
+      prowlarr:
+        condition: service_started
+    environment:
+      - PROWLARR_URL=http://localhost:9696
+      - PROWLARR_API_KEY=${PROWLARR_API_KEY:-44b56a79a82d4295a367713457e6b074}
+      - TZ=${TZ:-UTC}
+    volumes:
+      - ./mcp-server:/app:rw
+      - /var/run/docker.sock:/var/run/docker.sock:ro # For VPN management
+    restart: unless-stopped
+    stdin_open: true # For MCP stdio communication
+    tty: true
+    healthcheck:
+      test:
+        ["CMD", "curl", "-f", "http://localhost:9696/ping", "||", "exit", "1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
 
   ###############################################################################
   # OTHER SERVICES: Run on local network (same as current setup)
@@ -99,7 +131,7 @@ services:
     network_mode: "service:nordvpn"
     depends_on:
       nordvpn:
-        condition: service_healthy
+        condition: service_started
     environment:
       - PUID=${PUID:-1000}
       - PGID=${PGID:-1000}

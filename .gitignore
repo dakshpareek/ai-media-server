@@ -248,6 +248,10 @@ coverage/
 *.coverage
 test-*.sh
 
+# Test JavaScript files
+test-*.js
+AI_MEDIA_SERVER_API.md
+
 # Development databases
 dev.db
 test.db
@@ -255,6 +259,9 @@ test.db
 # Local development overrides
 local.yml
 development.yml
+
+# Prowlarr definition updates (auto-updated)
+config/prowlarr/Definitions/*.yml
 
 # ==================================================
 # Performance & Monitoring
