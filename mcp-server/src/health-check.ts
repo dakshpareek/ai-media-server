@@ -55,7 +55,8 @@ class ProwlarrHealthMonitor {
       const response = await axios.get(`${this.baseUrl}${endpoint}`, {
         headers: {
           'X-Api-Key': this.apiKey
-        }
+        },
+        timeout: 30000
       });
       return response.data;
     } catch (error) {
@@ -90,7 +91,7 @@ class ProwlarrHealthMonitor {
       ]);
 
       const enabledIndexers = indexers.filter(i => i.enable);
-      const healthyIndexers = enabledIndexers.filter(indexer => 
+      const healthyIndexers = enabledIndexers.filter(indexer =>
         !indexerStatuses.some(status => status.indexerId === indexer.id)
       );
       const healthScore = indexers.length > 0 ? Math.round((healthyIndexers.length / indexers.length) * 100) : 0;
@@ -170,7 +171,7 @@ class ProwlarrHealthMonitor {
       console.log('\n📡 Indexer Status');
       const enabledIndexers = indexers.filter(i => i.enable);
       const disabledIndexers = indexers.filter(i => !i.enable);
-      
+
       console.log(`Total: ${indexers.length} | Enabled: ${enabledIndexers.length} | Disabled: ${disabledIndexers.length}`);
 
       // Failed Indexers
@@ -193,7 +194,7 @@ class ProwlarrHealthMonitor {
       }
 
       // Healthy Indexers Summary
-      const healthyIndexers = enabledIndexers.filter(indexer => 
+      const healthyIndexers = enabledIndexers.filter(indexer =>
         !indexerStatuses.some(status => status.indexerId === indexer.id)
       );
 
