@@ -18,7 +18,6 @@ services:
     environment:
       - NORDVPN_USER=${NORDVPN_USER}
       - NORDVPN_PASS=${NORDVPN_PASS}
-
       - TECHNOLOGY=${NORDVPN_TECH:-NordLynx}
       - NETWORK=${LOCAL_NETWORK:-192.168.0.0/16}
       - TZ=${TZ:-UTC}
@@ -38,6 +37,8 @@ services:
       timeout: 10s
       retries: 3
       start_period: 30s
+    networks:
+      - ai-media-network
 
   ###############################################################################
   # PROWLARR: Indexer Management (VPN Protected via NordVPN CLI)
@@ -90,8 +91,8 @@ services:
     ports:
       - "${MCP_PORT:-3000}:3000"
     environment:
-      - PROWLARR_URL=http://host.docker.internal:9696
-      - PROWLARR_API_KEY=${PROWLARR_API_KEY:-44b56a79a82d4295a367713457e6b074}
+      - PROWLARR_URL=http://nordvpn_official:9696
+      - PROWLARR_API_KEY=${PROWLARR_API_KEY}
       - TZ=${TZ:-UTC}
       - MCP_PORT=3000
       - NODE_ENV=production
@@ -101,7 +102,12 @@ services:
     stdin_open: true
     tty: true
     command: ["node", "dist/mcp-server.js", "--http"]
+    networks:
+      - ai-media-network
 
+  ###############################################################################
+  # QBITTORRENT: Torrent Client (VPN Protected via NordVPN CLI)
+  ###############################################################################
   qbittorrent:
     container_name: ai_media_qbittorrent
     image: lscr.io/linuxserver/qbittorrent:${QBITTORRENT_VERSION:-latest}
@@ -124,6 +130,9 @@ services:
       - ${LOGS_PATH:-./logs}/qbittorrent:/logs
     restart: unless-stopped
 
+  ###############################################################################
+  # FILEBROWSER: File Management Web Interface
+  ###############################################################################
   filebrowser:
     container_name: ai_media_filebrowser
     image: filebrowser/filebrowser:${FILEBROWSER_VERSION:-latest}
@@ -143,3 +152,10 @@ services:
       - --database=/database/filebrowser.db
       - --root=/srv
       - --address=0.0.0.0
+
+###############################################################################
+# NETWORKS: Custom bridge network for inter-container communication
+###############################################################################
+networks:
+  ai-media-network:
+    driver: bridge
