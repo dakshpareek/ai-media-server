@@ -3,7 +3,7 @@
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
-import { CallToolRequestSchema, isInitializeRequest, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
+import { CallToolRequestSchema, isInitializeRequest, JSONRPCMessage, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 import { randomUUID } from "crypto";
 import express from 'express';
 import { ProwlarrHealthMonitor } from "./health-check.js";
@@ -81,6 +81,15 @@ if (isStdioMode) {
           transports[sessionId] = transport;
         }
       });
+      transport.onerror = (error: Error) => {
+        console.error("SSE transport error detected:", error.message);
+        if (error.message.includes("terminated")) {
+          console.warn("SSE stream terminated. Reconnecting in 5 seconds...");
+          setTimeout(() => {
+            console.info("Reconnecting SSE stream...");
+          }, 5000);
+        }
+      };
 
       transport.onclose = () => {
         if (transport.sessionId) {
@@ -89,6 +98,22 @@ if (isStdioMode) {
       };
 
       await server.connect(transport);
+
+      // Add heartbeat to keep the connection alive.
+      const heartbeatInterval = 25000; // 25 seconds
+      setInterval(() => {
+        try {
+          const pingMessage: JSONRPCMessage = {
+            jsonrpc: "2.0" as "2.0",
+            id: randomUUID() as string,
+            method: "ping"
+          };
+          transport.send(pingMessage);
+          console.log("💓 Sent heartbeat ping");
+        } catch (error) {
+          console.error("Heartbeat error:", error);
+        }
+      }, heartbeatInterval);
     } else {
       res.status(400).json({
         jsonrpc: '2.0',
@@ -284,36 +309,36 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
         if (healthScore < 50) {
           guidance = `\n\n🚨 **Critical Health Issues Detected!**\n\n`;
-          guidance += `**Immediate Actions Needed:**\n`;
-          guidance += `1. 🌐 **Try VPN connection** - Many indexers may be geo-blocked\n`;
-          guidance += `   - \`prowlarr_vpn_connect australia\` - Try Australia first\n`;
-          guidance += `   - \`prowlarr_vpn_connect singapore\` - Or try Singapore\n`;
-          guidance += `2. 🔄 **Wait and retry** - Some indexers auto-recover after cooldown\n`;
-          guidance += `3. 📡 **Check specific indexers** - Some may need reconfiguration\n\n`;
-          guidance += `**Next Steps:**\n`;
-          guidance += `- Run \`prowlarr_search\` with VPN connected to test improvement\n`;
-          guidance += `- Use \`prowlarr_vpn_status\` to verify VPN connection\n`;
+          guidance = `**Immediate Actions Needed:**\n`;
+          guidance = `1. 🌐 **Try VPN connection** - Many indexers may be geo-blocked\n`;
+          guidance = `   - \`prowlarr_vpn_connect australia\` - Try Australia first\n`;
+          guidance = `   - \`prowlarr_vpn_connect singapore\` - Or try Singapore\n`;
+          guidance = `2. 🔄 **Wait and retry** - Some indexers auto-recover after cooldown\n`;
+          guidance = `3. 📡 **Check specific indexers** - Some may need reconfiguration\n\n`;
+          guidance = `**Next Steps:**\n`;
+          guidance = `- Run \`prowlarr_search\` with VPN connected to test improvement\n`;
+          guidance = `- Use \`prowlarr_vpn_status\` to verify VPN connection\n`;
         } else if (healthScore < 80) {
           guidance = `\n\n⚠️ **Some Health Issues Found**\n\n`;
-          guidance += `**Suggested Actions:**\n`;
-          guidance += `1. 🌐 **Consider VPN** - \`prowlarr_vpn_connect\` may help with failed indexers\n`;
-          guidance += `2. 🔍 **Test search** - \`prowlarr_search batman\` to see if results improve\n`;
-          guidance += `3. ⏰ **Wait for recovery** - Some indexers may be temporarily down\n`;
+          guidance = `**Suggested Actions:**\n`;
+          guidance = `1. 🌐 **Consider VPN** - \`prowlarr_vpn_connect\` may help with failed indexers\n`;
+          guidance = `2. 🔍 **Test search** - \`prowlarr_search batman\` to see if results improve\n`;
+          guidance = `3. ⏰ **Wait for recovery** - Some indexers may be temporarily down\n`;
         } else {
           guidance = `\n\n✅ **System Health: Excellent!**\n\n`;
-          guidance += `Your indexers are working well. Ready for searching!\n`;
-          guidance += `- Try: \`prowlarr_search [your query]\` to find content\n`;
+          guidance = `Your indexers are working well. Ready for searching!\n`;
+          guidance = `- Try: \`prowlarr_search [your query]\` to find content\n`;
         }
 
         if (failedIndexers > 0) {
-          guidance += `\n**${failedIndexers} indexers currently failing** - VPN connection often resolves geo-blocking issues.\n`;
+          guidance = `\n**${failedIndexers} indexers currently failing** - VPN connection often resolves geo-blocking issues.\n`;
         }
 
         return {
           content: [
             {
               type: 'text',
-              text: JSON.stringify(healthData, null, 2) + guidance,
+              text: JSON.stringify(healthData, null, 2)  guidance,
             },
           ],
         };
@@ -456,16 +481,16 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
         let statusText = '🌐 **VPN Status**\n\n';
         if (vpnStatus.connected) {
-          statusText += `✅ **Connected**\n`;
-          statusText += `📍 **Location:** ${vpnStatus.city}, ${vpnStatus.country}\n`;
-          statusText += `🌍 **IP:** ${vpnStatus.ip}\n`;
+          statusText = `✅ **Connected**\n`;
+          statusText = `📍 **Location:** ${vpnStatus.city}, ${vpnStatus.country}\n`;
+          statusText = `🌍 **IP:** ${vpnStatus.ip}\n`;
           if (vpnStatus.connectionTime) {
-            statusText += `⏰ **Connected Since:** ${vpnStatus.connectionTime.toLocaleString()}\n`;
+            statusText = `⏰ **Connected Since:** ${vpnStatus.connectionTime.toLocaleString()}\n`;
           }
-          statusText += `\n⏳ **Auto-disconnect:** Will disconnect after 10 minutes of inactivity`;
+          statusText = `\n⏳ **Auto-disconnect:** Will disconnect after 10 minutes of inactivity`;
         } else {
-          statusText += `❌ **Disconnected**\n`;
-          statusText += `💡 **Tip:** VPN will auto-connect when needed for searches`;
+          statusText = `❌ **Disconnected**\n`;
+          statusText = `💡 **Tip:** VPN will auto-connect when needed for searches`;
         }
 
         return {
@@ -519,41 +544,41 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         let guidance = '\n\n🧠 **Intelligent System Analysis**\n\n';
 
         if (systemStatus.vpn_connected) {
-          guidance += `✅ **VPN Connected** - Ready for global indexer access\n`;
-          guidance += `📍 **Location:** ${systemStatus.vpn_city}, ${systemStatus.vpn_country}\n\n`;
+          guidance = `✅ **VPN Connected** - Ready for global indexer access\n`;
+          guidance = `📍 **Location:** ${systemStatus.vpn_city}, ${systemStatus.vpn_country}\n\n`;
         } else {
-          guidance += `⚠️ **VPN Disconnected** - Limited to local indexers\n`;
-          guidance += `💡 **Recommendation:** \`prowlarr_vpn_connect\` for better results\n\n`;
+          guidance = `⚠️ **VPN Disconnected** - Limited to local indexers\n`;
+          guidance = `💡 **Recommendation:** \`prowlarr_vpn_connect\` for better results\n\n`;
         }
 
         if (systemStatus.health_score) {
           const score = parseInt(systemStatus.health_score);
           if (score < 50) {
-            guidance += `🚨 **Health Critical (${score}%)** - Immediate action needed!\n`;
-            guidance += `**Recommended Workflow:**\n`;
-            guidance += `1. \`prowlarr_vpn_connect australia\` - Connect to VPN\n`;
-            guidance += `2. \`prowlarr_health_check\` - Verify improvement\n`;
-            guidance += `3. \`prowlarr_search batman\` - Test search quality\n`;
+            guidance = `🚨 **Health Critical (${score}%)** - Immediate action needed!\n`;
+            guidance = `**Recommended Workflow:**\n`;
+            guidance = `1. \`prowlarr_vpn_connect australia\` - Connect to VPN\n`;
+            guidance = `2. \`prowlarr_health_check\` - Verify improvement\n`;
+            guidance = `3. \`prowlarr_search batman\` - Test search quality\n`;
           } else if (score < 80) {
-            guidance += `⚡ **Health Fair (${score}%)** - Could be improved\n`;
-            guidance += `**Try:** \`prowlarr_vpn_connect\` to boost indexer availability\n`;
+            guidance = `⚡ **Health Fair (${score}%)** - Could be improved\n`;
+            guidance = `**Try:** \`prowlarr_vpn_connect\` to boost indexer availability\n`;
           } else {
-            guidance += `✅ **Health Excellent (${score}%)** - System running optimally!\n`;
-            guidance += `**Ready for:** \`prowlarr_search [your query]\`\n`;
+            guidance = `✅ **Health Excellent (${score}%)** - System running optimally!\n`;
+            guidance = `**Ready for:** \`prowlarr_search [your query]\`\n`;
           }
         }
 
-        guidance += `\n**Available Actions:**\n`;
-        guidance += `- \`prowlarr_search [query]\` - Search for content\n`;
-        guidance += `- \`prowlarr_health_check\` - Detailed health analysis\n`;
-        guidance += `- \`prowlarr_vpn_connect [location]\` - Improve access\n`;
-        guidance += `- \`prowlarr_vpn_status\` - Check VPN details\n`;
+        guidance = `\n**Available Actions:**\n`;
+        guidance = `- \`prowlarr_search [query]\` - Search for content\n`;
+        guidance = `- \`prowlarr_health_check\` - Detailed health analysis\n`;
+        guidance = `- \`prowlarr_vpn_connect [location]\` - Improve access\n`;
+        guidance = `- \`prowlarr_vpn_status\` - Check VPN details\n`;
 
         return {
           content: [
             {
               type: 'text',
-              text: JSON.stringify(systemStatus, null, 2) + guidance,
+              text: JSON.stringify(systemStatus, null, 2)  guidance,
             },
           ],
         };
