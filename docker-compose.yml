@@ -75,54 +75,32 @@ services:
     restart: unless-stopped
 
   ###############################################################################
-  # MCP SERVER: Prowlarr MCP Server (VPN Network Access)
+  # MCP SERVER: Prowlarr MCP Server (with Remote Access)
   ###############################################################################
   mcp-server:
     container_name: ai_media_mcp_server
     build:
       context: ./mcp-server
       dockerfile: Dockerfile
-    network_mode: "service:nordvpn"
     depends_on:
       nordvpn:
         condition: service_started
       prowlarr:
         condition: service_started
+    ports:
+      - "${MCP_PORT:-3000}:3000"
     environment:
-      - PROWLARR_URL=http://localhost:9696
+      - PROWLARR_URL=http://host.docker.internal:9696
       - PROWLARR_API_KEY=${PROWLARR_API_KEY:-44b56a79a82d4295a367713457e6b074}
       - TZ=${TZ:-UTC}
+      - MCP_PORT=3000
+      - NODE_ENV=production
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro # For VPN management
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: unless-stopped
-    stdin_open: true # For MCP stdio communication
+    stdin_open: true
     tty: true
-    healthcheck:
-      test:
-        ["CMD", "curl", "-f", "http://localhost:9696/ping", "||", "exit", "1"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 60s
-
-  ###############################################################################
-  # OTHER SERVICES: Run on local network (same as current setup)
-  ###############################################################################
-  radarr:
-    container_name: ai_media_radarr
-    image: lscr.io/linuxserver/radarr:${RADARR_VERSION:-latest}
-    environment:
-      - PUID=${PUID:-1000}
-      - PGID=${PGID:-1000}
-      - TZ=${TZ:-UTC}
-    volumes:
-      - ${CONFIG_RADARR:-./config/radarr}:/config
-      - ${DOWNLOADS_PATH:-./downloads}:/downloads
-      - ${MEDIA_PATH:-./media}:/media
-      - ${LOGS_PATH:-./logs}/radarr:/logs
-    ports:
-      - "${PORT_RADARR:-7878}:7878"
-    restart: unless-stopped
+    command: ["node", "dist/mcp-server.js", "--http"]
 
   qbittorrent:
     container_name: ai_media_qbittorrent
@@ -144,20 +122,6 @@ services:
       - ${DOWNLOADS_PATH:-./downloads}:/downloads
       - ${MEDIA_PATH:-./media}:/media
       - ${LOGS_PATH:-./logs}/qbittorrent:/logs
-    restart: unless-stopped
-
-  overseerr:
-    container_name: ai_media_overseerr
-    image: sctx/overseerr:${OVERSEERR_VERSION:-latest}
-    environment:
-      - LOG_LEVEL=debug
-      - TZ=${TZ:-UTC}
-      - PORT=${PORT_OVERSEERR:-5055}
-    volumes:
-      - ${CONFIG_OVERSEERR:-./config/overseerr}:/app/config
-      - ${LOGS_PATH:-./logs}/overseerr:/app/logs
-    ports:
-      - "${PORT_OVERSEERR:-5055}:5055"
     restart: unless-stopped
 
   filebrowser:

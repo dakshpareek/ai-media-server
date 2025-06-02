@@ -2,10 +2,13 @@
 
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
+import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
+import { CallToolRequestSchema, isInitializeRequest, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
+import { randomUUID } from "crypto";
+import express from 'express';
 import { ProwlarrHealthMonitor } from "./health-check.js";
-import { ProwlarrSearchManager } from "./search.js";
 import { IntelligentSearchManager } from "./intelligent-search.js";
+import { ProwlarrSearchManager } from "./search.js";
 
 // Configuration
 const PROWLARR_CONFIG = {
@@ -41,9 +44,72 @@ const server = new Server(
   {
     capabilities: {
       tools: {},
+      resources: {},
     },
   }
 );
+
+// Determine transport mode
+const isHttpMode = process.argv.includes('--http');
+const isStdioMode = process.argv.includes('--stdio') || (!isHttpMode && process.argv[1].includes('mcp-server.js'));
+
+console.log(`🧠 Prowlarr MCP Server v2.0.0 starting in ${isStdioMode ? 'stdio' : 'HTTP'} mode...`);
+
+// Create transport based on mode
+if (isStdioMode) {
+  const transport = new StdioServerTransport();
+  await server.connect(transport);
+  console.log('🔌 Connected via stdio transport');
+} else {
+  const app = express();
+  app.use(express.json());
+
+  // Store transports by session ID
+  const transports: { [sessionId: string]: StreamableHTTPServerTransport } = {};
+
+
+  app.all('/mcp', async (req: any, res: any) => {
+    const sessionId = req.headers['mcp-session-id'] as string | undefined;
+    let transport: StreamableHTTPServerTransport;
+
+    if (sessionId && transports[sessionId]) {
+      transport = transports[sessionId];
+    } else if (!sessionId && isInitializeRequest(req.body)) {
+      transport = new StreamableHTTPServerTransport({
+        sessionIdGenerator: () => randomUUID(),
+        onsessioninitialized: (sessionId) => {
+          transports[sessionId] = transport;
+        }
+      });
+
+      transport.onclose = () => {
+        if (transport.sessionId) {
+          delete transports[transport.sessionId];
+        }
+      };
+
+      await server.connect(transport);
+    } else {
+      res.status(400).json({
+        jsonrpc: '2.0',
+        error: {
+          code: -32000,
+          message: 'Bad Request: No valid session ID provided',
+        },
+        id: null,
+      });
+      return;
+    }
+
+    await transport.handleRequest(req, res, req.body);
+  });
+
+  const PORT = parseInt(process.env.MCP_PORT || '3000', 10);
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🌐 MCP Streamable HTTP Server listening on port ${PORT}`);
+    console.log(`🔌 Ready for remote connections`);
+  });
+}
 
 // List available tools
 server.setRequestHandler(ListToolsRequestSchema, async () => {
@@ -81,7 +147,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
           type: "object",
           properties: {
             query: {
-              type: "string", 
+              type: "string",
               description: "Search query (e.g., 'batman', 'breaking bad s01e01')",
             },
             indexerIds: {
@@ -120,7 +186,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
               description: "Optional: specific indexer IDs to search. Leave empty to search all torrents.",
             },
             categories: {
-              type: "array", 
+              type: "array",
               items: { type: "number" },
               description: "Optional: category IDs (e.g., 2000 for movies, 5000 for TV)",
             },
@@ -148,7 +214,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         },
       },
       {
-        name: "prowlarr_get_download_clients", 
+        name: "prowlarr_get_download_clients",
         description: "Get list of available download clients",
         inputSchema: {
           type: "object",
@@ -210,12 +276,12 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     switch (name) {
       case 'prowlarr_health_check': {
         const healthData = await healthMonitor.getHealthStatus();
-        
+
         // Create intelligent guidance based on health status
         let guidance = '';
         const healthScore = parseInt(healthData.health_score);
         const failedIndexers = healthData.failed_indexers.length;
-        
+
         if (healthScore < 50) {
           guidance = `\n\n🚨 **Critical Health Issues Detected!**\n\n`;
           guidance += `**Immediate Actions Needed:**\n`;
@@ -256,8 +322,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       case 'prowlarr_get_indexers': {
         const enabledOnly = args?.enabledOnly as boolean || false;
         const indexers = await healthMonitor.getIndexers();
-        
-        const filteredIndexers = enabledOnly 
+
+        const filteredIndexers = enabledOnly
           ? indexers.filter(indexer => indexer.enable)
           : indexers;
 
@@ -283,7 +349,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
 
         const searchResult = await intelligentSearchManager.intelligentSearch(query, indexerIds, categories, limit);
-        
+
         if (searchResult.success && searchResult.searchResults) {
           // Store results for later grab operations
           lastSearchResults = searchResult.searchResults;
@@ -311,10 +377,10 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
 
         const searchResults = await searchManager.search(query, indexerIds, categories, limit);
-        
+
         // Store results for later grab operations
         lastSearchResults = searchResults;
-        
+
         const formattedOutput = searchManager.formatSearchResults(searchResults);
 
         return {
@@ -339,7 +405,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
 
         const selectedResult = searchManager.getResultByOption(lastSearchResults, option);
-        
+
         if (!selectedResult) {
           throw new Error(`Option ${option} not found. Please choose a number between 1 and ${lastSearchResults.length}.`);
         }
@@ -349,7 +415,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         vpnManager.resetDisconnectTimer();
 
         const grabResult = await searchManager.grabRelease(selectedResult.guid, selectedResult.indexerId);
-        
+
         if (grabResult.success) {
           return {
             content: [
@@ -373,7 +439,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
       case 'prowlarr_get_download_clients': {
         const downloadClients = await searchManager.getDownloadClients();
-        
+
         return {
           content: [
             {
@@ -387,7 +453,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       case 'prowlarr_vpn_status': {
         const vpnManager = intelligentSearchManager.getVPNManager();
         const vpnStatus = await vpnManager.getVPNStatus();
-        
+
         let statusText = '🌐 **VPN Status**\n\n';
         if (vpnStatus.connected) {
           statusText += `✅ **Connected**\n`;
@@ -401,7 +467,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           statusText += `❌ **Disconnected**\n`;
           statusText += `💡 **Tip:** VPN will auto-connect when needed for searches`;
         }
-        
+
         return {
           content: [
             {
@@ -415,14 +481,14 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       case 'prowlarr_vpn_connect': {
         const city = (args?.city as string) || 'australia';
         const vpnManager = intelligentSearchManager.getVPNManager();
-        
+
         const result = await vpnManager.connectVPN(city);
-        
+
         return {
           content: [
             {
               type: 'text',
-              text: result.success 
+              text: result.success
                 ? `✅ **VPN Connected Successfully!**\n\n${result.message}\n\n⏰ **Auto-disconnect:** Will disconnect in 10 minutes`
                 : `❌ **VPN Connection Failed**\n\n${result.message}`,
             },
@@ -433,12 +499,12 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       case 'prowlarr_vpn_disconnect': {
         const vpnManager = intelligentSearchManager.getVPNManager();
         const result = await vpnManager.disconnectVPN();
-        
+
         return {
           content: [
             {
               type: 'text',
-              text: result.success 
+              text: result.success
                 ? `✅ **VPN Disconnected Successfully!**\n\n${result.message}`
                 : `❌ **VPN Disconnection Failed**\n\n${result.message}`,
             },
@@ -448,10 +514,10 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
       case 'prowlarr_system_status': {
         const systemStatus = await intelligentSearchManager.getSystemStatus();
-        
+
         // Add intelligent guidance based on system status
         let guidance = '\n\n🧠 **Intelligent System Analysis**\n\n';
-        
+
         if (systemStatus.vpn_connected) {
           guidance += `✅ **VPN Connected** - Ready for global indexer access\n`;
           guidance += `📍 **Location:** ${systemStatus.vpn_city}, ${systemStatus.vpn_country}\n\n`;
@@ -459,7 +525,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           guidance += `⚠️ **VPN Disconnected** - Limited to local indexers\n`;
           guidance += `💡 **Recommendation:** \`prowlarr_vpn_connect\` for better results\n\n`;
         }
-        
+
         if (systemStatus.health_score) {
           const score = parseInt(systemStatus.health_score);
           if (score < 50) {
@@ -476,13 +542,13 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
             guidance += `**Ready for:** \`prowlarr_search [your query]\`\n`;
           }
         }
-        
+
         guidance += `\n**Available Actions:**\n`;
         guidance += `- \`prowlarr_search [query]\` - Search for content\n`;
         guidance += `- \`prowlarr_health_check\` - Detailed health analysis\n`;
         guidance += `- \`prowlarr_vpn_connect [location]\` - Improve access\n`;
         guidance += `- \`prowlarr_vpn_status\` - Check VPN details\n`;
-        
+
         return {
           content: [
             {
