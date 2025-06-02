@@ -38,7 +38,9 @@ services:
       retries: 3
       start_period: 30s
     networks:
-      - ai-media-network
+      ai-media-network:
+        aliases:
+          - prowlarr
 
   ###############################################################################
   # PROWLARR: Indexer Management (VPN Protected via NordVPN CLI)
@@ -91,7 +93,7 @@ services:
     ports:
       - "${MCP_PORT:-3000}:3000"
     environment:
-      - PROWLARR_URL=http://nordvpn_official:9696
+      - PROWLARR_URL=http://prowlarr:9696
       - PROWLARR_API_KEY=${PROWLARR_API_KEY}
       - TZ=${TZ:-UTC}
       - MCP_PORT=3000
