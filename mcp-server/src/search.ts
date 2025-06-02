@@ -91,25 +91,25 @@ export class ProwlarrSearchManager {
     try {
       const params = new URLSearchParams();
       params.append('query', query);
-      
+
       if (indexerIds && indexerIds.length > 0) {
         params.append('indexerIds', indexerIds.join(','));
       } else {
         params.append('indexerIds', '-2'); // -2 = all torrents
       }
-      
+
       if (categories && categories.length > 0) {
         params.append('categories', categories.join(','));
       }
-      
+
       params.append('type', 'search');
       params.append('limit', limit.toString());
-      
+
       const url = `${this.baseUrl}/api/v1/search?${params.toString()}`;
-      
+
       const response = await axios.get<SearchResult[]>(url, {
         headers: this.getHeaders(),
-        timeout: 30000
+        timeout: 180000
       });
 
       return response.data || [];
@@ -134,7 +134,7 @@ export class ProwlarrSearchManager {
         grabData,
         {
           headers: this.getHeaders(),
-          timeout: 30000
+          timeout: 180000
         }
       );
 
@@ -145,14 +145,14 @@ export class ProwlarrSearchManager {
       };
     } catch (error) {
       console.error('Grab failed:', error);
-      
+
       let errorMessage = 'Unknown error';
       if (axios.isAxiosError(error)) {
         errorMessage = error.response?.data?.message || error.message;
       } else if (error instanceof Error) {
         errorMessage = error.message;
       }
-      
+
       return {
         success: false,
         message: `Grab failed: ${errorMessage}`
@@ -169,7 +169,7 @@ export class ProwlarrSearchManager {
         `${this.baseUrl}/api/v1/downloadclient`,
         {
           headers: this.getHeaders(),
-          timeout: 10000
+          timeout: 180000
         }
       );
 
@@ -221,11 +221,11 @@ export class ProwlarrSearchManager {
     const qualityScore = (goodResults + recentResults) / (totalResults * 2);
 
     let output = `🔍 **Search Results** (${results.length} found)\n\n`;
-    
+
     formattedResults.forEach((result) => {
       const seedHealth = this.getSeedHealthEmoji(result.seeders);
       const sizeIcon = this.getSizeIcon(result.size);
-      
+
       output += `**${result.option}.** ${result.title}\n`;
       output += `${sizeIcon} **Size:** ${result.size} | ${seedHealth} **Seeds:** ${result.seeders} | **Peers:** ${result.peers}\n`;
       output += `🏷️ **Indexer:** ${result.indexer} | ⏰ **Age:** ${result.age}\n`;
@@ -265,23 +265,23 @@ export class ProwlarrSearchManager {
 
   private formatFileSize(bytes: number): string {
     if (bytes === 0) return '0 B';
-    
+
     const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
     const i = Math.floor(Math.log(bytes) / Math.log(1024));
     const size = (bytes / Math.pow(1024, i)).toFixed(1);
-    
+
     return `${size} ${sizes[i]}`;
   }
 
   private formatAge(hours: number): string {
     if (hours < 1) return '< 1h';
     if (hours < 24) return `${Math.round(hours)}h`;
-    
+
     const days = Math.floor(hours / 24);
     if (days < 7) return `${days}d`;
     if (days < 30) return `${Math.floor(days / 7)}w`;
     if (days < 365) return `${Math.floor(days / 30)}mo`;
-    
+
     return `${Math.floor(days / 365)}y`;
   }
 
@@ -313,9 +313,9 @@ export class ProwlarrSearchManager {
   private getSizeIcon(size: string): string {
     const sizeValue = parseFloat(size);
     const unit = size.split(' ')[1];
-    
+
     if (unit === 'GB' && sizeValue >= 10) return '🎬';
     if (unit === 'GB' || (unit === 'MB' && sizeValue >= 500)) return '📀';
     return '💾';
   }
-} 
+}
