@@ -27,28 +27,28 @@ else
     echo "🔑 Interactive browser authentication required"
     echo "📱 Opening authentication URL..."
     echo ""
-    
+
     # Run login and capture the URL
     echo "🎫 Generating authentication URL..."
     nordvpn login | grep -E "(Continue in the browser|https://)" || echo "⚠️  Please check output above for authentication URL"
-    
+
     echo ""
     echo "📋 Waiting for authentication to complete..."
     echo "💡 Open the URL above in your browser and log in with your NordVPN credentials"
-    
+
     # Wait for authentication (check every 15 seconds for up to 10 minutes)
     for i in {1..40}; do
         if nordvpn account >/dev/null 2>&1; then
             echo "✅ Authentication successful!"
             break
         fi
-        
+
         if [ $i -eq 40 ]; then
             echo "⏰ Authentication timeout. Container will continue running."
             echo "💡 You can authenticate later - the container will automatically detect it"
             break
         fi
-        
+
         echo "   Waiting for authentication... ($i/40) - $(date)"
         sleep 15
     done
@@ -58,17 +58,19 @@ fi
 if nordvpn account >/dev/null 2>&1; then
     echo ""
     echo "⚙️  Configuring VPN settings..."
-    
+
     # Set technology
     echo "🔧 Setting technology to: ${TECHNOLOGY:-NordLynx}"
     nordvpn set technology "${TECHNOLOGY:-NordLynx}" || echo "⚠️  Technology setting failed"
-    
+
     # Allow local network
     if [[ -n "$NETWORK" ]]; then
         echo "🏠 Allowing local network: $NETWORK"
         nordvpn whitelist add subnet "$NETWORK" || echo "⚠️  Network whitelist failed"
     fi
-    
+    echo "🏠 Allowing Docker network: 172.21.0.0/16"
+    nordvpn whitelist add subnet "172.21.0.0/16" || echo "⚠️  Docker network whitelist failed"
+
     # Connect to VPN
     echo "🌍 Connecting to VPN..."
     if [[ -n "$CONNECT" ]]; then
@@ -76,19 +78,19 @@ if nordvpn account >/dev/null 2>&1; then
     else
         nordvpn connect || echo "❌ Initial connection failed - will retry"
     fi
-    
+
     # Wait for connection
     sleep 10
-    
+
     # Verify connection
     echo "✅ Checking VPN status..."
     nordvpn status
-    
+
     echo ""
     echo "🌐 External IP check:"
     curl -s --max-time 10 ifconfig.me || echo "Could not verify external IP"
     echo ""
-    
+
 else
     echo "⚠️  Not authenticated - VPN connection skipped"
 fi
@@ -119,6 +121,6 @@ while true; do
         echo "⚠️  $(date): Not authenticated - please complete browser login"
         echo "💡 Run: nordvpn login (and follow the URL)"
     fi
-    
+
     sleep 60
-done 
+done

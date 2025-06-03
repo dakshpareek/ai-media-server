@@ -295,6 +295,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 
 // Handle tool calls
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
+  console.log("Received callTool request:", JSON.stringify(request.params, null, 2));
   const { name, arguments: args } = request.params;
 
   try {
@@ -588,6 +589,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         throw new Error(`Unknown tool: ${name}`);
     }
   } catch (error) {
+    console.error("Error processing callTool request:", error);
     return {
       content: [
         {
