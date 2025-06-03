@@ -206,12 +206,7 @@ flaresolverr-sessions/
 !STRUCTURE.md
 
 # Keep directory structure but ignore contents
-!scripts/
 !2025-01-14/
-
-# Configuration and setup scripts
-scripts/configure-*.sh
-scripts/test-*.sh
 
 # ==================================================
 # CI/CD & Deployment
@@ -233,7 +228,7 @@ check-setup.sh
 test-results/
 coverage/
 *.coverage
-test-*.sh
+#test-*.sh
 
 # Test JavaScript files
 test-*.js

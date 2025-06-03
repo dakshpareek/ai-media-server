@@ -482,16 +482,16 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
         let statusText = '🌐 **VPN Status**\n\n';
         if (vpnStatus.connected) {
-          statusText = `✅ **Connected**\n`;
-          statusText = `📍 **Location:** ${vpnStatus.city}, ${vpnStatus.country}\n`;
-          statusText = `🌍 **IP:** ${vpnStatus.ip}\n`;
+          statusText += `✅ **Connected**\n`;
+          statusText += `📍 **Location:** ${vpnStatus.city}, ${vpnStatus.country}\n`;
+          statusText += `🌍 **IP:** ${vpnStatus.ip}\n`;
           if (vpnStatus.connectionTime) {
-            statusText = `⏰ **Connected Since:** ${vpnStatus.connectionTime.toLocaleString()}\n`;
+            statusText += `⏰ **Connected Since:** ${vpnStatus.connectionTime.toLocaleString()}\n`;
           }
-          statusText = `\n⏳ **Auto-disconnect:** Will disconnect after 10 minutes of inactivity`;
+          statusText += `\n⏳ **Auto-disconnect:** Will disconnect after 10 minutes of inactivity`;
         } else {
-          statusText = `❌ **Disconnected**\n`;
-          statusText = `💡 **Tip:** VPN will auto-connect when needed for searches`;
+          statusText += `❌ **Disconnected**\n`;
+          statusText += `💡 **Tip:** VPN will auto-connect when needed for searches`;
         }
 
         return {
