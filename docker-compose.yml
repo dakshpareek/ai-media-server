@@ -28,6 +28,8 @@ services:
       - "8191:8191"
       # qBittorrent Web UI (through VPN)
       - "${PORT_QBITTORRENT:-8080}:8080"
+      # MCP Server API (through VPN)
+      - "${MCP_PORT:-3000}:3000"
     volumes:
       - /lib/modules:/lib/modules:ro
     restart: unless-stopped
@@ -78,23 +80,28 @@ services:
     restart: unless-stopped
 
   ###############################################################################
-  # MCP SERVER: Prowlarr MCP Server (with Remote Access)
+  # MCP SERVER: Prowlarr & qBittorrent MCP Server (VPN Protected via NordVPN CLI)
   ###############################################################################
   mcp-server:
     container_name: ai_media_mcp_server
     build:
       context: ./mcp-server
       dockerfile: Dockerfile
+    network_mode: "service:nordvpn"
     depends_on:
       nordvpn:
         condition: service_started
       prowlarr:
         condition: service_started
-    ports:
-      - "${MCP_PORT:-3000}:3000"
+      qbittorrent:
+        condition: service_started
     environment:
-      - PROWLARR_URL=http://prowlarr:9696
+      - PROWLARR_URL=http://localhost:9696
       - PROWLARR_API_KEY=${PROWLARR_API_KEY}
+      - QBITTORRENT_URL=http://localhost:8080
+      - QBITTORRENT_USERNAME=${QBITTORRENT_USERNAME:-admin}
+      - QBITTORRENT_PASSWORD=${QBITTORRENT_PASSWORD:-adminpass}
+      - QBITTORRENT_SESSION_TIMEOUT=${QBITTORRENT_SESSION_TIMEOUT:-3600}
       - TZ=${TZ:-UTC}
       - MCP_PORT=3000
       - NODE_ENV=production
@@ -104,8 +111,6 @@ services:
     stdin_open: true
     tty: true
     command: ["node", "dist/mcp-server.js", "--http"]
-    networks:
-      - ai-media-network
 
   ###############################################################################
   # QBITTORRENT: Torrent Client (VPN Protected via NordVPN CLI)
