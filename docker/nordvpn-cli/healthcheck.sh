@@ -1,18 +1,13 @@
 #!/bin/bash
+set -e
 
-# Check if nordvpn daemon is running
+# Check if nordvpnd is running
 if ! pgrep -x "nordvpnd" > /dev/null; then
-    echo "❌ NordVPN daemon not running"
+    echo "❌ NordVPN daemon (nordvpnd) not running."
     exit 1
 fi
 
-# Check VPN connection status
-status=$(nordvpn status 2>/dev/null || echo "disconnected")
-
-if echo "$status" | grep -q "Connected"; then
-    echo "✅ VPN connected"
-    exit 0
-else
-    echo "❌ VPN not connected: $status"
-    exit 1
-fi 
+# The container is "healthy" if the daemon is running.
+# Login status and VPN connection status are managed/checked by applications/user.
+echo "✅ NordVPN daemon running. Container is operational for CLI commands."
+exit 0

@@ -22,19 +22,10 @@ COPY . .
 # Build TypeScript
 RUN npm run build
 
-# After build, install only production dependencies
-# RUN npm ci --only=production
+# Prune devDependencies after build for a smaller image
+RUN npm prune --production
 
 # Expose MCP server port (if needed)
 EXPOSE 3000
 
-# Create health check script
-RUN echo '#!/bin/sh\nexit 0' > /health-check.sh && chmod +x /health-check.sh
-
-# Set environment variables
-ENV PROWLARR_URL=http://localhost:9696
-ENV PROWLARR_API_KEY=44b56a79a82d4295a367713457e6b074
-ENV DOCKER_HOST=unix:///var/run/docker.sock
-
-# Start MCP server using built files
-CMD ["npm", "run", "start"]
+CMD ["node", "dist/mcp-server.js", "--http"]

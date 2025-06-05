@@ -1,11 +1,5 @@
 import axios from 'axios';
 
-// Configuration - we'll move this to environment variables later
-const PROWLARR_CONFIG = {
-  baseUrl: 'http://localhost:9696',
-  apiKey: '44b56a79a82d4295a367713457e6b074'
-};
-
 interface IndexerStatus {
   indexerId: number;
   disabledTill?: string;
@@ -220,18 +214,18 @@ class ProwlarrHealthMonitor {
 }
 
 // Run the health check
-async function main() {
-  const monitor = new ProwlarrHealthMonitor(
-    PROWLARR_CONFIG.baseUrl,
-    PROWLARR_CONFIG.apiKey
-  );
+// async function main() {
+//   const monitor = new ProwlarrHealthMonitor(
+//     PROWLARR_CONFIG.baseUrl,
+//     PROWLARR_CONFIG.apiKey
+//   );
 
-  await monitor.generateHealthReport();
-}
+//   await monitor.generateHealthReport();
+// }
 
-// Only run if this is the main module
-if (process.argv[1] === new URL(import.meta.url).pathname) {
-  main();
-}
+// // Only run if this is the main module
+// if (process.argv[1] === new URL(import.meta.url).pathname) {
+//   main();
+// }
 
 export { ProwlarrHealthMonitor };

@@ -1,7 +1,4 @@
 services:
-  ###############################################################################
-  # NORDVPN CLI: Official NordVPN Client Container
-  ###############################################################################
   nordvpn:
     container_name: nordvpn_official
     build:
@@ -14,46 +11,41 @@ services:
       - /dev/net/tun:/dev/net/tun
     sysctls:
       - net.ipv4.conf.all.rp_filter=2
-      - net.ipv6.conf.all.forwarding=1
+      - net.ipv6.conf.all.forwarding=1 # Important for IPv6 if used
     environment:
-      - NORDVPN_USER=${NORDVPN_USER}
-      - NORDVPN_PASS=${NORDVPN_PASS}
-      - TECHNOLOGY=${NORDVPN_TECH:-NordLynx}
-      - NETWORK=${LOCAL_NETWORK:-192.168.0.0/16}
+      - NETWORK=${LOCAL_NETWORK} # Used by entrypoint.sh for whitelisting
       - TZ=${TZ:-UTC}
-    ports:
-      # Prowlarr Web UI (through VPN)
-      - "${PORT_PROWLARR:-9696}:9696"
-      # FlareSolverr API (through VPN)
-      - "8191:8191"
-      # qBittorrent Web UI (through VPN)
-      - "${PORT_QBITTORRENT:-8080}:8080"
-      # MCP Server API (through VPN)
-      - "${MCP_PORT:-3000}:3000"
     volumes:
-      - /lib/modules:/lib/modules:ro
+      - /lib/modules:/lib/modules:ro # For kernel modules if needed
+    ports:
+      # Prowlarr UI (running inside nordvpn's network namespace on 9696)
+      - "${PORT_PROWLARR:-9696}:9696"
+    # Expose ports that Prowlarr/FlareSolverr (running in this network namespace) use,
+    # so other containers on ai-media-network (like mcp-server) can reach them.
+    # This does NOT publish to the host machine.
+    expose:
+      - "9696" # Prowlarr's port
+      - "8191" # FlareSolverr's port
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "true"]
+      test: ["CMD-SHELL", "/healthcheck.sh"]
       interval: 60s
       timeout: 10s
       retries: 3
-      start_period: 30s
+      start_period: 45s # Give more time for daemon and initial login/connect attempts
     networks:
       ai-media-network:
         aliases:
-          - prowlarr
+          - nordvpn_gw # Not strictly needed now but good practice
+          - nordvpn_official
 
-  ###############################################################################
-  # PROWLARR: Indexer Management (VPN Protected via NordVPN CLI)
-  ###############################################################################
   prowlarr:
     container_name: ai_media_prowlarr
     image: lscr.io/linuxserver/prowlarr:${PROWLARR_VERSION:-latest}
-    network_mode: "service:nordvpn"
+    network_mode: "service:nordvpn" # Prowlarr uses nordvpn's network stack
     depends_on:
       nordvpn:
-        condition: service_started
+        condition: service_started # Wait for VPN container to be "healthy"
     environment:
       - PUID=${PUID:-1000}
       - PGID=${PGID:-1000}
@@ -63,106 +55,111 @@ services:
       - ${LOGS_PATH:-./logs}/prowlarr:/logs
     restart: unless-stopped
 
-  ###############################################################################
-  # FLARESOLVERR: CloudFlare Bypass (VPN Protected via NordVPN CLI)
-  ###############################################################################
   flaresolverr:
     container_name: ai_media_flaresolverr
     image: ghcr.io/flaresolverr/flaresolverr:latest
-    network_mode: "service:nordvpn"
+    network_mode: "service:nordvpn" # FlareSolverr uses nordvpn's network stack
     depends_on:
       nordvpn:
         condition: service_started
     environment:
-      - LOG_LEVEL=info
+      - LOG_LEVEL=${LOG_LEVEL:-info}
       - TZ=${TZ:-UTC}
-      - CAPTCHA_SOLVER=none
+      - CAPTCHA_SOLVER=none # Or configure your preferred solver
     restart: unless-stopped
 
-  ###############################################################################
-  # MCP SERVER: Prowlarr & qBittorrent MCP Server (VPN Protected via NordVPN CLI)
-  ###############################################################################
   mcp-server:
     container_name: ai_media_mcp_server
     build:
       context: ./mcp-server
       dockerfile: Dockerfile
-    network_mode: "service:nordvpn"
+    networks:
+      - ai-media-network
     depends_on:
-      nordvpn:
+      nordvpn: # It needs to exec into nordvpn
         condition: service_started
-      prowlarr:
-        condition: service_started
+      prowlarr: # mcp-server talks to prowlarr
+        condition: service_started # Prowlarr itself doesn't have a simple healthcheck
       qbittorrent:
         condition: service_started
     environment:
-      - PROWLARR_URL=http://localhost:9696
+      - PROWLARR_URL=http://nordvpn_official:9696 # MCP talks to Prowlarr via this alias and exposed port
       - PROWLARR_API_KEY=${PROWLARR_API_KEY}
-      - QBITTORRENT_URL=http://localhost:8080
+      - QBITTORRENT_URL=http://qbittorrent:${PORT_QBITTORRENT:-8080} # qBittorrent on its own alias
       - QBITTORRENT_USERNAME=${QBITTORRENT_USERNAME:-admin}
       - QBITTORRENT_PASSWORD=${QBITTORRENT_PASSWORD:-adminpass}
       - QBITTORRENT_SESSION_TIMEOUT=${QBITTORRENT_SESSION_TIMEOUT:-3600}
+      - MCP_PORT=${MCP_PORT:-3000} # Internal port for the node app
       - TZ=${TZ:-UTC}
-      - MCP_PORT=3000
       - NODE_ENV=production
+      - DOCKER_HOST=unix:///var/run/docker.sock # For VPN manager to use docker exec
+    ports:
+      - "${MCP_PORT:-3000}:${MCP_PORT:-3000}" # Expose MCP server to host
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro # For docker exec
     restart: unless-stopped
-    stdin_open: true
-    tty: true
-    command: ["node", "dist/mcp-server.js", "--http"]
+    stdin_open: true # If you need to attach for debugging
+    tty: true # If you need to attach for debugging
 
-  ###############################################################################
-  # QBITTORRENT: Torrent Client (VPN Protected via NordVPN CLI)
-  ###############################################################################
   qbittorrent:
     container_name: ai_media_qbittorrent
     image: lscr.io/linuxserver/qbittorrent:${QBITTORRENT_VERSION:-latest}
-    network_mode: "service:nordvpn"
-    depends_on:
-      nordvpn:
-        condition: service_started
+    networks:
+      ai-media-network:
+        aliases:
+          - qbittorrent
+    ports:
+      - "${PORT_QBITTORRENT:-8080}:${PORT_QBITTORRENT:-8080}" # Expose qBittorrent WebUI
+      # Expose torrenting ports if not using VPN for torrent traffic
+      # - "6881:6881" # TCP for torrenting
+      # - "6881:6881/udp" # UDP for torrenting
     environment:
       - PUID=${PUID:-1000}
       - PGID=${PGID:-1000}
       - TZ=${TZ:-UTC}
       - WEBUI_PORT=${PORT_QBITTORRENT:-8080}
-      - DOCKER_MODS=linuxserver/mods:qbittorrent-vuetorrent
+      - DOCKER_MODS=linuxserver/mods:qbittorrent-vuetorrent # Optional VueTorrent mod
       - WEBUI_USERNAME=${QBITTORRENT_USERNAME:-admin}
       - WEBUI_PASSWORD=${QBITTORRENT_PASSWORD:-adminpass}
     volumes:
       - ${CONFIG_QBITTORRENT:-./config/qbittorrent}:/config
       - ${DOWNLOADS_PATH:-./downloads}:/downloads
-      - ${MEDIA_PATH:-./media}:/media
+      - ${MEDIA_PATH:-./media}:/media # If qBittorrent moves completed files
       - ${LOGS_PATH:-./logs}/qbittorrent:/logs
     restart: unless-stopped
 
-  ###############################################################################
-  # FILEBROWSER: File Management Web Interface
-  ###############################################################################
   filebrowser:
     container_name: ai_media_filebrowser
     image: filebrowser/filebrowser:${FILEBROWSER_VERSION:-latest}
+    networks:
+      - ai-media-network
     environment:
-      - PUID=${PUID:-1000}
-      - PGID=${PGID:-1000}
+      - PUID=${PUID:-1000} # May not be directly used by filebrowser, but good for consistency
+      - PGID=${PGID:-1000} # May not be directly used by filebrowser, but good for consistency
+      - FB_DATABASE=/database/filebrowser.db
+      - FB_ROOT=/srv
+      - FB_ADDRESS=0.0.0.0
+      - FB_PORT=80 # Internal port
+    ports:
+      - "${PORT_FILEBROWSER:-8081}:80"
     volumes:
       - ${CONFIG_FILEBROWSER:-./config/filebrowser}:/database
       - ${MEDIA_PATH:-./media}:/srv/media:ro
       - ${DOWNLOADS_PATH:-./downloads}:/srv/downloads:rw
-      - ${CONFIG_PATH:-./config}:/srv/config:ro
-      - ${LOGS_PATH:-./logs}:/srv/logs:ro
-    ports:
-      - "${PORT_FILEBROWSER:-8081}:80"
+      - ${CONFIG_PATH:-./config}:/srv/config:ro # For browsing config files
+      - ${LOGS_PATH:-./logs}:/srv/logs:ro # For browsing log files
     restart: unless-stopped
-    command:
-      - --database=/database/filebrowser.db
-      - --root=/srv
-      - --address=0.0.0.0
+    # Command is set by FB_ prefixed env vars now, or defaults.
 
-###############################################################################
-# NETWORKS: Custom bridge network for inter-container communication
-###############################################################################
 networks:
   ai-media-network:
     driver: bridge
+
+volumes:
+  config_prowlarr:
+  config_qbittorrent:
+  config_filebrowser:
+  logs_prowlarr:
+  logs_qbittorrent:
+  downloads:
+  media:

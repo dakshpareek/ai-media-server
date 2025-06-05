@@ -15,6 +15,7 @@ RUN apt-get update && \
     gnupg \
     lsb-release \
     apt-transport-https \
+    procps \
     && rm -rf /var/lib/apt/lists/*
 
 # Add NordVPN repository and install manually (non-interactive)
@@ -32,7 +33,7 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # Health check script
-COPY healthcheck.sh /healthcheck.sh  
+COPY healthcheck.sh /healthcheck.sh
 RUN chmod +x /healthcheck.sh
 
-ENTRYPOINT ["/entrypoint.sh"] 
+ENTRYPOINT ["/entrypoint.sh"]
