@@ -151,6 +151,20 @@ services:
     restart: unless-stopped
     # Command is set by FB_ prefixed env vars now, or defaults.
 
+  cloudflared:
+    container_name: ai_media_cloudflared
+    image: cloudflare/cloudflared:latest # Use the official image
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARED_TUNNEL_TOKEN} # Use an environment variable for the token
+    networks:
+      - ai-media-network # Needs to be on the same network to resolve mcp-server
+    depends_on:
+      mcp-server: # Ensure mcp-server is started before cloudflared tries to connect to it
+        condition: service_started
+        # If mcp-server had a robust healthcheck, service_healthy would be better
+    environment:
+      - TZ=${TZ:-UTC} # Good practice to set timezone
+
 networks:
   ai-media-network:
     driver: bridge
