@@ -8,8 +8,8 @@ import { randomUUID } from "crypto";
 import express from 'express';
 import { ProwlarrHealthMonitor } from "./health-check.js";
 import { IntelligentSearchManager } from "./intelligent-search.js";
-import { ProwlarrSearchManager } from "./search.js";
 import { QBittorrentClient } from "./qbittorrent-client.js";
+import { ProwlarrSearchManager } from "./search.js";
 
 // Configuration
 const PROWLARR_CONFIG = {
@@ -84,6 +84,13 @@ async function main() {
   } else {
     const app = express();
     app.use(express.json());
+
+    app.get('/mcp/ping', (req, res) => {
+      res.set('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGINS || '*');
+      res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+      res.set('Access-Control-Allow-Headers', 'Content-Type, X-Api-Key, Authorization');
+      res.json({ status: 'OK' });
+    });
 
     // Store transports by session ID
     const transports: { [sessionId: string]: StreamableHTTPServerTransport } = {};
@@ -333,7 +340,7 @@ async function main() {
                 default: "all"
               },
               category: {
-                type: "string", 
+                type: "string",
                 description: "Filter by category name"
               },
               tag: {
@@ -386,7 +393,7 @@ async function main() {
                 default: false
               },
               skipChecking: {
-                type: "boolean", 
+                type: "boolean",
                 description: "Skip hash checking",
                 default: false
               },
@@ -408,7 +415,7 @@ async function main() {
           name: "qbittorrent_control_torrents",
           description: "Control torrents (pause, resume, delete) by hash or name",
           inputSchema: {
-            type: "object", 
+            type: "object",
             properties: {
               action: {
                 type: "string",
