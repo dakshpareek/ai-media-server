@@ -85,36 +85,48 @@ async function main() {
     const app = express();
     app.use(express.json());
 
-    // --- API Key Authentication Middleware ---
-    // If an `MCP_API_KEY` environment variable is set, every incoming HTTP
-    // request must provide that key either via the `X-API-Key` header
+    // --- API-Key Authentication & CORS Middleware -------------------------
     //
-    //     X-API-Key: YOUR_KEY
+    // 1. Lets OPTIONS pre-flight requests through (adds the necessary CORS
+    //    headers and returns 204 No-Content).
+    // 2. For all other methods, validates the API key provided in either
+    //    `X-API-Key` or `Authorization: Bearer <key>` header.
+    // 3. Emits detailed, timestamped logs for *every* auth attempt so that
+    //    future debugging can pinpoint which client/IP sent what.
     //
-    // or the standard bearer scheme:
-    //
-    //     Authorization: Bearer YOUR_KEY
-    //
-    // Requests without a valid key—or if MCP_API_KEY is not set—receive a 401 response.
     app.use((req, res, next) => {
+      const ts = new Date().toISOString();
       const configuredKey = process.env.MCP_API_KEY?.trim();
+
+      // ----- 0. Ensure a server key exists --------------------------------
       if (!configuredKey) {
-        console.error("🚫 MCP_API_KEY environment variable is not set");
-        return res.status(401).json({ error: 'Unauthorized: server requires MCP_API_KEY to be configured' });
+        console.error(`[${ts}] 🚫  No MCP_API_KEY set – rejecting all traffic`);
+        return res.status(401).json({
+          error: 'Unauthorized: server requires MCP_API_KEY to be configured'
+        });
       }
 
-      const headerKey = req.header('x-api-key') || req.header('authorization');
-      // Support both "X-API-Key: <key>" and "Authorization: Bearer <key>"
-      const extractedKey =
-        headerKey?.toLowerCase().startsWith('bearer ')
-          ? headerKey.slice(7).trim()
-          : headerKey?.trim();
+      // ----- 1. Skip auth for CORS pre-flight -----------------------------
+      if (req.method === 'OPTIONS') {
+        res.set('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGINS || '*');
+        res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+        res.set('Access-Control-Allow-Headers', 'Content-Type, X-API-Key, Authorization');
+        console.info(`[${ts}] 🛫  OPTIONS pre-flight accepted from ${req.ip}`);
+        return res.sendStatus(204);
+      }
 
-      if (extractedKey && extractedKey === configuredKey) {
+      // ----- 2. Extract & verify key --------------------------------------
+      const headerKey = req.header('x-api-key') || req.header('authorization') || '';
+      const extractedKey = headerKey.toLowerCase().startsWith('bearer ')
+        ? headerKey.slice(7).trim()
+        : headerKey.trim();
+
+      if (extractedKey === configuredKey) {
+        console.info(`[${ts}] ✅  Auth success from ${req.ip} → ${req.method} ${req.originalUrl}`);
         return next();
       }
 
-      console.warn(`🚫 Unauthorized request rejected from ${req.ip || 'unknown IP'}`);
+      console.warn(`[${ts}] 🚫  Auth fail from ${req.ip} – key missing/invalid`);
       return res.status(401).json({ error: 'Unauthorized: invalid or missing API key' });
     });
 
