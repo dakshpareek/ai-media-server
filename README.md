@@ -87,6 +87,9 @@ QBITTORRENT_PASSWORD=yoursecureqbittorrentpassword # IMPORTANT: CHANGE THIS!
 
 # MCP Server Settings
 MCP_PORT=3000 # Port for MCP Server API
+# If set, every HTTP request to /mcp must include this key
+#   X-API-Key: YOUR_KEY   ––or––   Authorization: Bearer YOUR_KEY
+MCP_API_KEY=your_strong_mcp_api_key
 QBITTORRENT_SESSION_TIMEOUT=3600 # qBittorrent API session timeout in seconds for MCP client
 
 # FileBrowser Settings
@@ -227,3 +230,5 @@ Refer to `mcp-server/src/mcp-server.ts` for the full list of tools and their inp
 
 *   **Cloudflare Tunnel:** For secure remote access without router port forwarding.
 *   **qBittorrent via VPN:** The current setup has qBittorrent traffic using the host's network. For advanced privacy, qBittorrent could be configured to route its traffic through the VPN (e.g., via SOCKS5 proxy or network interface binding, which is more complex).
+
+docker run cloudflare/cloudflared:latest tunnel --no-autoupdate run --token eyJhIjoiMDkwNWM3MGE5NzRhYzc0NjFkYTlmZTg3ZDc3MzI3ZWEiLCJ0IjoiZDRiYzhiODgtOGZhYy00MWZlLTkxYmUtMzE4ODg4YTlhMzE2IiwicyI6Ik1UUmlZek13WVRJdE9XWmpNaTAwT0RnMUxUa3dOR0l0Tm1ZeVlUZzRPV1JrTlRrMiJ9

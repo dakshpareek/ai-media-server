@@ -90,6 +90,7 @@ services:
       - QBITTORRENT_PASSWORD=${QBITTORRENT_PASSWORD:-adminpass}
       - QBITTORRENT_SESSION_TIMEOUT=${QBITTORRENT_SESSION_TIMEOUT:-3600}
       - MCP_PORT=${MCP_PORT:-3000} # Internal port for the node app
+      - MCP_API_KEY=${MCP_API_KEY}
       - TZ=${TZ:-UTC}
       - NODE_ENV=production
       - DOCKER_HOST=unix:///var/run/docker.sock # For VPN manager to use docker exec

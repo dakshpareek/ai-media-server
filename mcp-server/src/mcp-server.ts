@@ -85,6 +85,39 @@ async function main() {
     const app = express();
     app.use(express.json());
 
+    // --- API Key Authentication Middleware ---
+    // If an `MCP_API_KEY` environment variable is set, every incoming HTTP
+    // request must provide that key either via the `X-API-Key` header
+    //
+    //     X-API-Key: YOUR_KEY
+    //
+    // or the standard bearer scheme:
+    //
+    //     Authorization: Bearer YOUR_KEY
+    //
+    // Requests without a valid key—or if MCP_API_KEY is not set—receive a 401 response.
+    app.use((req, res, next) => {
+      const configuredKey = process.env.MCP_API_KEY?.trim();
+      if (!configuredKey) {
+        console.error("🚫 MCP_API_KEY environment variable is not set");
+        return res.status(401).json({ error: 'Unauthorized: server requires MCP_API_KEY to be configured' });
+      }
+
+      const headerKey = req.header('x-api-key') || req.header('authorization');
+      // Support both "X-API-Key: <key>" and "Authorization: Bearer <key>"
+      const extractedKey =
+        headerKey?.toLowerCase().startsWith('bearer ')
+          ? headerKey.slice(7).trim()
+          : headerKey?.trim();
+
+      if (extractedKey && extractedKey === configuredKey) {
+        return next();
+      }
+
+      console.warn(`🚫 Unauthorized request rejected from ${req.ip || 'unknown IP'}`);
+      return res.status(401).json({ error: 'Unauthorized: invalid or missing API key' });
+    });
+
     app.get('/mcp/ping', (req, res) => {
       res.set('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGINS || '*');
       res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');

@@ -5,7 +5,7 @@ set -e
 echo "🚀 AI Media Server Deployment with NordVPN CLI"
 echo "==============================================="
 echo ""
-    
+ 
 # Check if .env exists
 if [[ ! -f .env ]]; then
     echo "❌ .env file not found!"
