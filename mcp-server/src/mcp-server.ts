@@ -85,6 +85,34 @@ async function main() {
     const app = express();
     app.use(express.json());
 
+    // ---- CORS + pre-flight middleware ----
+    const ALLOWED_ORIGINS =
+      (process.env.ALLOWED_ORIGINS || 'http://localhost:4343').split(',');
+
+    app.use((req, res, next) => {
+      // 1. Allow the calling origin (if whitelisted)
+      const origin = req.headers.origin;
+      if (origin && (ALLOWED_ORIGINS.includes('*') || ALLOWED_ORIGINS.includes(origin))) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+      }
+
+      // 2. Tell the browser which headers & methods are OK
+      res.setHeader(
+        'Access-Control-Allow-Headers',
+        'Content-Type, X-API-Key, Authorization, MCP-Session-Id'
+      );
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+
+      // 3. Let Chatbox read the custom session header
+      res.setHeader('Access-Control-Expose-Headers', 'MCP-Session-Id');
+
+      // 4. Short-circuit OPTIONS pre-flight
+      if (req.method === 'OPTIONS') return res.sendStatus(204);
+
+      next();
+    });
+    // --------------------------------------
+
     // --- API-Key Authentication & CORS Middleware -------------------------
     //
     // 1. Lets OPTIONS pre-flight requests through (adds the necessary CORS
@@ -108,9 +136,6 @@ async function main() {
 
       // ----- 1. Skip auth for CORS pre-flight -----------------------------
       if (req.method === 'OPTIONS') {
-        res.set('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGINS || '*');
-        res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-        res.set('Access-Control-Allow-Headers', 'Content-Type, X-API-Key, Authorization');
         console.info(`[${ts}] 🛫  OPTIONS pre-flight accepted from ${req.ip}`);
         return res.sendStatus(204);
       }
@@ -131,9 +156,6 @@ async function main() {
     });
 
     app.get('/mcp/ping', (req, res) => {
-      res.set('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGINS || '*');
-      res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-      res.set('Access-Control-Allow-Headers', 'Content-Type, X-Api-Key, Authorization');
       res.json({ status: 'OK' });
     });
 
