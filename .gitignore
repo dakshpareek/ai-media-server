@@ -259,3 +259,5 @@ metrics/
 
 # Node modules (if any Node.js tools added later)
 node_modules/
+
+./mcp-server/dist/*

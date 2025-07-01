@@ -1,9 +1,4 @@
 import axios from 'axios';
-// Configuration - we'll move this to environment variables later
-const PROWLARR_CONFIG = {
-    baseUrl: 'http://localhost:9696',
-    apiKey: '44b56a79a82d4295a367713457e6b074'
-};
 class ProwlarrHealthMonitor {
     baseUrl;
     apiKey;
@@ -16,7 +11,8 @@ class ProwlarrHealthMonitor {
             const response = await axios.get(`${this.baseUrl}${endpoint}`, {
                 headers: {
                     'X-Api-Key': this.apiKey
-                }
+                },
+                timeout: 30000
             });
             return response.data;
         }
@@ -162,13 +158,16 @@ class ProwlarrHealthMonitor {
     }
 }
 // Run the health check
-async function main() {
-    const monitor = new ProwlarrHealthMonitor(PROWLARR_CONFIG.baseUrl, PROWLARR_CONFIG.apiKey);
-    await monitor.generateHealthReport();
-}
-// Only run if this is the main module
-if (process.argv[1] === new URL(import.meta.url).pathname) {
-    main();
-}
+// async function main() {
+//   const monitor = new ProwlarrHealthMonitor(
+//     PROWLARR_CONFIG.baseUrl,
+//     PROWLARR_CONFIG.apiKey
+//   );
+//   await monitor.generateHealthReport();
+// }
+// // Only run if this is the main module
+// if (process.argv[1] === new URL(import.meta.url).pathname) {
+//   main();
+// }
 export { ProwlarrHealthMonitor };
 //# sourceMappingURL=health-check.js.map

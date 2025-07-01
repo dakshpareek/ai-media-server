@@ -33,7 +33,7 @@ export class ProwlarrSearchManager {
             const url = `${this.baseUrl}/api/v1/search?${params.toString()}`;
             const response = await axios.get(url, {
                 headers: this.getHeaders(),
-                timeout: 30000
+                timeout: 180000
             });
             return response.data || [];
         }
@@ -53,7 +53,7 @@ export class ProwlarrSearchManager {
             };
             const response = await axios.post(`${this.baseUrl}/api/v1/search`, grabData, {
                 headers: this.getHeaders(),
-                timeout: 30000
+                timeout: 180000
             });
             return {
                 success: true,
@@ -83,7 +83,7 @@ export class ProwlarrSearchManager {
         try {
             const response = await axios.get(`${this.baseUrl}/api/v1/downloadclient`, {
                 headers: this.getHeaders(),
-                timeout: 10000
+                timeout: 180000
             });
             return response.data || [];
         }

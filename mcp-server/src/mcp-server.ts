@@ -236,7 +236,7 @@ async function main() {
     try {
       const tools = [
         {
-          name: "prowlarr_health_check",
+          name: "health_check",
           description: "Get comprehensive health status of Prowlarr indexers and system",
           inputSchema: {
             type: "object",
@@ -244,21 +244,7 @@ async function main() {
             required: [],
           },
         },
-        {
-          name: "prowlarr_get_indexers",
-          description: "Get list of all configured indexers",
-          inputSchema: {
-            type: "object",
-            properties: {
-              enabledOnly: {
-                type: "boolean",
-                description: "Only return enabled indexers",
-                default: false,
-              },
-            },
-            required: [],
-          },
-        },
+
         /*
         {
           name: "prowlarr_intelligent_search",
@@ -291,7 +277,7 @@ async function main() {
         },
         */
         {
-          name: "prowlarr_search",
+          name: "search",
           description: "Basic search for content across indexers (without VPN auto-management). Use prowlarr_intelligent_search for better results.",
           inputSchema: {
             type: "object",
@@ -320,7 +306,7 @@ async function main() {
           },
         },
         {
-          name: "prowlarr_grab_release",
+          name: "grab_release",
           description: "Download/grab a release from the last search results by option number",
           inputSchema: {
             type: "object",
@@ -333,17 +319,9 @@ async function main() {
             required: ["option"],
           },
         },
+
         {
-          name: "prowlarr_get_download_clients",
-          description: "Get list of available download clients",
-          inputSchema: {
-            type: "object",
-            properties: {},
-            required: [],
-          },
-        },
-        {
-          name: "prowlarr_vpn_status",
+          name: "vpn_status",
           description: "Get current VPN connection status and details",
           inputSchema: {
             type: "object",
@@ -352,7 +330,7 @@ async function main() {
           },
         },
         {
-          name: "prowlarr_vpn_connect",
+          name: "vpn_connect",
           description: "Manually connect to VPN with optional city preference",
           inputSchema: {
             type: "object",
@@ -367,7 +345,7 @@ async function main() {
           },
         },
         {
-          name: "prowlarr_vpn_disconnect",
+          name: "vpn_disconnect",
           description: "Manually disconnect from VPN",
           inputSchema: {
             type: "object",
@@ -375,27 +353,10 @@ async function main() {
             required: [],
           },
         },
-        {
-          name: "prowlarr_system_status",
-          description: "Get comprehensive system status including health, VPN, and readiness for searching",
-          inputSchema: {
-            type: "object",
-            properties: {},
-            required: [],
-          },
-        },
+
         // qBittorrent Tools
         {
-          name: "qbittorrent_health_check",
-          description: "Test connection to qBittorrent and get system health status",
-          inputSchema: {
-            type: "object",
-            properties: {},
-            required: [],
-          },
-        },
-        {
-          name: "qbittorrent_get_torrents",
+          name: "get_torrents",
           description: "Get list of all torrents with optional filtering and sorting",
           inputSchema: {
             type: "object",
@@ -433,7 +394,7 @@ async function main() {
           },
         },
         {
-          name: "qbittorrent_add_torrent",
+          name: "add_torrent",
           description: "Add torrent from magnet link or HTTP URL",
           inputSchema: {
             type: "object",
@@ -479,7 +440,7 @@ async function main() {
           },
         },
         {
-          name: "qbittorrent_control_torrents",
+          name: "control_torrent",
           description: "Control torrents (pause, resume, delete) by hash or name",
           inputSchema: {
             type: "object",
@@ -502,15 +463,7 @@ async function main() {
             required: ["action", "hashes"],
           },
         },
-        {
-          name: "qbittorrent_get_transfer_info",
-          description: "Get global transfer statistics (speeds, limits, connection status)",
-          inputSchema: {
-            type: "object",
-            properties: {},
-            required: [],
-          },
-        },
+
       ];
 
       return {
@@ -576,23 +529,7 @@ async function main() {
           };
         }
 
-        case 'prowlarr_get_indexers': {
-          const enabledOnly = args?.enabledOnly as boolean || false;
-          const indexers = await healthMonitor.getIndexers();
 
-          const filteredIndexers = enabledOnly
-            ? indexers.filter(indexer => indexer.enable)
-            : indexers;
-
-          return {
-            content: [
-              {
-                type: 'text',
-                text: JSON.stringify(filteredIndexers, null, 2),
-              },
-            ],
-          };
-        }
 
         /*
         case 'prowlarr_intelligent_search': {
@@ -694,18 +631,7 @@ async function main() {
           }
         }
 
-        case 'prowlarr_get_download_clients': {
-          const downloadClients = await searchManager.getDownloadClients();
 
-          return {
-            content: [
-              {
-                type: 'text',
-                text: JSON.stringify(downloadClients, null, 2),
-              },
-            ],
-          };
-        }
 
         case 'prowlarr_vpn_status': {
           const vpnManager = intelligentSearchManager.getVPNManager();
@@ -769,83 +695,9 @@ async function main() {
           };
         }
 
-        case 'prowlarr_system_status': {
-          const systemStatus = await intelligentSearchManager.getSystemStatus();
 
-          // Add intelligent guidance based on system status
-          let guidance = '\n\n🧠 **Intelligent System Analysis**\n\n';
-
-          if (systemStatus.vpn_connected) {
-            guidance = `✅ **VPN Connected** - Ready for global indexer access\n`;
-            guidance = `📍 **Location:** ${systemStatus.vpn_city}, ${systemStatus.vpn_country}\n\n`;
-          } else {
-            guidance = `⚠️ **VPN Disconnected** - Limited to local indexers\n`;
-            guidance = `💡 **Recommendation:** \`prowlarr_vpn_connect\` for better results\n\n`;
-          }
-
-          if (systemStatus.health_score) {
-            const score = parseInt(systemStatus.health_score);
-            if (score < 50) {
-              guidance = `🚨 **Health Critical (${score}%)** - Immediate action needed!\n`;
-              guidance = `**Recommended Workflow:**\n`;
-              guidance = `1. \`prowlarr_vpn_connect australia\` - Connect to VPN\n`;
-              guidance = `2. \`prowlarr_health_check\` - Verify improvement\n`;
-              guidance = `3. \`prowlarr_search batman\` - Test search quality\n`;
-            } else if (score < 80) {
-              guidance = `⚡ **Health Fair (${score}%)** - Could be improved\n`;
-              guidance = `**Try:** \`prowlarr_vpn_connect\` to boost indexer availability\n`;
-            } else {
-              guidance = `✅ **Health Excellent (${score}%)** - System running optimally!\n`;
-              guidance = `**Ready for:** \`prowlarr_search [your query]\`\n`;
-            }
-          }
-
-          guidance = `\n**Available Actions:**\n`;
-          guidance = `- \`prowlarr_search [query]\` - Search for content\n`;
-          guidance = `- \`prowlarr_health_check\` - Detailed health analysis\n`;
-          guidance = `- \`prowlarr_vpn_connect [location]\` - Improve access\n`;
-          guidance = `- \`prowlarr_vpn_status\` - Check VPN details\n`;
-
-          return {
-            content: [
-              {
-                type: 'text',
-                text: JSON.stringify(systemStatus, null, 2),  guidance,
-              },
-            ],
-          };
-        }
 
         // qBittorrent Tools
-        case 'qbittorrent_health_check': {
-          const healthStatus = await qbittorrentClient.healthCheck();
-
-          let guidance = '';
-          if (healthStatus.connected) {
-            guidance = `\n\n✅ **qBittorrent Health: Connected**\n\n`;
-            guidance += `**Version:** ${healthStatus.version}\n`;
-            guidance += `**WebAPI Version:** ${healthStatus.webApiVersion}\n\n`;
-            guidance += `Ready to manage torrents!\n`;
-            guidance += `- Try: \`qbittorrent_get_torrents\` to list current torrents\n`;
-            guidance += `- Try: \`qbittorrent_add_torrent\` to add new torrents\n`;
-          } else {
-            guidance = `\n\n❌ **qBittorrent Health: Disconnected**\n\n`;
-            guidance += `**Error:** ${healthStatus.error}\n\n`;
-            guidance += `**Troubleshooting:**\n`;
-            guidance += `1. Check if qBittorrent is running and accessible\n`;
-            guidance += `2. Verify credentials and network connectivity\n`;
-            guidance += `3. Ensure qBittorrent WebUI is enabled\n`;
-          }
-
-          return {
-            content: [
-              {
-                type: 'text',
-                text: JSON.stringify(healthStatus, null, 2) + guidance,
-              },
-            ],
-          };
-        }
 
         case 'qbittorrent_get_torrents': {
           const options = {
@@ -933,31 +785,7 @@ async function main() {
           };
         }
 
-        case 'qbittorrent_get_transfer_info': {
-          const transferInfo = await qbittorrentClient.getTransferInfo();
 
-          // Format transfer info for better readability
-          const formattedInfo = {
-            download_speed: `${(transferInfo.dl_info_speed / 1024 / 1024).toFixed(2)} MB/s`,
-            upload_speed: `${(transferInfo.up_info_speed / 1024 / 1024).toFixed(2)} MB/s`,
-            downloaded_session: `${(transferInfo.dl_info_data / 1024 / 1024 / 1024).toFixed(2)} GB`,
-            uploaded_session: `${(transferInfo.up_info_data / 1024 / 1024 / 1024).toFixed(2)} GB`,
-            download_limit: transferInfo.dl_rate_limit === 0 ? 'Unlimited' : `${(transferInfo.dl_rate_limit / 1024 / 1024).toFixed(2)} MB/s`,
-            upload_limit: transferInfo.up_rate_limit === 0 ? 'Unlimited' : `${(transferInfo.up_rate_limit / 1024 / 1024).toFixed(2)} MB/s`,
-            dht_nodes: transferInfo.dht_nodes,
-            connection_status: transferInfo.connection_status,
-            raw_data: transferInfo
-          };
-
-          return {
-            content: [
-              {
-                type: 'text',
-                text: JSON.stringify(formattedInfo, null, 2),
-              },
-            ],
-          };
-        }
 
         default:
           throw new Error(`Unknown tool: ${name}`);
